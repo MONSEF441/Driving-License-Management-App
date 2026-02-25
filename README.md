@@ -1,73 +1,78 @@
-🚗 Driving License Management System (DVLD)
+To make your GitHub **README.md** stand out, you can use a combination of HTML alignment, professional emojis, and clear visual hierarchies. Since you are using a **3-Tier Architecture** with **C#** and **SQL Server**, this layout emphasizes the "Enterprise" nature of your work at **FST Tangier**.
 
+---
 
+# <p align="center">🚗 Driving License Management System (DVLD)</p>
 
+<p align="center">
+<img src="[https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/C%2523-%2523239120.svg%3Fstyle%3Dfor-the-badge%26logo%3Dc-sharp%26logoColor%3Dwhite)" alt="C#">
+<img src="[https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/SQL%2520Server-CC2927%3Fstyle%3Dfor-the-badge%26logo%3Dmicrosoft-sql-server%26logoColor%3Dwhite)" alt="SQL Server">
+<img src="[https://img.shields.io/badge/Architecture-3--Tier-red?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Architecture-3--Tier-red%3Fstyle%3Dfor-the-badge)" alt="3-Tier">
+<img src="[https://img.shields.io/badge/Role-Tech%20Lead-blue?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Role-Tech%2520Lead-blue%3Fstyle%3Dfor-the-badge)" alt="Tech Lead">
+</p>
 
+---
 
+## 📌 Project Overview
 
-📌 Overview
+**DVLD** is a high-performance administrative platform designed to manage the full lifecycle of driving permits. Developed during my software development studies in the **MIP section at FST Tangier**, this system marks a significant transition from procedural logic to a scalable **3-Tier Enterprise Architecture**.
 
-DVLD is a professional Driving License Management System designed to handle the complete lifecycle of driving permits. Developed at FST Tangier (MIP section), it demonstrates a transition from procedural programming to a robust 3-Tier Enterprise Architecture, making it ideal for enterprise-level learning and prototypes.
+---
 
-🏗 Architecture (3-Tier)
-Layer	Technology	Responsibilities
-Presentation (UI)	C# WinForms	Modular interface with Reusable User Controls for 20+ screens.
-Business Logic (BLL)	C# Library	Validation, license rules, test progression, workflow automation.
-Data Access (DAL)	ADO.NET + SQL Server	Database communication, stored procedures, transactional integrity.
-🛠 Key Features
-👤 User & Security Management
+## 🏗 System Architecture
 
-Centralized SQL Server database for People and Users.
+The application follows a strict **3-Tier Design**, ensuring a clean separation of concerns and high maintainability:
 
-Role-Based Access Control with secure login authentication.
+| **Layer** | **Technology** | **Responsibilities** |
+| --- | --- | --- |
+| **Presentation (UI)** | **C# WinForms** | A modular interface featuring **Reusable User Controls** to manage 20+ screens efficiently. |
+| **Business Logic (BLL)** | **C# Class Library** | Enforces strict validation, sequential test rules, and automated permit workflows. |
+| **Data Access (DAL)** | **ADO.NET + SQL** | Handles database communication, stored procedures, and ensures transactional integrity. |
 
-📝 Automated License Workflow
+---
 
-Full CRUD for New Licenses, Renewals, and Replacements.
+## 🛠 Key Features
 
-Sequential Test Engine: Vision ➔ Written ➔ Street tests.
+### 👤 Identity & Security
 
-Atomic transactions ensure data integrity.
+* **Centralized Database**: A robust SQL Server schema managing "People" and "Users" with unified records.
+* **RBAC (Role-Based Access Control)**: Secure login authentication and permission management.
 
-🪪 Specialized Modules
+### 📝 Automated Workflows
 
-International Permits: Auto-generation based on active local licenses.
+* **Full CRUD Services**: End-to-end management for **New Licenses**, **Renewals**, and **Replacements** (Lost/Damaged).
+* **Sequential Test Engine**: Logic-driven evaluation requiring passing **Vision ➔ Written ➔ Street** tests in order.
+* **Atomic Transactions**: Powered by ADO.NET to ensure data remains consistent during complex operations.
 
-Detained Licenses: Track violations, fines, and permit releases.
+### 🪪 Specialized Modules
 
-🚀 Tech Stack
+* **International Permits**: Automated generation based on active local license credentials.
+* **Detained Licenses**: Full tracking for traffic violations, fine payments, and license releases.
 
-Language: C# (OOP Principles)
+---
 
-Database: Microsoft SQL Server
+## 📂 Project Structure
 
-Data Access: ADO.NET
-
-UI/UX: Modular WinForms with reusable components
-
-Architecture: Enterprise 3-Tier
-
-📂 Project Structure
+```text
 DVLD/
-│
-├─ DVLD_PresentationAccess/   # WinForms UI & UserControls
-├─ DVLD_BusinessAccess/       # Business Logic Layer
-├─ DVLD_DataAccess/           # ADO.NET & SQL Server Integration
-├─ SQL/                       # Database scripts & stored procedures
-└─ README.md
+├── DVLD_Presentation/   # Modular WinForms UI & Reusable UserControls
+├── DVLD_Business/       # Core Business Logic Layer (BLL)
+├── DVLD_Data/           # ADO.NET & SQL Server Data Access Layer (DAL)
+├── SQL_Scripts/         # Database schemas & Stored Procedures
+└── README.md            # Project Documentation
 
-⚡ Highlights
+```
 
-Clean modular design for maintainability.
+---
 
-Implements real-world license administration rules.
+## 🚀 How to Run
 
-Professional enterprise-level architecture ready for learning or prototyping.
+1. **Database**: Restore the provided SQL Server database from the `/SQL_Scripts` directory.
+2. **Configuration**: Update the connection string in the `DVLD_Data` layer to match your local SQL Server instance.
+3. **Launch**: Open the solution in **Visual Studio** and set `DVLD_Presentation` as the startup project.
 
-🛠 How to Run
+---
 
-Restore the SQL Server database from /SQL.
+### 💡 Tech Lead Next Steps
 
-Update the connection string in DVLD_DataAccess to match your environment.
-
-Open the solution in Visual Studio and run DVLD_PresentationAccess.
+Since you mentioned using **Visual Studio** to create the repository, would you like me to show you how to add a **License** file (like MIT or Apache) to your repo to make it look even more official for recruiters?
