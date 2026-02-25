@@ -5,7 +5,6 @@
 <img src="[https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/C%2523-%2523239120.svg%3Fstyle%3Dfor-the-badge%26logo%3Dc-sharp%26logoColor%3Dwhite)" alt="C#">
 <img src="[https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white](https://www.google.com/search?q=https://img.shields.io/badge/SQL%2520Server-CC2927%3Fstyle%3Dfor-the-badge%26logo%3Dmicrosoft-sql-server%26logoColor%3Dwhite)" alt="SQL Server">
 <img src="[https://img.shields.io/badge/Architecture-3--Tier-red?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Architecture-3--Tier-red%3Fstyle%3Dfor-the-badge)" alt="3-Tier">
-<img src="[https://img.shields.io/badge/Role-Tech%20Lead-blue?style=for-the-badge](https://www.google.com/search?q=https://img.shields.io/badge/Role-Tech%2520Lead-blue%3Fstyle%3Dfor-the-badge)" alt="Tech Lead">
 </p>
 
 ---
