@@ -1,13 +1,7 @@
 
-
 # <p align="center"><h1>🚗 Driving License Management System (DVLD)</h1></p>
 
-<p align="center">
-<img src="[https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white](https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)" alt="C#">
-<img src="[https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white)" alt="SQL Server">
-<img src="[https://img.shields.io/badge/Architecture-3--Tier-red?style=for-the-badge](https://img.shields.io/badge/Architecture-3--Tier-red?style=for-the-badge)" alt="3-Tier">
-<img src="[https://img.shields.io/badge/Role-Tech%20Lead-blue?style=for-the-badge](https://img.shields.io/badge/Role-Tech%20Lead-blue?style=for-the-badge)" alt="Tech Lead">
-</p>
+
 
 ---
 
@@ -17,27 +11,15 @@
 
 ---
 
-### 🏗 **Enterprise Architecture (3-Tier)**
+### 🏗 **System Architecture**
 
-The system is architected to ensure strict separation of concerns, utilizing a professional Microsoft technology stack:
+The application is structured into three distinct layers to ensure high maintainability and scalability:
 
-> **1. Presentation Layer (UI)**
-> * **Technology:** C# WinForms.
-> * **Responsibility:** A modular interface featuring **Reusable User Controls** to manage 20+ screens efficiently.
-> 
-> 
-
-> **2. Business Logic Layer (BLL)**
-> * **Technology:** C# Class Library.
-> * **Responsibility:** Enforces strict validation, sequential test rules, and automated permit workflows.
-> 
-> 
-
-> **3. Data Access Layer (DAL)**
-> * **Technology:** ADO.NET + Microsoft SQL Server.
-> * **Responsibility:** Handles database communication via stored procedures and ensures transactional integrity.
-> 
-> 
+| Layer | Technology Stack | Responsibilities |
+| --- | --- | --- |
+| **Presentation (UI)** | **C# WinForms** | A modular interface featuring **Reusable User Controls** to manage 20+ screens efficiently. |
+| **Business Logic (BLL)** | **C# Class Library** | Enforces strict validation, sequential test rules, and automated permit workflows. |
+| **Data Access (DAL)** | **ADO.NET + SQL** | Handles database communication via stored procedures and ensures transactional integrity. |
 
 ---
 
@@ -46,7 +28,7 @@ The system is architected to ensure strict separation of concerns, utilizing a p
 #### 👤 **Identity & Security**
 
 * **Centralized Database**: A robust SQL Server schema managing "People" and "Users" with a 1:1 relationship.
-* **RBAC**: Secure login authentication and role-based permission management.
+* **RBAC (Role-Based Access Control)**: Secure login authentication and role-based permission management.
 
 #### 📝 **Automated Workflows**
 
@@ -54,7 +36,7 @@ The system is architected to ensure strict separation of concerns, utilizing a p
 * **Sequential Test Engine**: Logic-driven evaluation requiring passing **Vision ➔ Written ➔ Street** tests in order.
 * **Atomic Transactions**: Powered by ADO.NET to ensure data remains consistent during complex operations.
 
-#### **Specialized Modules**
+#### 🪪 **Specialized Modules**
 
 * **International Permits**: Automated generation based on active local license credentials.
 * **Detained Licenses**: Full tracking for traffic violations, fine payments, and license releases.
