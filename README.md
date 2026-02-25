@@ -1,4 +1,4 @@
-<p align="center">🚗 Driving License Management System (DVLD)</p>
+<p align="center"><h1>🚗 Driving License Management System (DVLD)</h1></p>
 <p align="center">
 <img src="https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#">
 <img src="https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white" alt="SQL Server">
