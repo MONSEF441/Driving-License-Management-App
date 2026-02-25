@@ -1,6 +1,3 @@
-To make your GitHub **README.md** stand out, you can use a combination of HTML alignment, professional emojis, and clear visual hierarchies. Since you are using a **3-Tier Architecture** with **C#** and **SQL Server**, this layout emphasizes the "Enterprise" nature of your work at **FST Tangier**.
-
----
 
 # <p align="center">🚗 Driving License Management System (DVLD)</p>
 
