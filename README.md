@@ -1,49 +1,73 @@
+🚗 Driving License Management System (DVLD)
 
 
-# 🚗 Driving License Management System (DVLD)
 
-## 📌 Project Overview
 
-The **Driving License Management System (DVLD)** is a high-performance administrative platform designed to manage the full lifecycle of driving permits. Developed during my studies at **FST Tangier** (MIP section), this project demonstrates a transition from simple procedural code to a scalable **3-Tier Enterprise Architecture**.
 
----
 
-## 🏗 Enterprise Architecture (3-Tier)
+📌 Overview
 
-The system is architected to ensure strict separation of concerns, utilizing the Microsoft technology stack:
+DVLD is a professional Driving License Management System designed to handle the complete lifecycle of driving permits. Developed at FST Tangier (MIP section), it demonstrates a transition from procedural programming to a robust 3-Tier Enterprise Architecture, making it ideal for enterprise-level learning and prototypes.
 
-* **Presentation Layer (C# WinForms)**: A modular UI featuring **Reusable User Controls** for handling complex interactions across 20+ screens efficiently.
-* **Business Logic Layer (BLL)**: A dedicated C# library that enforces strict validation, sequential test rules, and license status management.
-* **Data Access Layer (DAL & ADO.NET)**: Leverages **ADO.NET** to communicate with **SQL Server**, utilizing stored procedures and optimized queries for maximum data integrity.
+🏗 Architecture (3-Tier)
+Layer	Technology	Responsibilities
+Presentation (UI)	C# WinForms	Modular interface with Reusable User Controls for 20+ screens.
+Business Logic (BLL)	C# Library	Validation, license rules, test progression, workflow automation.
+Data Access (DAL)	ADO.NET + SQL Server	Database communication, stored procedures, transactional integrity.
+🛠 Key Features
+👤 User & Security Management
 
----
+Centralized SQL Server database for People and Users.
 
-## 🛠 Key Features
+Role-Based Access Control with secure login authentication.
 
-### 👤 Identity & Security
+📝 Automated License Workflow
 
-* **Centralized Database**: A robust SQL Server schema managing "People" and "Users" with a 1:1 relationship.
-* **Role-Based Access**: Secure login systems developed with C# to control permissions based on user status.
+Full CRUD for New Licenses, Renewals, and Replacements.
 
-### 📝 Automated Workflow
+Sequential Test Engine: Vision ➔ Written ➔ Street tests.
 
-* **Service Management**: Full CRUD operations for New Licenses, Renewals, and Replacements (Lost/Damaged).
-* **Test Engine**: Logic-driven evaluation system requiring successful completion of **Vision ➔ Written ➔ Street** tests.
-* **Transaction Integrity**: ADO.NET-managed transactions ensuring that license deactivations and new issuances happen atomically.
+Atomic transactions ensure data integrity.
 
-### 🪪 Specialized Modules
+🪪 Specialized Modules
 
-* **International Permits**: Automated generation of global licenses based on active local records.
-* **Detained Licenses**: Management module for handling violations, fines, and the release of confiscated permits.
+International Permits: Auto-generation based on active local licenses.
 
----
+Detained Licenses: Track violations, fines, and permit releases.
 
-## 🚀 Technical Proficiencies
+🚀 Tech Stack
 
-* **Language**: C#.
-* **Database**: Microsoft SQL Server.
-* **Data Access**: ADO.NET.
-* **Methodology**: Object-Oriented Programming (OOP) following the **ProgrammingAdvices.com** roadmap.
+Language: C# (OOP Principles)
 
----
+Database: Microsoft SQL Server
 
+Data Access: ADO.NET
+
+UI/UX: Modular WinForms with reusable components
+
+Architecture: Enterprise 3-Tier
+
+📂 Project Structure
+DVLD/
+│
+├─ DVLD_PresentationAccess/   # WinForms UI & UserControls
+├─ DVLD_BusinessAccess/       # Business Logic Layer
+├─ DVLD_DataAccess/           # ADO.NET & SQL Server Integration
+├─ SQL/                       # Database scripts & stored procedures
+└─ README.md
+
+⚡ Highlights
+
+Clean modular design for maintainability.
+
+Implements real-world license administration rules.
+
+Professional enterprise-level architecture ready for learning or prototyping.
+
+🛠 How to Run
+
+Restore the SQL Server database from /SQL.
+
+Update the connection string in DVLD_DataAccess to match your environment.
+
+Open the solution in Visual Studio and run DVLD_PresentationAccess.
