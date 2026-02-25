@@ -202,6 +202,12 @@
     <Compile Include="Main\Applications\frmEditTestTypes.Designer.cs">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Applications\frmNewDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\frmNewDrivingLicense.Designer.cs">
+      <DependentUpon>frmNewDrivingLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Managers\clsEventsManager.cs" />
     <Compile Include="Main\Managers\ucEntityFilter.cs">
       <SubType>UserControl</SubType>
