@@ -15,7 +15,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    # 2. Installs NuGet so it can download your dependencies
+    # 2. Installs NuGet so it can download your dependencies (like Guna.UI2)
     - name: Setup NuGet
       uses: nuget/setup-nuget@v2
 
@@ -23,10 +23,10 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    # 4. Downloads Guna.UI2 and any other packages you used
+    # 4. Downloads your packages before building
     - name: Restore NuGet Packages
-      run: nuget restore DVLD.sln
+      run: nuget restore "DVLD Project.sln"
 
     # 5. Compiles your Presentation, Business, and Data layers
     - name: Build the DVLD Solution
-      run: msbuild DVLD.sln /p:Configuration=Release
+      run: msbuild "DVLD Project.sln" /p:Configuration=Release
