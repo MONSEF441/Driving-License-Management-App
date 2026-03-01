@@ -48,7 +48,7 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.BlueViolet;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(407, 78);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(352, 76);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(240, 33);
             this.guna2HtmlLabel1.TabIndex = 1;
@@ -66,7 +66,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.MediumSlateBlue;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(170, 651);
+            this.btnClose.Location = new System.Drawing.Point(142, 530);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnClose.Size = new System.Drawing.Size(88, 50);
@@ -87,7 +87,7 @@
             this.btnSave.FillColor2 = System.Drawing.Color.MediumSlateBlue;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(830, 651);
+            this.btnSave.Location = new System.Drawing.Point(708, 530);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnSave.Size = new System.Drawing.Size(88, 50);
@@ -102,7 +102,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(358, 524);
+            this.label1.Location = new System.Drawing.Point(292, 451);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 20);
             this.label1.TabIndex = 57;
@@ -110,9 +110,9 @@
             // 
             // ucUserCard1
             // 
-            this.ucUserCard1.BackColor = System.Drawing.Color.Transparent;
+            this.ucUserCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
             this.ucUserCard1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ucUserCard1.Location = new System.Drawing.Point(120, 209);
+            this.ucUserCard1.Location = new System.Drawing.Point(36, 151);
             this.ucUserCard1.Name = "ucUserCard1";
             this.ucUserCard1.Size = new System.Drawing.Size(870, 158);
             this.ucUserCard1.TabIndex = 56;
@@ -128,7 +128,7 @@
             this.tbConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbConfirmPassword.Location = new System.Drawing.Point(539, 520);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(473, 447);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.PlaceholderText = "";
             this.tbConfirmPassword.SelectedText = "";
@@ -146,7 +146,7 @@
             this.tbNewPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNewPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbNewPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbNewPassword.Location = new System.Drawing.Point(539, 468);
+            this.tbNewPassword.Location = new System.Drawing.Point(473, 395);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.PlaceholderText = "";
             this.tbNewPassword.SelectedText = "";
@@ -164,7 +164,7 @@
             this.tbCurrentPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbCurrentPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbCurrentPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbCurrentPassword.Location = new System.Drawing.Point(539, 418);
+            this.tbCurrentPassword.Location = new System.Drawing.Point(473, 345);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.PlaceholderText = "";
             this.tbCurrentPassword.SelectedText = "";
@@ -177,7 +177,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(358, 418);
+            this.label3.Location = new System.Drawing.Point(292, 345);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(161, 20);
             this.label3.TabIndex = 52;
@@ -189,7 +189,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(384, 468);
+            this.label2.Location = new System.Drawing.Point(318, 395);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 51;
@@ -203,8 +203,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::DVLD_PresentationAccess.Properties.Resources.DVLD_BackBlur;
-            this.ClientSize = new System.Drawing.Size(1110, 753);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
+            this.ClientSize = new System.Drawing.Size(957, 618);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucUserCard1);
             this.Controls.Add(this.tbConfirmPassword);

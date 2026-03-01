@@ -22,6 +22,7 @@ namespace DVLD_PresentationAccess
         {
             if (person == null) return;
 
+            btnEdit.Visible = true;
             _currentPerson = person; // store current person
 
 

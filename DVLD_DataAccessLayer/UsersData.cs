@@ -184,6 +184,31 @@ namespace DVLD_DataAccess
             return rows > 0;
         }
 
+        public static bool isPersonUser(int PersonID)
+        {
+            object result = null;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT 1 FROM Users WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                result = command.ExecuteScalar();
+            }
+            catch
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result != null;
+        }
         public static bool IsUserExist(int UserID)
         {
             object result = null;
@@ -201,6 +226,7 @@ namespace DVLD_DataAccess
             }
             catch
             {
+
             }
             finally
             {

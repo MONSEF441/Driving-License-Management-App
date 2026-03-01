@@ -183,6 +183,7 @@
             this.btnEdit.TabIndex = 31;
             this.btnEdit.TabStop = true;
             this.btnEdit.Text = "Edit Person Info";
+            this.btnEdit.Visible = false;
             this.btnEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnEdit_LinkClicked);
             // 
             // label

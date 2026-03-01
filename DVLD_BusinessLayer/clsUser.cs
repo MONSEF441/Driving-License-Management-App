@@ -122,6 +122,11 @@ namespace DVLD_BusinessAccess
             return clsUsersDataAccess.IsUserExist(UserName);
         }
 
+        public static bool isPersonUser(int PersonID)
+        {
+            return clsUsersDataAccess.isPersonUser(PersonID);
+        }
+
         public static bool isLoginValid(string UserName, string Password)
         {
             return clsUsersDataAccess.IsLoginValid(UserName, Password);

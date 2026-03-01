@@ -52,9 +52,9 @@
             // ucPersonCard
             // 
             this.ucPersonCard.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.ucPersonCard.BackColor = System.Drawing.Color.Transparent;
+            this.ucPersonCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
             this.ucPersonCard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ucPersonCard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ucPersonCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucPersonCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucPersonCard.Location = new System.Drawing.Point(0, 0);
             this.ucPersonCard.Name = "ucPersonCard";
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::DVLD_PresentationAccess.Properties.Resources.DVLD_BackBlur;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(990, 625);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucTitle);

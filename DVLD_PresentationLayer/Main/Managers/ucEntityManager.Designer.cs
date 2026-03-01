@@ -257,13 +257,13 @@
             this.pcFilter.Size = new System.Drawing.Size(636, 67);
             this.pcFilter.TabIndex = 9;
             // 
-            // ucEntityFilter1
+            // ucEntityFilter2
             // 
             this.ucEntityFilter1.BackColor = System.Drawing.Color.Transparent;
             this.ucEntityFilter1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ucEntityFilter1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucEntityFilter1.Location = new System.Drawing.Point(0, 0);
-            this.ucEntityFilter1.Name = "ucEntityFilter1";
+            this.ucEntityFilter1.Name = "ucEntityFilter2";
             this.ucEntityFilter1.Size = new System.Drawing.Size(636, 67);
             this.ucEntityFilter1.TabIndex = 10;
             // 

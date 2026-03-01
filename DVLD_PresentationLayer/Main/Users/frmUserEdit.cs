@@ -1,6 +1,5 @@
 ﻿using DVLD_BusinessAccess;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace DVLD_PresentationAccess.Main.Users
@@ -8,7 +7,6 @@ namespace DVLD_PresentationAccess.Main.Users
     public partial class frmUserEdit : Form
     {
         public event Action<clsUser> UserSaved;
-
         public enum EditorMode
         {
             Add,
@@ -17,42 +15,32 @@ namespace DVLD_PresentationAccess.Main.Users
 
         private EditorMode _Mode;
         private clsUser _user;
-        private int _PersonID = -1;
-        private DataTable _PeopleTable = clsPerson.GetAllPeople();
-        private bool _IsEditMode => _user != null;
+      
 
-        public frmUserEdit(EditorMode Mode, clsUser user = null)
+        public frmUserEdit(EditorMode mode, clsUser user = null)
         {
             InitializeComponent();
-            _Mode = Mode;
+            _Mode = mode;
 
             if (user != null)
             {
                 _user = user;
-                _PersonID = _user.PersonID;
                 LoadUserForEdit(_user);
             }
+
             this.DoubleBuffered = true;
-
+          
         }
 
-        private void frmUserEdit_Load(object sender, EventArgs e)
-        {
-            ucEntityFilter1.Bind(_PeopleTable);
-            tabControl.SelectedIndex = 0; // always start from person page
-        }
+    
 
         private void LoadUserForEdit(clsUser user)
         {
             _user = user;
-            _PersonID = user.PersonID;
 
-            ucEntityFilter1.Enabled = false;
-            btnAdd.Enabled = false;
-            btnSearch.Enabled = false;
-
-            var person = clsPerson.Find(_PersonID);
-            ucPersonCard1.LoadPerson(person);
+            // Load selected person into user control
+            ucSearchPerson1.LoadPerson(user.PersonID);
+            ucSearchPerson1.Enabled = false; 
 
             tbUserName.Text = user.UserName;
             cbIsActive.Checked = user.IsActive;
@@ -61,78 +49,41 @@ namespace DVLD_PresentationAccess.Main.Users
             tbConfirmPassword.Text = "";
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            var filter = ucEntityFilter1.GetFilter();
-            if (filter.Column == null)
-            {
-                MessageBox.Show("Please select a filter and enter a value.");
-                return;
-            }
-
-            string column = filter.Column;
-            string value = filter.Value.Replace("'", "''");
-
-            string rowFilter = _PeopleTable.Columns[column].DataType == typeof(string)
-                ? $"[{column}] = '{value}'"
-                : $"[{column}] = {value}";
-
-            DataRow[] rows = _PeopleTable.Select(rowFilter);
-            if (rows.Length == 0)
-            {
-                MessageBox.Show("Person not found.");
-                return;
-            }
-
-            if (rows.Length > 1)
-            {
-                MessageBox.Show("Multiple persons found. Please refine your search.");
-                return;
-            }
-
-            _PersonID = Convert.ToInt32(rows[0]["PersonID"]);
-            var person = clsPerson.Find(_PersonID);
-            ucPersonCard1.LoadPerson(person);
-        }
-
-        private void btnAddPerson_Click(object sender, EventArgs e)
-        {
-            var frm = new frmPersonHost(frmPersonHost.EditorMode.Add, null);
-            frm.PersonSaved += person =>
-            {
-                _PersonID = person.PersonID;        
-                ucPersonCard1.LoadPerson(person);   
-            };
-            frm.ShowDialog(this);
-        }
-
-
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_PersonID == -1)
+            if (ucSearchPerson1.SelectedPersonID <= 0)
             {
-                MessageBox.Show("You must select a person first.");
+                MessageBox.Show("You must select a person first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            lblUserID.Text = _user?.UserID.ToString() ?? "-1";
-            tabControl.SelectedIndex = 1;
+            if (clsUser.isPersonUser(ucSearchPerson1.SelectedPersonID) && _Mode == EditorMode.Add)
+            {
+                MessageBox.Show("You must select a non existing user ","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            lblUserID.Text = _user?.UserID.ToString() ?? "[????]";
+
+
+            panelPersonSearch.Visible = false;
+            panelUserDetails.Visible = true;
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            panelUserDetails.Visible = false;
+            panelPersonSearch.Visible = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!ValidateFields()) return; // validation failed → errors shown inline
+            if (!ValidateFields()) return;
 
             if (_Mode == EditorMode.Add)
-            {
                 SaveNewUser();
-            }
-            else if (_Mode == EditorMode.Edit)
-            {
+            else
                 UpdateUser();
-            }
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -143,7 +94,7 @@ namespace DVLD_PresentationAccess.Main.Users
         {
             clsUser user = new clsUser
             {
-                PersonID = _PersonID,
+                PersonID = ucSearchPerson1.SelectedPersonID,
                 UserName = tbUserName.Text.Trim(),
                 Password = tbPassword.Text,
                 IsActive = cbIsActive.Checked
@@ -151,7 +102,7 @@ namespace DVLD_PresentationAccess.Main.Users
 
             if (user.Save())
             {
-                _user = user; // keep reference
+                _user = user;
                 UserSaved?.Invoke(user);
                 MessageBox.Show("User added successfully");
                 Close();
@@ -165,8 +116,11 @@ namespace DVLD_PresentationAccess.Main.Users
             _user.UserName = tbUserName.Text.Trim();
             _user.IsActive = cbIsActive.Checked;
 
-            if (!string.IsNullOrEmpty(tbPassword.Text) && tbPassword.Text == tbConfirmPassword.Text)
+            if (!string.IsNullOrWhiteSpace(tbPassword.Text) &&
+                tbPassword.Text == tbConfirmPassword.Text)
+            {
                 _user.Password = tbPassword.Text;
+            }
 
             if (_user.Save())
             {
@@ -175,18 +129,19 @@ namespace DVLD_PresentationAccess.Main.Users
             }
         }
 
-
         private bool ValidateFields()
         {
             bool valid = true;
             errorProvider.Clear();
 
             // Person must be selected
-            if (_PersonID <= 0)
+            if (ucSearchPerson1.SelectedPersonID <= 0)
             {
-                errorProvider.SetError(ucPersonCard1, "Please select a person first.");
-                valid = false;
+                errorProvider.SetError(ucSearchPerson1, "Please select a person first.");
+                valid =  false;
             }
+
+           
 
             // Username required & unique
             if (string.IsNullOrWhiteSpace(tbUserName.Text))
@@ -194,13 +149,14 @@ namespace DVLD_PresentationAccess.Main.Users
                 errorProvider.SetError(tbUserName, "Username is required.");
                 valid = false;
             }
-            else if (_Mode == EditorMode.Add && clsUser.isUserExist(tbUserName.Text.Trim()))
+            else if (_Mode == EditorMode.Add &&
+                     clsUser.isUserExist(tbUserName.Text.Trim()))
             {
                 errorProvider.SetError(tbUserName, "Username already exists.");
                 valid = false;
             }
 
-            // Password & confirm (Add mode)
+            // Password validation
             if (_Mode == EditorMode.Add)
             {
                 if (string.IsNullOrWhiteSpace(tbPassword.Text))
@@ -220,9 +176,9 @@ namespace DVLD_PresentationAccess.Main.Users
                     valid = false;
                 }
             }
-            else if (_Mode == EditorMode.Edit && !string.IsNullOrWhiteSpace(tbPassword.Text))
+            else if (_Mode == EditorMode.Edit &&
+                     !string.IsNullOrWhiteSpace(tbPassword.Text))
             {
-                // Optional password change
                 if (tbPassword.Text.Length < 6)
                 {
                     errorProvider.SetError(tbPassword, "Password must be at least 6 characters.");
@@ -239,6 +195,6 @@ namespace DVLD_PresentationAccess.Main.Users
             return valid;
         }
 
-
+     
     }
 }

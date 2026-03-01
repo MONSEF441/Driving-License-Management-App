@@ -52,7 +52,7 @@ namespace DVLD_PresentationAccess.Managers
                     {
                         int userID = Convert.ToInt32(row["UserID"]);
                         var user = clsUser.Find(userID);
-                        using var frm = new frmUserEdit(frmUserEdit.EditorMode.Edit, user);
+                        using var frm = new frmUserInfo( user);
                         frm.ShowDialog();
                         break;
                     }
