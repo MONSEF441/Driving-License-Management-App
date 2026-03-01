@@ -1,0 +1,32 @@
+name: DVLD Build Pipeline
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest 
+
+    steps:
+    # 1. Downloads your repository code onto the virtual machine
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    # 2. Installs NuGet so it can download your dependencies (like Guna.UI2)
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v2
+
+    # 3. Installs MSBuild (the compiler for .NET Framework 4.8)
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    # 4. Downloads your packages before building
+    - name: Restore NuGet Packages
+      run: nuget restore "DVLD Project.sln"
+
+    # 5. Compiles your Presentation, Business, and Data layers
+    - name: Build the DVLD Solution
+      run: msbuild "DVLD Project.sln" /p:Configuration=Release
