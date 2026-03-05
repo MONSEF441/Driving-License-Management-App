@@ -1,12 +1,12 @@
-﻿using System;
+﻿using DVLD_DataAccess;
+using System;
 using System.Data;
-using DVLD_DataAccess;
 
 namespace DVLD_BusinessAccess
 {
     public class clsTest
     {
-        public enum enMode { AddNew = 0, Update = 1 };
+        public enum enMode { AddNew = 0, Update = 1 }
         public enMode Mode = enMode.AddNew;
 
         public int TestID { get; set; }
@@ -20,7 +20,7 @@ namespace DVLD_BusinessAccess
             TestID = -1;
             TestAppointmentID = -1;
             TestResult = false;
-            Notes = "";
+            Notes = string.Empty;
             CreatedByUserID = -1;
             Mode = enMode.AddNew;
         }
@@ -30,9 +30,32 @@ namespace DVLD_BusinessAccess
             this.TestID = TestID;
             this.TestAppointmentID = TestAppointmentID;
             this.TestResult = TestResult;
-            this.Notes = Notes;
+            this.Notes = Notes ?? string.Empty;
             this.CreatedByUserID = CreatedByUserID;
             Mode = enMode.Update;
+        }
+
+        public static clsTest Find(int TestID)
+        {
+            int TestAppointmentID = -1;
+            bool TestResult = false;
+            string Notes = string.Empty;
+            int CreatedByUserID = -1;
+
+            if (clsTestsDataAccess.GetTestInfoByID(TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
+                return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+            else
+                return null;
+        }
+
+        public static bool IsTestPassed(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            return clsTestsDataAccess.IsTestPassed(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+
+        public static int GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            return clsTestsDataAccess.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
 
         private bool _AddNewTest()
@@ -44,19 +67,6 @@ namespace DVLD_BusinessAccess
         private bool _UpdateTest()
         {
             return clsTestsDataAccess.UpdateTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
-        }
-
-        public static clsTest Find(int TestID)
-        {
-            int TestAppointmentID = -1;
-            bool TestResult = false;
-            string Notes = "";
-            int CreatedByUserID = -1;
-
-            if (clsTestsDataAccess.GetTestInfoByID(TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
-                return new clsTest(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
-            else
-                return null;
         }
 
         public bool Save()
@@ -76,19 +86,19 @@ namespace DVLD_BusinessAccess
             return false;
         }
 
-        public static DataTable GetAllTests()
-        {
-            return clsTestsDataAccess.GetAllTests();
-        }
-
         public static bool DeleteTest(int TestID)
         {
             return clsTestsDataAccess.DeleteTest(TestID);
         }
 
-        public static bool isTestExist(int TestID)
+        public static bool IsTestExist(int TestID)
         {
             return clsTestsDataAccess.IsTestExist(TestID);
+        }
+
+        public static DataTable GetAllTests()
+        {
+            return clsTestsDataAccess.GetAllTests();
         }
     }
 }

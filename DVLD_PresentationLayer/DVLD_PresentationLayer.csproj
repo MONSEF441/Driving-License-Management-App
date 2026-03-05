@@ -202,11 +202,11 @@
     <Compile Include="Main\Applications\frmEditTestTypes.Designer.cs">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Applications\frmNewDrivingLicense.cs">
+    <Compile Include="Main\Applications\frmNewLocalDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Applications\frmNewDrivingLicense.Designer.cs">
-      <DependentUpon>frmNewDrivingLicense.cs</DependentUpon>
+    <Compile Include="Main\Applications\frmNewLocalDrivingLicense.Designer.cs">
+      <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Managers\clsEventsManager.cs" />
     <Compile Include="Main\Managers\ucEntityFilter.cs">
@@ -297,8 +297,8 @@
     <EmbeddedResource Include="Main\Applications\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Applications\frmNewDrivingLicense.resx">
-      <DependentUpon>frmNewDrivingLicense.cs</DependentUpon>
+    <EmbeddedResource Include="Main\Applications\frmNewLocalDrivingLicense.resx">
+      <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Managers\ucEntityFilter.resx">
       <DependentUpon>ucEntityFilter.cs</DependentUpon>

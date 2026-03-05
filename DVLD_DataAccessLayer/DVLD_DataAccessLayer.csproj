@@ -178,10 +178,10 @@
     <Compile Include="CountriesData.cs" />
     <Compile Include="DetainedLicensesData.cs" />
     <Compile Include="DriversData.cs" />
-    <Compile Include="InternationalLicensesData.cs" />
+    <Compile Include="InternationalDLApplicationsData.cs" />
     <Compile Include="LicenseClassesData.cs" />
     <Compile Include="LicensesData.cs" />
-    <Compile Include="LocalApplicationsData.cs" />
+    <Compile Include="LocalDLApplicationsData.cs" />
     <Compile Include="PersonData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestAppointmentsData.cs" />

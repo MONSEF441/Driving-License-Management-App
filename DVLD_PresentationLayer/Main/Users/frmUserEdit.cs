@@ -14,6 +14,7 @@ namespace DVLD_PresentationAccess.Main.Users
         }
 
         private EditorMode _Mode;
+
         private clsUser _user;
       
 

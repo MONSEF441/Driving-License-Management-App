@@ -46,7 +46,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.BlueViolet;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(938, 652);
+            this.btnClose.Location = new System.Drawing.Point(844, 651);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnClose.Size = new System.Drawing.Size(102, 63);
@@ -85,7 +85,7 @@
             this.ucProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
             this.ucProfile1.Location = new System.Drawing.Point(25, 70);
             this.ucProfile1.Name = "ucProfile1";
-            this.ucProfile1.Size = new System.Drawing.Size(1015, 586);
+            this.ucProfile1.Size = new System.Drawing.Size(948, 586);
             this.ucProfile1.TabIndex = 44;
             // 
             // frmUserInfo
@@ -93,7 +93,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(1063, 726);
+            this.ClientSize = new System.Drawing.Size(1002, 726);
             this.Controls.Add(this.ucProfile1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);

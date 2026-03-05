@@ -75,12 +75,32 @@ namespace DVLD_BusinessAccess
 
         public static bool DeleteLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID)
         {
-            return clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+            // Get the ApplicationID first before deleting
+            var localApp = Find(LocalDrivingLicenseApplicationID);
+            if (localApp == null) return false;
+            
+            int applicationID = localApp.ApplicationID;
+            
+            // Delete from LocalDrivingLicenseApplications first (child table)
+            bool localDeleted = clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
+            
+            // Then delete from Applications (parent table) only if child was deleted
+            if (localDeleted)
+            {
+                return clsApplication.DeleteApplication(applicationID);
+            }
+            
+            return false;
         }
 
         public static bool isLocalDrivingLicenseApplicationExist(int LocalDrivingLicenseApplicationID)
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.IsLocalDrivingLicenseApplicationExist(LocalDrivingLicenseApplicationID);
+        }
+
+        public static bool DoesPersonHaveActiveApplicationForLicenseClass(int personID, int licenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DoesPersonHaveActiveApplicationForLicenseClass(personID, licenseClassID);
         }
     }
 }

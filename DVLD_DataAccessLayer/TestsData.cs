@@ -76,8 +76,75 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        public static int AddNewTest(int TestAppointmentID, bool TestResult,
-            string Notes, int CreatedByUserID)
+        public static bool IsTestPassed(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            bool isPassed = false;
+
+            string query = @"SELECT TOP 1 T.TestResult 
+                           FROM Tests T
+                           INNER JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+                           WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                           AND TA.TestTypeID = @TestTypeID
+                           ORDER BY T.TestID DESC";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        isPassed = Convert.ToBoolean(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    isPassed = false;
+                }
+            }
+
+            return isPassed;
+        }
+
+        public static int GetPassedTestCount(int LocalDrivingLicenseApplicationID)
+        {
+            int count = 0;
+
+            string query = @"SELECT COUNT(*) 
+                           FROM Tests T
+                           INNER JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+                           WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                           AND T.TestResult = 1";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        count = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    count = 0;
+                }
+            }
+
+            return count;
+        }
+
+        public static int AddNewTest(int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
             int TestID = -1;
 
@@ -111,7 +178,6 @@ namespace DVLD_DataAccess
                 {
                     conn.Open();
                     object result = cmd.ExecuteScalar();
-
                     if (result != null && int.TryParse(result.ToString(), out int insertedID))
                     {
                         TestID = insertedID;

@@ -1,5 +1,6 @@
 ﻿using DVLD_BusinessAccess;
 using DVLD_PresentationAccess.Forms;
+using DVLD_PresentationAccess.Main.Applications;
 using DVLD_PresentationAccess.Main.Users;
 using DVLD_PresentationAccess.Managers;
 using Guna.UI2.WinForms;
@@ -41,19 +42,19 @@ namespace DVLD_PresentationAccess
 
         // ---------------- Initialize managers ----------------
 
-       private void InitializeManagers()
+        private void InitializeManagers()
         {
             managers = new Dictionary<ucEntityManager.ManageType, ucEntityManager>
-            {
-                { ucEntityManager.ManageType.People, new ucEntityManager(ucEntityManager.ManageType.People) },
-                { ucEntityManager.ManageType.Users, new ucEntityManager(ucEntityManager.ManageType.Users) },
-                { ucEntityManager.ManageType.Drivers, new ucEntityManager(ucEntityManager.ManageType.Drivers) },
-                { ucEntityManager.ManageType.ApplicationTypes, new ucEntityManager(ucEntityManager.ManageType.ApplicationTypes) },
-                { ucEntityManager.ManageType.TestTypes, new ucEntityManager(ucEntityManager.ManageType.TestTypes) },
-                { ucEntityManager.ManageType.LocalDrivingLicense, new ucEntityManager(ucEntityManager.ManageType.LocalDrivingLicense) },
-                { ucEntityManager.ManageType.InternationalDrivingLicense, new ucEntityManager(ucEntityManager.ManageType.InternationalDrivingLicense) },
-                { ucEntityManager.ManageType.DetainLicenses, new ucEntityManager(ucEntityManager.ManageType.DetainLicenses) }
-            };
+    {
+        { ucEntityManager.ManageType.People, new ucEntityManager(ucEntityManager.ManageType.People) },
+        { ucEntityManager.ManageType.Users, new ucEntityManager(ucEntityManager.ManageType.Users) },
+        { ucEntityManager.ManageType.Drivers, new ucEntityManager(ucEntityManager.ManageType.Drivers) },
+        { ucEntityManager.ManageType.ApplicationTypes, new ucEntityManager(ucEntityManager.ManageType.ApplicationTypes) },
+        { ucEntityManager.ManageType.TestTypes, new ucEntityManager(ucEntityManager.ManageType.TestTypes) },
+        { ucEntityManager.ManageType.LocalDLApplications, new ucEntityManager(ucEntityManager.ManageType.LocalDLApplications) },
+        { ucEntityManager.ManageType.InterDLApplications, new ucEntityManager(ucEntityManager.ManageType.InterDLApplications) },
+        { ucEntityManager.ManageType.DetainLicenses, new ucEntityManager(ucEntityManager.ManageType.DetainLicenses) }
+    };
 
             foreach (var manager in managers.Values)
             {
@@ -61,11 +62,9 @@ namespace DVLD_PresentationAccess
                 manager.Visible = false;
                 PanelContainer.Controls.Add(manager);
 
-                // Wire events using clsEventsManager
+                // Only wire events here — DO NOT wire inside ucEntityManager constructor
                 eventsManager.WireEvents(manager);
             }
-
-         
         }
 
         // ---------------- Load Manage pages ----------------
@@ -233,9 +232,9 @@ namespace DVLD_PresentationAccess
 
         private void btncmManage_TestTypes_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.TestTypes);
 
-        private void btncmManage_Local_DLApplications_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.LocalDrivingLicense);
+        private void btncmManage_Local_DLApplications_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.LocalDLApplications);
 
-        private void btncmManage_Inter_DLApplications_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.InternationalDrivingLicense);
+        private void btncmManage_Inter_DLApplications_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.InterDLApplications);
 
         private void btncmManage_DetainLicenses_Click(object sender, EventArgs e) => LoadPage(ucEntityManager.ManageType.DetainLicenses);
 
@@ -264,6 +263,10 @@ namespace DVLD_PresentationAccess
             this.Close();
         }
 
-      
+        private void cmNewLocalLicense_Click(object sender, EventArgs e)
+        {
+            frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense(frmNewLocalDrivingLicense.EditorMode.Add);
+            frm.ShowDialog();
+        }
     }
 }

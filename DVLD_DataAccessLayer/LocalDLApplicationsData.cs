@@ -43,7 +43,7 @@ namespace DVLD_DataAccess
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM LocalDrivingLicenseApplications ORDER BY LocalDrivingLicenseApplicationID DESC";
+            string query = @"select * from LocalDrivingLicenseApplications_View";
 
             using (SqlConnection conn = clsConnection.GetConnection())
             using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -180,6 +180,39 @@ namespace DVLD_DataAccess
             }
 
             return isFound;
+        }
+
+        public static bool DoesPersonHaveActiveApplicationForLicenseClass(int personID, int licenseClassID)
+        {
+            bool hasActiveApplication = false;
+            
+            string query = @"SELECT Found=1 
+                             FROM LocalDrivingLicenseApplications LDLA
+                             INNER JOIN Applications A ON LDLA.ApplicationID = A.ApplicationID
+                             WHERE A.ApplicationPersonID = @PersonID 
+                             AND LDLA.LicenseClassID = @LicenseClassID
+                             AND A.ApplicationStatus IN (1, 3)"; // 1=New, 3=Completed (exclude 2=Cancelled)
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@PersonID", personID);
+                cmd.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    hasActiveApplication = reader.HasRows;
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    hasActiveApplication = false;
+                }
+            }
+
+            return hasActiveApplication;
         }
     }
 }

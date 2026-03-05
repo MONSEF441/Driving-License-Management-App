@@ -44,15 +44,15 @@
             this.menuApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.localLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.internationalLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmNewLocalLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmNewInterLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.renewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replacementForToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retakeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmLocalDL = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmInternationalDL = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmLocalDLApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmInternationalDLApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.detainLicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmDetainLicenses = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -348,7 +348,7 @@
             this.menuApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.menuApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.menuApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.menuApplications.Size = new System.Drawing.Size(224, 134);
+            this.menuApplications.Size = new System.Drawing.Size(224, 156);
             // 
             // drivingLicenseServicesToolStripMenuItem
             // 
@@ -366,26 +366,27 @@
             // newDrivingLicenseToolStripMenuItem
             // 
             this.newDrivingLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.localLicenseToolStripMenuItem,
-            this.internationalLicenseToolStripMenuItem});
+            this.cmNewLocalLicense,
+            this.cmNewInterLicense});
             this.newDrivingLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newDrivingLicenseToolStripMenuItem.Image")));
             this.newDrivingLicenseToolStripMenuItem.Name = "newDrivingLicenseToolStripMenuItem";
             this.newDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
             this.newDrivingLicenseToolStripMenuItem.Text = "New Driving License ";
             // 
-            // localLicenseToolStripMenuItem
+            // cmNewLocalLicense
             // 
-            this.localLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("localLicenseToolStripMenuItem.Image")));
-            this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
-            this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.localLicenseToolStripMenuItem.Text = "Local License ";
+            this.cmNewLocalLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmNewLocalLicense.Image")));
+            this.cmNewLocalLicense.Name = "cmNewLocalLicense";
+            this.cmNewLocalLicense.Size = new System.Drawing.Size(187, 26);
+            this.cmNewLocalLicense.Text = "Local License ";
+            this.cmNewLocalLicense.Click += new System.EventHandler(this.cmNewLocalLicense_Click);
             // 
-            // internationalLicenseToolStripMenuItem
+            // cmNewInterLicense
             // 
-            this.internationalLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("internationalLicenseToolStripMenuItem.Image")));
-            this.internationalLicenseToolStripMenuItem.Name = "internationalLicenseToolStripMenuItem";
-            this.internationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.internationalLicenseToolStripMenuItem.Text = "International License";
+            this.cmNewInterLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmNewInterLicense.Image")));
+            this.cmNewInterLicense.Name = "cmNewInterLicense";
+            this.cmNewInterLicense.Size = new System.Drawing.Size(187, 26);
+            this.cmNewInterLicense.Text = "International License";
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 
@@ -418,28 +419,28 @@
             // manageApplicationsToolStripMenuItem
             // 
             this.manageApplicationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmLocalDL,
-            this.cmInternationalDL});
+            this.cmLocalDLApplications,
+            this.cmInternationalDLApplications});
             this.manageApplicationsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageApplicationsToolStripMenuItem.Image")));
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
             this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
             // 
-            // cmLocalDL
+            // cmLocalDLApplications
             // 
-            this.cmLocalDL.Image = ((System.Drawing.Image)(resources.GetObject("cmLocalDL.Image")));
-            this.cmLocalDL.Name = "cmLocalDL";
-            this.cmLocalDL.Size = new System.Drawing.Size(297, 26);
-            this.cmLocalDL.Text = "Local Driving License Applications";
-            this.cmLocalDL.Click += new System.EventHandler(this.btncmManage_Local_DLApplications_Click);
+            this.cmLocalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmLocalDLApplications.Image")));
+            this.cmLocalDLApplications.Name = "cmLocalDLApplications";
+            this.cmLocalDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmLocalDLApplications.Text = "Local Driving License Applications";
+            this.cmLocalDLApplications.Click += new System.EventHandler(this.btncmManage_Local_DLApplications_Click);
             // 
-            // cmInternationalDL
+            // cmInternationalDLApplications
             // 
-            this.cmInternationalDL.Image = ((System.Drawing.Image)(resources.GetObject("cmInternationalDL.Image")));
-            this.cmInternationalDL.Name = "cmInternationalDL";
-            this.cmInternationalDL.Size = new System.Drawing.Size(297, 26);
-            this.cmInternationalDL.Text = "International Driving License Applications";
-            this.cmInternationalDL.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
+            this.cmInternationalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmInternationalDLApplications.Image")));
+            this.cmInternationalDLApplications.Name = "cmInternationalDLApplications";
+            this.cmInternationalDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmInternationalDLApplications.Text = "International Driving License Applications";
+            this.cmInternationalDLApplications.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
             // 
             // detainLicToolStripMenuItem
             // 
@@ -569,16 +570,16 @@
         private System.Windows.Forms.ToolStripMenuItem manageApplicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detainLicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newDrivingLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem localLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem internationalLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmNewLocalLicense;
+        private System.Windows.Forms.ToolStripMenuItem cmNewInterLicense;
         private System.Windows.Forms.ToolStripMenuItem renewDrivingLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replacementForToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem retakeTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cmApplicationsTypes;
         private System.Windows.Forms.ToolStripMenuItem cmTestTypes;
-        private System.Windows.Forms.ToolStripMenuItem cmLocalDL;
-        private System.Windows.Forms.ToolStripMenuItem cmInternationalDL;
+        private System.Windows.Forms.ToolStripMenuItem cmLocalDLApplications;
+        private System.Windows.Forms.ToolStripMenuItem cmInternationalDLApplications;
         private System.Windows.Forms.ToolStripMenuItem cmDetainLicenses;
         private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicensesToolStripMenuItem;

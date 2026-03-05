@@ -7,18 +7,18 @@ namespace DVLD_DataAccess
     public class clsApplicationsDataAccess
     {
         public static bool GetApplicationInfoByID(int ApplicationID,
-            ref int ApplicationTypeID, ref int ApplicantPersonID, ref DateTime ApplicationDate,
-            ref byte Status, ref DateTime LastStatusDate, ref decimal PaidFees,
+            ref int ApplicationTypeID, ref int ApplicationPersonID, ref DateTime ApplicationDate,
+            ref byte ApplicationStatus, ref DateTime LastStatusDate, ref decimal PaidFees,
             ref int CreatedByUserID)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Applications WHERE Application = @Application";
+            string query = "SELECT * FROM Applications WHERE ApplicationID = @ApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Application", ApplicationID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
             try
             {
@@ -30,9 +30,9 @@ namespace DVLD_DataAccess
                     isFound = true;
 
                     ApplicationTypeID = (int)r["ApplicationTypeID"];
-                    ApplicantPersonID = (int)r["ApplicantPersonID"];
+                    ApplicationPersonID = (int)r["ApplicationPersonID"];
                     ApplicationDate = (DateTime)r["ApplicationDate"];
-                    Status = Convert.ToByte(r["Status"]);   // usually 1–4 enum
+                    ApplicationStatus = Convert.ToByte(r["ApplicationStatus"]);   // usually 1–4 enum
                     LastStatusDate = (DateTime)r["LastStatusDate"];
                     PaidFees = Convert.ToDecimal(r["PaidFees"]);
                     CreatedByUserID = (int)r["CreatedByUserID"];
@@ -40,9 +40,11 @@ namespace DVLD_DataAccess
 
                 r.Close();
             }
-            catch
+            catch (Exception ex)
             {
                 isFound = false;
+                System.Diagnostics.Debug.WriteLine($"GetApplicationInfoByID Error: {ex.Message}");
+                throw new Exception($"Error retrieving application: {ex.Message}", ex);
             }
             finally
             {
@@ -52,8 +54,8 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-        public static int AddNewApplication(int ApplicationTypeID, int ApplicantPersonID,
-            DateTime ApplicationDate, byte Status, DateTime LastStatusDate,
+        public static int AddNewApplication(int ApplicationTypeID, int ApplicationPersonID,
+            DateTime ApplicationDate, byte ApplicationStatus, DateTime LastStatusDate,
             decimal PaidFees, int CreatedByUserID)
         {
             int newID = -1;
@@ -62,9 +64,9 @@ namespace DVLD_DataAccess
 
             string query = @"
                 INSERT INTO Applications
-                (ApplicationTypeID, ApplicantPersonID, ApplicationDate, Status, LastStatusDate, PaidFees, CreatedByUserID)
+                (ApplicationTypeID, ApplicationPersonID, ApplicationDate, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
                 VALUES
-                (@ApplicationTypeID, @ApplicantPersonID, @ApplicationDate, @Status, @LastStatusDate, @PaidFees, @CreatedByUserID);
+                (@ApplicationTypeID, @ApplicationPersonID, @ApplicationDate, @ApplicationStatus, @LastStatusDate, @PaidFees, @CreatedByUserID);
 
                 SELECT SCOPE_IDENTITY();
             ";
@@ -72,9 +74,9 @@ namespace DVLD_DataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationPersonID", ApplicationPersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            command.Parameters.AddWithValue("@Status", Status);
+            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
@@ -85,16 +87,20 @@ namespace DVLD_DataAccess
                 object result = command.ExecuteScalar();
                 if (result != null) newID = Convert.ToInt32(result);
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"AddNewApplication Error: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Inner Exception: {ex.InnerException?.Message}");
+                System.Diagnostics.Debug.WriteLine($"Stack Trace: {ex.StackTrace}");
+                throw new Exception($"Error adding new application: {ex.Message}", ex);
             }
             finally { connection.Close(); }
 
             return newID;
         }
 
-        public static bool UpdateApplication(int ApplicationID, int ApplicationTypeID, int ApplicantPersonID,
-            DateTime ApplicationDate, byte Status, DateTime LastStatusDate,
+        public static bool UpdateApplication(int ApplicationID, int ApplicationTypeID, int ApplicationPersonID,
+            DateTime ApplicationDate, byte ApplicationStatus, DateTime LastStatusDate,
             decimal PaidFees, int CreatedByUserID)
         {
             int rows = 0;
@@ -104,22 +110,22 @@ namespace DVLD_DataAccess
             string query = @"
                 UPDATE Applications SET
                     ApplicationTypeID = @ApplicationTypeID,
-                    ApplicantPersonID = @ApplicantPersonID,
+                    ApplicationPersonID = @ApplicationPersonID,
                     ApplicationDate = @ApplicationDate,
-                    Status = @Status,
+                    ApplicationStatus = @ApplicationStatus,
                     LastStatusDate = @LastStatusDate,
                     PaidFees = @PaidFees,
                     CreatedByUserID = @CreatedByUserID
-                WHERE Application = @Application
+                WHERE ApplicationID = @ApplicationID
             ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Application", ApplicationID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@ApplicationPersonID", ApplicationPersonID);
             command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
-            command.Parameters.AddWithValue("@Status", Status);
+            command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
@@ -129,8 +135,10 @@ namespace DVLD_DataAccess
                 connection.Open();
                 rows = command.ExecuteNonQuery();
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"UpdateApplication Error: {ex.Message}");
+                throw new Exception($"Error updating application: {ex.Message}", ex);
             }
             finally { connection.Close(); }
 
@@ -141,18 +149,20 @@ namespace DVLD_DataAccess
         {
             int rows = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "DELETE FROM Applications WHERE Application = @Application";
+            string query = "DELETE FROM Applications WHERE ApplicationID = @ApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Application", ApplicationID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
             try
             {
                 connection.Open();
                 rows = command.ExecuteNonQuery();
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"DeleteApplication Error: {ex.Message}");
+                throw new Exception($"Error deleting application: {ex.Message}", ex);
             }
             finally { connection.Close(); }
 
@@ -163,10 +173,10 @@ namespace DVLD_DataAccess
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT 1 FROM Applications WHERE Application = @Application";
+            string query = "SELECT 1 FROM Applications WHERE ApplicationID = @ApplicationID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Application", ApplicationID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
 
             object result = null;
 
@@ -175,8 +185,10 @@ namespace DVLD_DataAccess
                 connection.Open();
                 result = command.ExecuteScalar();
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"IsApplicationExist Error: {ex.Message}");
+                throw new Exception($"Error checking application existence: {ex.Message}", ex);
             }
             finally { connection.Close(); }
 
@@ -189,7 +201,7 @@ namespace DVLD_DataAccess
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Applications ORDER BY Application DESC";
+            string query = "SELECT * FROM Applications ORDER BY ApplicationID DESC";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -200,8 +212,10 @@ namespace DVLD_DataAccess
                 if (r.HasRows) dt.Load(r);
                 r.Close();
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"GetAllApplications Error: {ex.Message}");
+                throw new Exception($"Error retrieving all applications: {ex.Message}", ex);
             }
             finally { connection.Close(); }
 
