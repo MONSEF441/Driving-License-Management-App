@@ -335,8 +335,6 @@
         }
 
         #endregion
-        private ucPersonCard ucPersonCard1;
-        private Managers.ucEntityFilter ucEntityFilter1;
         private Guna.UI2.WinForms.Guna2GradientButton btnBack;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnClose;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnSave;

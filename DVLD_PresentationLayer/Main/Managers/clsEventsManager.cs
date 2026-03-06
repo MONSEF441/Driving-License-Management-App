@@ -70,6 +70,21 @@ namespace DVLD_PresentationAccess.Managers
                         frm.ShowDialog();
                         break;
                     }
+                case ucEntityManager.ManageType.LocalDLApplications:
+                    {
+                        int localDLID = Convert.ToInt32(row["L.D.LAppID"]);
+                        var localApp = clsLocalDrivingLicenseApplication.Find(localDLID);
+                        if (localApp != null)
+                        {
+                            int appID = localApp.ApplicationID;
+                            using var frm = new frmLocalDLApplicationInfo(localDLID, appID);
+                            frm.ShowDialog();
+                            
+                            // Refresh the table after closing the form
+                            _ = manager.RefreshDataAsync();
+                        }
+                        break;
+                    }
             }
         }
 

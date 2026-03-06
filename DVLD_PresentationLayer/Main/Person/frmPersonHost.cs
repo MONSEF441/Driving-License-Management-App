@@ -89,6 +89,9 @@ namespace DVLD_PresentationAccess
             {
                 // Refresh data in manager or reload card if needed
                 ucPersonCard.LoadPerson(updatedPerson);
+                
+                // Forward the event to parent subscribers
+                PersonSaved?.Invoke(updatedPerson);
             };
             frmEdit.ShowDialog();
         }

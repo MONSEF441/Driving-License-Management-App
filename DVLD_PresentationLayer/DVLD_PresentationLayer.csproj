@@ -202,11 +202,29 @@
     <Compile Include="Main\Applications\frmEditTestTypes.Designer.cs">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\Applications\frmLocalDLApplicationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\frmLocalDLApplicationInfo.Designer.cs">
+      <DependentUpon>frmLocalDLApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\Applications\frmNewLocalDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main\Applications\frmNewLocalDrivingLicense.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Applications\ucApplicationBasicInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\ucApplicationBasicInfo.Designer.cs">
+      <DependentUpon>ucApplicationBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Applications\ucDLApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\ucDLApplicationInfo.Designer.cs">
+      <DependentUpon>ucDLApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Managers\clsEventsManager.cs" />
     <Compile Include="Main\Managers\ucEntityFilter.cs">
@@ -297,8 +315,17 @@
     <EmbeddedResource Include="Main\Applications\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main\Applications\frmLocalDLApplicationInfo.resx">
+      <DependentUpon>frmLocalDLApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\Applications\frmNewLocalDrivingLicense.resx">
       <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Applications\ucApplicationBasicInfo.resx">
+      <DependentUpon>ucApplicationBasicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Applications\ucDLApplicationInfo.resx">
+      <DependentUpon>ucDLApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Managers\ucEntityFilter.resx">
       <DependentUpon>ucEntityFilter.cs</DependentUpon>
