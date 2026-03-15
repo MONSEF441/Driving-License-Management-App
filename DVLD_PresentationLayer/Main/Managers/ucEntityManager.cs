@@ -185,7 +185,7 @@ namespace DVLD_PresentationAccess.Managers
                 e.Cancel = true;
                 return;
             }
-
+             
             var application = clsApplication.Find(localApp.ApplicationID);
             if (application == null)
             {
@@ -195,40 +195,83 @@ namespace DVLD_PresentationAccess.Managers
 
             bool isCancelled = application.IsCancelled();
             bool isCompleted = application.IsCompleted();
+            bool isNew = application.IsNew();
 
-            // Access dropdown items directly
+            // Access menu items
             var vision = (ToolStripMenuItem)cmScheduleTests.DropDownItems["cmScheduleVisionTest"];
             var written = (ToolStripMenuItem)cmScheduleTests.DropDownItems["cmScheduleWrittenTest"];
             var street = (ToolStripMenuItem)cmScheduleTests.DropDownItems["cmScheduleStreetTest"];
 
-            // Disable all first
-            vision.Enabled = false;
-            written.Enabled = false;
-            street.Enabled = false;
+            // Get passed tests count directly from the bound row since the view updates correctly
+            int passedTests = 0;
+            if (row.Table.Columns.Contains("Passed Tests"))
+                passedTests = Convert.ToInt32(row["Passed Tests"]);
+            else if (row.Table.Columns.Contains("PassedTests")) // fallback column name
+                passedTests = Convert.ToInt32(row["PassedTests"]);
+            else
+                passedTests = clsTest.GetPassedTestCount(id); // fallback to method call
 
-            // If cancelled or completed → keep disabled
-            if (isCancelled || isCompleted)
+            // If cancelled: only show application details
+            if (isCancelled)
+            {
+                cmAppDetails.Enabled = true;
+                
+                cmAppEdit.Enabled = false;
+                cmAppDelete.Enabled = false;
+                cmAppCancel.Enabled = false;
+                cmScheduleTests.Enabled = false;
+                cmIssueDL.Enabled = false;
+                cmShowLicense.Enabled = false;
+                cmShowPersonLicenseHistory.Enabled = false;
                 return;
+            }
 
-            int passedTests = clsTest.GetPassedTestCount(id);
+            // If completed: only show details, license, and history
+            if (isCompleted)
+            {
+                cmAppDetails.Enabled = true;
+                cmShowLicense.Enabled = true;
+                cmShowPersonLicenseHistory.Enabled = true;
+                
+                cmAppEdit.Enabled = false;
+                cmAppDelete.Enabled = false;
+                cmAppCancel.Enabled = false;
+                cmScheduleTests.Enabled = false;
+                cmIssueDL.Enabled = false;
+                return;
+            }
 
-            var testMap = new Dictionary<int, ToolStripMenuItem>()
-    {
-        {0, vision},
-        {1, written},
-        {2, street}
-    };
+            // If New status
+            if (isNew)
+            {
+                // Enable standard options
+                cmAppDetails.Enabled = true;
+                cmAppEdit.Enabled = true;
+                cmAppDelete.Enabled = true;
+                cmAppCancel.Enabled = true;
+                cmShowPersonLicenseHistory.Enabled = true;
+                cmShowLicense.Enabled = false;
 
-            if (testMap.ContainsKey(passedTests))
-                testMap[passedTests].Enabled = true;
+                // All 3 tests passed: disable schedule tests, enable issue license
+                if (passedTests == 3)
+                {
+                    cmScheduleTests.Enabled = false;
+                    cmIssueDL.Enabled = true;
+                }
+                else
+                {
+                    // Tests not completed: enable schedule tests, disable issue license
+                    cmScheduleTests.Enabled = true;
+                    cmIssueDL.Enabled = false;
+
+                    // Enable only the next test to schedule
+                    vision.Enabled = passedTests == 0;
+                    written.Enabled = passedTests == 1;
+                    street.Enabled = passedTests == 2;
+                }
+            }
         }
-        private ToolStripMenuItem FindMenuItem(ToolStrip menu, string name)
-            => menu.Items.OfType<ToolStripMenuItem>().FirstOrDefault(i => i.Name == name);
-
-        private ToolStripMenuItem FindMenuItem(ToolStripMenuItem parent, string name)
-            => parent.DropDownItems.OfType<ToolStripMenuItem>().FirstOrDefault(i => i.Name == name);
-
-
+        
 
         // ---------------- General context menu handlers ----------------
         private void cm_Show_Click(object sender, EventArgs e) => ShowRequested?.Invoke(GetSelectedRow());

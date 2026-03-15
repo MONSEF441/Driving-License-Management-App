@@ -110,11 +110,11 @@
             // 
             this.btnShowLicenseInfo.AutoSize = true;
             this.btnShowLicenseInfo.Enabled = false;
-            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowLicenseInfo.LinkColor = System.Drawing.Color.White;
             this.btnShowLicenseInfo.Location = new System.Drawing.Point(69, 82);
             this.btnShowLicenseInfo.Name = "btnShowLicenseInfo";
-            this.btnShowLicenseInfo.Size = new System.Drawing.Size(131, 16);
+            this.btnShowLicenseInfo.Size = new System.Drawing.Size(157, 20);
             this.btnShowLicenseInfo.TabIndex = 7;
             this.btnShowLicenseInfo.TabStop = true;
             this.btnShowLicenseInfo.Text = "Show License Info";

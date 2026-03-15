@@ -144,6 +144,40 @@ namespace DVLD_DataAccess
             return count;
         }
 
+        public static byte GetTestTrialCount(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            byte count = 0;
+
+            string query = @"SELECT COUNT(*) 
+                           FROM Tests T
+                           INNER JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+                           WHERE TA.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID 
+                           AND TA.TestTypeID = @TestTypeID";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        count = Convert.ToByte(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    count = 0;
+                }
+            }
+
+            return count;
+        }
+
         public static int AddNewTest(int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
             int TestID = -1;
@@ -280,6 +314,35 @@ namespace DVLD_DataAccess
             }
 
             return isFound;
+        }
+
+        public static int GetTestIDByTestAppointmentID(int TestAppointmentID)
+        {
+            int testID = -1;
+
+            string query = "SELECT TestID FROM Tests WHERE TestAppointmentID = @TestAppointmentID";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                try
+                {
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        testID = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle ex
+                }
+            }
+
+            return testID;
         }
     }
 }

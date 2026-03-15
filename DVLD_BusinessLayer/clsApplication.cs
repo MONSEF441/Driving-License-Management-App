@@ -125,6 +125,11 @@ namespace DVLD_BusinessAccess
             return ApplicationStatus != 2;
         }
 
+        public bool IsNew()
+        {
+            return ApplicationStatus == 1;
+        }
+
         public bool IsCancelled()
         {
             return ApplicationStatus == 2;
@@ -135,9 +140,6 @@ namespace DVLD_BusinessAccess
             return ApplicationStatus == 3;
         }
 
-        public bool IsNew()
-        {
-            return ApplicationStatus == 1;
-        }
+     
     }
 }

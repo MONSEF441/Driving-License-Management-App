@@ -47,7 +47,7 @@ namespace DVLD_PresentationAccess.Managers
             _deleteHandler = null;
         }
 
-        // ---------------- Core Handlers ----------------
+        // ---------------- CRUD Handlers ----------------
         private void HandleShow(ucEntityManager manager, DataRow row)
         {
             if (row == null) return;
@@ -122,6 +122,15 @@ namespace DVLD_PresentationAccess.Managers
 
             switch (manager.ManageMode)
             {
+                case ucEntityManager.ManageType.People:
+                    {
+                        int id = Convert.ToInt32(row["PersonID"]);
+                        var entity = clsPerson.Find(id);
+                        var frm = new frmPersonHost(frmPersonHost.EditorMode.Edit, entity);
+                        frm.PersonSaved += async _ => await manager.RefreshDataAsync();
+                        frm.ShowDialog();
+                        break;
+                    }
                 case ucEntityManager.ManageType.Users:
                     {
                         int id = Convert.ToInt32(row["UserID"]);
@@ -181,12 +190,12 @@ namespace DVLD_PresentationAccess.Managers
                             else
                             {
                                 MessageBox.Show("Failed to delete person.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Don't refresh if delete failed
+                                return; 
                             }
                         }
                         else
                         {
-                            return; // User cancelled, don't refresh
+                            return; 
                         }
                         break;
                     }
@@ -243,12 +252,12 @@ namespace DVLD_PresentationAccess.Managers
                             else
                             {
                                 MessageBox.Show("Failed to delete driver.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Don't refresh if delete failed
+                                return; 
                             }
                         }
                         else
                         {
-                            return; // User cancelled, don't refresh
+                            return; 
                         }
                         break;
                     }
@@ -281,12 +290,12 @@ namespace DVLD_PresentationAccess.Managers
                             else
                             {
                                 MessageBox.Show("Failed to delete the application.\n\nThe application may have associated records.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Don't refresh if delete failed
+                                return; 
                             }
                         }
                         else
                         {
-                            return; // User cancelled, don't refresh
+                            return; 
                         }
                         break;
                     }
@@ -314,12 +323,12 @@ namespace DVLD_PresentationAccess.Managers
                             else
                             {
                                 MessageBox.Show("Failed to delete international license.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Don't refresh if delete failed
+                                return;
                             }
                         }
                         else
                         {
-                            return; // User cancelled, don't refresh
+                            return; 
                         }
                         break;
                     }
@@ -347,12 +356,12 @@ namespace DVLD_PresentationAccess.Managers
                             else
                             {
                                 MessageBox.Show("Failed to delete detain record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Don't refresh if delete failed
+                                return; 
                             }
                         }
                         else
                         {
-                            return; // User cancelled, don't refresh
+                            return; 
                         }
                         break;
                     }
@@ -363,9 +372,9 @@ namespace DVLD_PresentationAccess.Managers
 
         // ---------------- LocalDL Extra ----------------
         public void HandleCancelApplication(ucEntityManager manager, DataRow row) => _ = HandleCancel(manager, row);
-        public void HandleScheduleVisionTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, 1);
-        public void HandleScheduleWrittenTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, 2);
-        public void HandleScheduleStreetTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, 3);
+        public void HandleScheduleVisionTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, frmScheduleAppointment.AppontmentType.VisionTest);
+        public void HandleScheduleWrittenTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, frmScheduleAppointment.AppontmentType.WritingTest);
+        public void HandleScheduleStreetTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, frmScheduleAppointment.AppontmentType.StreetTest);
 
         private async Task HandleCancel(ucEntityManager manager, DataRow row)
         {
@@ -379,43 +388,28 @@ namespace DVLD_PresentationAccess.Managers
                 await manager.RefreshDataAsync();
         }
 
-        private void HandleScheduleTest(ucEntityManager manager, DataRow row, int testTypeID)
-        {
-            int id = Convert.ToInt32(row["L.D.LAppID"]);
-            MessageBox.Show($"Schedule Test {testTypeID} for Application {id}");
-        }
-
-        public void ConfigureTestMenuItems(DataRow row, ToolStripMenuItem visionMenuItem,
-            ToolStripMenuItem writtenMenuItem, ToolStripMenuItem streetMenuItem)
+        private void HandleScheduleTest(ucEntityManager manager, DataRow row, frmScheduleAppointment.AppontmentType testMode)
         {
             if (row == null) return;
 
-            try
+            int localDLID = Convert.ToInt32(row["L.D.LAppID"]);
+            var localApp = clsLocalDrivingLicenseApplication.Find(localDLID);
+            
+            if (localApp == null)
             {
-                int localDLAppID = Convert.ToInt32(row["L.D.LAppID"]);
-                var localApp = clsLocalDrivingLicenseApplication.Find(localDLAppID);
-                if (localApp == null) return;
-
-                var application = clsApplication.Find(localApp.ApplicationID);
-                if (application.IsCancelled() || application.IsCompleted())
-                {
-                    visionMenuItem.Enabled = false;
-                    writtenMenuItem.Enabled = false;
-                    streetMenuItem.Enabled = false;
-                    return;
-                }
-
-                int passedTests = clsTest.GetPassedTestCount(localDLAppID);
-                visionMenuItem.Enabled = passedTests == 0;
-                writtenMenuItem.Enabled = passedTests == 1;
-                streetMenuItem.Enabled = passedTests == 2;
+                MessageBox.Show("Application not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch
-            {
-                visionMenuItem.Enabled = false;
-                writtenMenuItem.Enabled = false;
-                streetMenuItem.Enabled = false;
-            }
+
+            int appID = localApp.ApplicationID;
+            
+            using var frm = new frmScheduleAppointment(testMode, localDLID, appID);
+            frm.ShowDialog();
+            
+            // Refresh the table after closing the form
+            _ = manager.RefreshDataAsync();
         }
+
+   
     }
 }

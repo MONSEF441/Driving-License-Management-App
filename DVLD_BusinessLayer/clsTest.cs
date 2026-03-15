@@ -15,6 +15,7 @@ namespace DVLD_BusinessAccess
         public string Notes { get; set; }
         public int CreatedByUserID { get; set; }
 
+
         public clsTest()
         {
             TestID = -1;
@@ -58,6 +59,11 @@ namespace DVLD_BusinessAccess
             return clsTestsDataAccess.GetPassedTestCount(LocalDrivingLicenseApplicationID);
         }
 
+        public static byte GetTestTrialCount(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            return clsTestsDataAccess.GetTestTrialCount(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+
         private bool _AddNewTest()
         {
             this.TestID = clsTestsDataAccess.AddNewTest(TestAppointmentID, TestResult, Notes, CreatedByUserID);
@@ -99,6 +105,11 @@ namespace DVLD_BusinessAccess
         public static DataTable GetAllTests()
         {
             return clsTestsDataAccess.GetAllTests();
+        }
+
+        public static int GetTestIDByTestAppointmentID(int TestAppointmentID)
+        {
+            return clsTestsDataAccess.GetTestIDByTestAppointmentID(TestAppointmentID);
         }
     }
 }

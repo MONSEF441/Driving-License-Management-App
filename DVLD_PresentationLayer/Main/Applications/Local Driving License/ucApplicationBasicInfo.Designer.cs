@@ -138,11 +138,11 @@
             // btnShowPersonInfo
             // 
             this.btnShowPersonInfo.AutoSize = true;
-            this.btnShowPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowPersonInfo.LinkColor = System.Drawing.Color.White;
-            this.btnShowPersonInfo.Location = new System.Drawing.Point(544, 226);
+            this.btnShowPersonInfo.Location = new System.Drawing.Point(522, 231);
             this.btnShowPersonInfo.Name = "btnShowPersonInfo";
-            this.btnShowPersonInfo.Size = new System.Drawing.Size(126, 16);
+            this.btnShowPersonInfo.Size = new System.Drawing.Size(151, 20);
             this.btnShowPersonInfo.TabIndex = 11;
             this.btnShowPersonInfo.TabStop = true;
             this.btnShowPersonInfo.Text = "Show Person Info";

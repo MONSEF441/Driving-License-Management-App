@@ -9,7 +9,7 @@ namespace DVLD_BusinessAccess
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
-        public int TestAppointmentID { get; set; }
+        public int AppointmentID { get; set; }
         public int TestTypeID { get; set; }
         public int LocalDrivingLicenseApplicationID { get; set; }
         public DateTime AppointmentDate { get; set; }
@@ -19,7 +19,7 @@ namespace DVLD_BusinessAccess
 
         public clsTestAppointment()
         {
-            TestAppointmentID = -1;
+            AppointmentID = -1;
             TestTypeID = -1;
             LocalDrivingLicenseApplicationID = -1;
             AppointmentDate = DateTime.MinValue;
@@ -29,9 +29,9 @@ namespace DVLD_BusinessAccess
             Mode = enMode.AddNew;
         }
 
-        private clsTestAppointment(int TestAppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
+        private clsTestAppointment(int AppointmentID, int TestTypeID, int LocalDrivingLicenseApplicationID, DateTime AppointmentDate, decimal PaidFees, int CreatedByUserID, bool IsLocked)
         {
-            this.TestAppointmentID = TestAppointmentID;
+            this.AppointmentID = AppointmentID;
             this.TestTypeID = TestTypeID;
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.AppointmentDate = AppointmentDate;
@@ -43,16 +43,16 @@ namespace DVLD_BusinessAccess
 
         private bool _AddNewTestAppointment()
         {
-            this.TestAppointmentID = clsTestAppointmentsDataAccess.AddNewTestAppointment(TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
-            return TestAppointmentID != -1;
+            this.AppointmentID = clsTestAppointmentsDataAccess.AddNewTestAppointment(TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
+            return AppointmentID != -1;
         }
 
         private bool _UpdateTestAppointment()
         {
-            return clsTestAppointmentsDataAccess.UpdateTestAppointment(TestAppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
+            return clsTestAppointmentsDataAccess.UpdateTestAppointment(AppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
         }
 
-        public static clsTestAppointment Find(int TestAppointmentID)
+        public static clsTestAppointment Find(int AppointmentID)
         {
             int TestTypeID = -1;
             int LocalDrivingLicenseApplicationID = -1;
@@ -61,8 +61,8 @@ namespace DVLD_BusinessAccess
             int CreatedByUserID = -1;
             bool IsLocked = false;
 
-            if (clsTestAppointmentsDataAccess.GetTestAppointmentInfoByID(TestAppointmentID, ref TestTypeID, ref LocalDrivingLicenseApplicationID, ref AppointmentDate, ref PaidFees, ref CreatedByUserID, ref IsLocked))
-                return new clsTestAppointment(TestAppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
+            if (clsTestAppointmentsDataAccess.GetTestAppointmentInfoByID(AppointmentID, ref TestTypeID, ref LocalDrivingLicenseApplicationID, ref AppointmentDate, ref PaidFees, ref CreatedByUserID, ref IsLocked))
+                return new clsTestAppointment(AppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
             else
                 return null;
         }
@@ -89,14 +89,20 @@ namespace DVLD_BusinessAccess
             return clsTestAppointmentsDataAccess.GetAllTestAppointments();
         }
 
-        public static bool DeleteTestAppointment(int TestAppointmentID)
+        public static bool DeleteTestAppointment(int AppointmentID)
         {
-            return clsTestAppointmentsDataAccess.DeleteTestAppointment(TestAppointmentID);
+            return clsTestAppointmentsDataAccess.DeleteTestAppointment(AppointmentID);
         }
 
-        public static bool isTestAppointmentExist(int TestAppointmentID)
+        public static bool isTestAppointmentExist(int AppointmentID)
         {
-            return clsTestAppointmentsDataAccess.IsTestAppointmentExist(TestAppointmentID);
+            return clsTestAppointmentsDataAccess.IsTestAppointmentExist(AppointmentID);
         }
+
+        public static DataTable GetTestAppointmentsByLocalDLAppAndTestType(int localDLApplicationID, int testTypeID)
+        {
+            return clsTestAppointmentsDataAccess.GetTestAppointmentsByLocalDLAppAndTestType(localDLApplicationID, testTypeID);
+        }
+        
     }
 }
