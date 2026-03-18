@@ -460,5 +460,32 @@ namespace DVLD_PresentationAccess.Managers
             _ = manager.RefreshDataAsync();
         }
 
+        public void HandleShowPersonLicenseHistory(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int localDLID = Convert.ToInt32(row["L.D.LAppID"]);
+            var localApp = clsLocalDrivingLicenseApplication.Find(localDLID);
+
+            if (localApp == null)
+            {
+                MessageBox.Show("Application not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var application = clsApplication.Find(localApp.ApplicationID);
+            if (application == null)
+            {
+                MessageBox.Show("Application details not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int personID = application.ApplicationPersonID;
+
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmLicenseHistory(personID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
     }
 }

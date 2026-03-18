@@ -325,7 +325,9 @@ namespace DVLD_PresentationAccess.Managers
 
         private void cmShowPersonLicenseHistory_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("License History - Not implemented yet");
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleShowPersonLicenseHistory(this, row);
         }
     }
 }

@@ -9,22 +9,18 @@ namespace DVLD_PresentationAccess.Main.Applications.License
 
         public frmShowLicense(int licenseId)
         {
-            InitializeComponent();
-            LoadProfile(licenseId);
-        }
-
-        public void LoadProfile(int licenseId)
-        {
             _licenseId = licenseId;
 
-            if (_licenseId <= 0)
-            {
-                MessageBox.Show("Invalid license ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            InitializeComponent();
 
             ucLicenseInfo1.LoadProfile(_licenseId);
             label1.Text = $"Driving License Info : #{_licenseId}";
+            
+         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
