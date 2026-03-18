@@ -1,6 +1,7 @@
 ﻿using DVLD_BusinessAccess;
 using DVLD_PresentationAccess.Forms;
 using DVLD_PresentationAccess.Main.Applications;
+using DVLD_PresentationAccess.Main.Applications.Licinse;
 using DVLD_PresentationAccess.Main.Users;
 using System;
 using System.Data;
@@ -410,6 +411,54 @@ namespace DVLD_PresentationAccess.Managers
             _ = manager.RefreshDataAsync();
         }
 
-   
+        public void HandleIssueDL(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int localDLID = Convert.ToInt32(row["L.D.LAppID"]);
+            var localApp = clsLocalDrivingLicenseApplication.Find(localDLID);
+
+            if (localApp == null)
+            {
+                MessageBox.Show("Application not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int appID = localApp.ApplicationID;
+
+            using var frm = new frmIssueDL(localDLID, appID);
+            frm.ShowDialog();
+
+            // Refresh the table after closing the form
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleShowLicense(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int localDLID = Convert.ToInt32(row["L.D.LAppID"]);
+            var localApp = clsLocalDrivingLicenseApplication.Find(localDLID);
+
+            if (localApp == null)
+            {
+                MessageBox.Show("Application not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var license = clsLicense.FindByApplicationID(localApp.ApplicationID);
+
+            if (license == null)
+            {
+                MessageBox.Show("No issued license found for this application.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowLicense(license.LicenseID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
     }
 }

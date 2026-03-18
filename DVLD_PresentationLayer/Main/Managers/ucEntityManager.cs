@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessAccess;
+using DVLD_PresentationAccess.Main.Applications.Licinse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,8 +63,8 @@ namespace DVLD_PresentationAccess.Managers
             if ((_manage == ManageType.LocalDLApplications || _manage == ManageType.InterDLApplications)
                 && cmDLApplications != null)
             {
-                cmDLApplications.Opening -= CmDLApplications_Opening;
-                cmDLApplications.Opening += CmDLApplications_Opening;
+                cmDLApplications.Opening -= cmDLApplications_Opening;
+                cmDLApplications.Opening += cmDLApplications_Opening;
             }
         }
 
@@ -168,7 +169,7 @@ namespace DVLD_PresentationAccess.Managers
             return ((DataRowView)dgvDVLD_Table.SelectedRows[0].DataBoundItem).Row;
         }
 
-        private void CmDLApplications_Opening(object sender, CancelEventArgs e)
+        private void cmDLApplications_Opening(object sender, CancelEventArgs e)
         {
             var row = GetSelectedRow();
             if (row == null)
@@ -308,19 +309,23 @@ namespace DVLD_PresentationAccess.Managers
                 _eventsManager.HandleScheduleStreetTest(this, row);
         }
 
+        private void cmIssueDrivingLicense_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleIssueDL(this, row);
+        }
+
         private void cmShowLicense_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Show License - Not implemented yet");
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleShowLicense(this, row);
         }
 
         private void cmShowPersonLicenseHistory_Click(object sender, EventArgs e)
         {
             MessageBox.Show("License History - Not implemented yet");
-        }
-
-        private void cmIssueDrivingLicense_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Issue Driving License - Not implemented yet");
         }
     }
 }

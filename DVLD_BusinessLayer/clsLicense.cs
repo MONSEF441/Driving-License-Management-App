@@ -76,6 +76,43 @@ namespace DVLD_BusinessAccess
                 return null;
         }
 
+        public static clsLicense FindByApplicationID(int applicationID)
+        {
+            int licenseID = -1;
+            int driverID = -1;
+            int licenseClassID = -1;
+            DateTime issueDate = DateTime.MinValue;
+            DateTime expirationDate = DateTime.MinValue;
+            string notes = "";
+            bool isActive = false;
+            int createdByUserID = -1;
+
+            if (clsLicensesDataAccess.GetLicenseInfoByApplicationID(
+                applicationID,
+                ref licenseID,
+                ref driverID,
+                ref licenseClassID,
+                ref issueDate,
+                ref expirationDate,
+                ref notes,
+                ref isActive,
+                ref createdByUserID))
+            {
+                return new clsLicense(
+                    licenseID,
+                    applicationID,
+                    driverID,
+                    licenseClassID,
+                    issueDate,
+                    expirationDate,
+                    notes,
+                    isActive,
+                    createdByUserID);
+            }
+
+            return null;
+        }
+
         public bool Save()
         {
             switch (Mode)

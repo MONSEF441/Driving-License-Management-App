@@ -81,14 +81,64 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
+        public static bool GetLicenseInfoByApplicationID(int applicationID,
+            ref int LicenseID, ref int DriverID, ref int LicenseClassID,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
+            ref bool IsActive, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            string query = @"SELECT TOP 1 * 
+                             FROM Licenses 
+                             WHERE ApplicationID = @ApplicationID
+                             ORDER BY LicenseID DESC";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        isFound = true;
+
+                        LicenseID = (int)reader["LicenseID"];
+                        DriverID = (int)reader["DriverID"];
+                        LicenseClassID = (int)reader["LicenseClass"];
+                        IssueDate = (DateTime)reader["IssueDate"];
+                        ExpirationDate = (DateTime)reader["ExpirationDate"];
+                        IsActive = (bool)reader["IsActive"];
+                        CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                        if (reader["Notes"] == DBNull.Value)
+                            Notes = "";
+                        else
+                            Notes = (string)reader["Notes"];
+                    }
+
+                    reader.Close();
+                }
+                catch
+                {
+                    isFound = false;
+                }
+            }
+
+            return isFound;
+        }
+
         public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClassID,
             DateTime IssueDate, DateTime ExpirationDate, string Notes,
             bool IsActive, int CreatedByUserID)
         {
             int LicenseID = -1;
 
-            // Note: Removed PaidFees and IssueReason from INSERT as they are not in the Business Layer.
-            // Ensure your Database has default values for these columns if they are NOT NULL.
+            // 1 = First Time Issue, PaidFees = 0 for first issue
             string query = @"INSERT INTO Licenses (
                                 ApplicationID, 
                                 DriverID, 
@@ -97,6 +147,8 @@ namespace DVLD_DataAccess
                                 ExpirationDate, 
                                 Notes,
                                 IsActive, 
+                                IssueReason,
+                                PaidFees,
                                 CreatedByUserID
                             )
                             VALUES (
@@ -107,6 +159,8 @@ namespace DVLD_DataAccess
                                 @ExpirationDate, 
                                 @Notes, 
                                 @IsActive, 
+                                @IssueReason,
+                                @PaidFees,
                                 @CreatedByUserID
                             );
                             SELECT SCOPE_IDENTITY();";
@@ -120,9 +174,11 @@ namespace DVLD_DataAccess
                 cmd.Parameters.AddWithValue("@IssueDate", IssueDate);
                 cmd.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
                 cmd.Parameters.AddWithValue("@IsActive", IsActive);
+                cmd.Parameters.AddWithValue("@IssueReason", 1);
+                cmd.Parameters.AddWithValue("@PaidFees", 0m);
                 cmd.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
-                if (string.IsNullOrEmpty(Notes))
+                if (string.IsNullOrWhiteSpace(Notes))
                     cmd.Parameters.AddWithValue("@Notes", DBNull.Value);
                 else
                     cmd.Parameters.AddWithValue("@Notes", Notes);
@@ -133,13 +189,12 @@ namespace DVLD_DataAccess
                     object result = cmd.ExecuteScalar();
 
                     if (result != null && int.TryParse(result.ToString(), out int insertedID))
-                    {
                         LicenseID = insertedID;
-                    }
                 }
                 catch (Exception ex)
                 {
-                    // Handle exception
+                    System.Diagnostics.Debug.WriteLine($"AddNewLicense Error: {ex.Message}");
+                    System.Diagnostics.Debug.WriteLine($"Inner: {ex.InnerException?.Message}");
                 }
             }
 
