@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace DVLD_PresentationAccess.Main.Applications.License
 {
-    public partial class frmShowLicense : Form
+    public partial class frmShowLocalLicense : Form
     {
         private int _licenseId;
 
-        public frmShowLicense(int licenseId)
+        public frmShowLocalLicense(int licenseId)
         {
             _licenseId = licenseId;
 

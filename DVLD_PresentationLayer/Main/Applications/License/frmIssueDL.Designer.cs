@@ -36,7 +36,7 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnSave = new Guna.UI2.WinForms.Guna2GradientCircleButton();
+            this.btnIssue = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.SuspendLayout();
             // 
             // label2
@@ -129,6 +129,7 @@
             this.guna2TextBox1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(55, 600);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
@@ -147,26 +148,26 @@
             this.label3.TabIndex = 54;
             this.label3.Text = "Notes :";
             // 
-            // btnSave
+            // btnIssue
             // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSave.FillColor = System.Drawing.Color.DarkBlue;
-            this.btnSave.FillColor2 = System.Drawing.Color.BlueViolet;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(663, 691);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnSave.Size = new System.Drawing.Size(87, 48);
-            this.btnSave.TabIndex = 55;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseTransparentBackground = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnIssue.BackColor = System.Drawing.Color.Transparent;
+            this.btnIssue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnIssue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnIssue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnIssue.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnIssue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnIssue.FillColor = System.Drawing.Color.DarkBlue;
+            this.btnIssue.FillColor2 = System.Drawing.Color.BlueViolet;
+            this.btnIssue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.ForeColor = System.Drawing.Color.White;
+            this.btnIssue.Location = new System.Drawing.Point(663, 691);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnIssue.Size = new System.Drawing.Size(87, 48);
+            this.btnIssue.TabIndex = 55;
+            this.btnIssue.Text = "Issue";
+            this.btnIssue.UseTransparentBackground = true;
+            this.btnIssue.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmIssueDL
             // 
@@ -175,7 +176,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(806, 751);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnIssue);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ucApplicationBasicInfo1);
@@ -200,6 +201,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2GradientCircleButton btnSave;
+        private Guna.UI2.WinForms.Guna2GradientCircleButton btnIssue;
     }
 }

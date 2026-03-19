@@ -72,6 +72,28 @@ namespace DVLD_BusinessAccess
                 return null;
         }
 
+        public static clsInternationalLicense FindByLocalLicenseID(int localLicenseID)
+        {
+            DataTable dt = GetAllInternationalLicenses();
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+
+            if (!dt.Columns.Contains("IssuedUsingLocalLicenseID") || !dt.Columns.Contains("InternationalLicenseID"))
+                return null;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int usedLocalId = Convert.ToInt32(row["IssuedUsingLocalLicenseID"]);
+                if (usedLocalId == localLicenseID)
+                {
+                    int internationalId = Convert.ToInt32(row["InternationalLicenseID"]);
+                    return Find(internationalId);
+                }
+            }
+
+            return null;
+        }
+
         public bool Save()
         {
             switch (Mode)

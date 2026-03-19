@@ -29,7 +29,6 @@ namespace DVLD_BusinessAccess
             Mode = enMode.Update;
         }
 
-
         public static clsApplicationType Find(int ApplicationTypeID)
         {
             string ApplicationTypeTitle = "";
@@ -41,6 +40,33 @@ namespace DVLD_BusinessAccess
                 return null;
         }
 
+        public static clsApplicationType FindInternationalApplicationType()
+        {
+            // Common setup in DVLD projects
+            clsApplicationType byId = Find(6);
+            if (byId != null)
+                return byId;
+
+            DataTable dt = GetAllApplicationTypes();
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+
+            if (!dt.Columns.Contains("ApplicationTypeID") || !dt.Columns.Contains("ApplicationTypeTitle"))
+                return null;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string title = row["ApplicationTypeTitle"]?.ToString() ?? string.Empty;
+                if (title.IndexOf("international", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    int id = Convert.ToInt32(row["ApplicationTypeID"]);
+                    return Find(id);
+                }
+            }
+
+            return null;
+        }
+
         public static DataTable GetAllApplicationTypes()
         {
             return clsApplicationTypesDataAccess.GetAllApplicationTypes();
@@ -48,7 +74,7 @@ namespace DVLD_BusinessAccess
 
         private bool _UpdateApplicationType()
         {
-            return clsApplicationTypesDataAccess.UpdateApplicationType(ApplicationTypeID, ApplicationTypeTitle , ApplicationTypeFees);
+            return clsApplicationTypesDataAccess.UpdateApplicationType(ApplicationTypeID, ApplicationTypeTitle, ApplicationTypeFees);
         }
 
         public bool Save()
@@ -58,10 +84,9 @@ namespace DVLD_BusinessAccess
                 case enMode.AddNew:
                     return false;
                 case enMode.Update:
-                    return  _UpdateApplicationType();
+                    return _UpdateApplicationType();
             }
             return false;
         }
-
     }
 }

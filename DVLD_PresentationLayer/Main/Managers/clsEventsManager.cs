@@ -371,7 +371,7 @@ namespace DVLD_PresentationAccess.Managers
             await manager.RefreshDataAsync();
         }
 
-        // ---------------- LocalDL Extra ----------------
+        // ---------------- Local DL Extra ----------------
         public void HandleCancelApplication(ucEntityManager manager, DataRow row) => _ = HandleCancel(manager, row);
         public void HandleScheduleVisionTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, frmScheduleAppointment.AppontmentType.VisionTest);
         public void HandleScheduleWrittenTest(ucEntityManager manager, DataRow row) => HandleScheduleTest(manager, row, frmScheduleAppointment.AppontmentType.WritingTest);
@@ -454,7 +454,7 @@ namespace DVLD_PresentationAccess.Managers
                 return;
             }
 
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowLicense(license.LicenseID);
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowLocalLicense(license.LicenseID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();
@@ -483,6 +483,76 @@ namespace DVLD_PresentationAccess.Managers
             int personID = application.ApplicationPersonID;
 
             using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmLicenseHistory(personID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        // ---------------- International DL Extra ----------------
+
+        public void HandleInterShowPersonDetails(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int driverID = Convert.ToInt32(row["DriverID"]);
+            var driver = clsDriver.Find(driverID);
+
+            if (driver == null)
+            {
+                MessageBox.Show("Driver not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var person = clsPerson.Find(driver.PersonID);
+            if (person == null)
+            {
+                MessageBox.Show("Person not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using var frm = new frmPersonHost(frmPersonHost.EditorMode.Show, person);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleInterShowLicenseDetails(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int internationalLicenseID = -1;
+
+            if (row.Table.Columns.Contains("InternationalLicenseID"))
+                internationalLicenseID = Convert.ToInt32(row["InternationalLicenseID"]);
+            else if (row.Table.Columns.Contains("Int.LicenseID"))
+                internationalLicenseID = Convert.ToInt32(row["Int.LicenseID"]);
+
+            if (internationalLicenseID <= 0)
+            {
+                MessageBox.Show("International license ID was not found for this row.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowInternationalLicense(internationalLicenseID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleInterShowPersonLicenseHistory(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int driverID = Convert.ToInt32(row["DriverID"]);
+            var driver = clsDriver.Find(driverID);
+
+            if (driver == null)
+            {
+                MessageBox.Show("Driver not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmLicenseHistory(driver.PersonID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();

@@ -105,7 +105,7 @@ namespace DVLD_PresentationAccess.Managers
                 case ManageType.InterDLApplications:
                     ucManageTitle.Text = "Manage International Driving License Applications";
                     ucManagePicture.Image = Properties.Resources.InternationalDrivingLicense;
-                    dgvDVLD_Table.ContextMenuStrip = cmDLApplications;
+                    dgvDVLD_Table.ContextMenuStrip = cmInernationApplications;
                     break;
                 case ManageType.DetainLicenses:
                     ucManageTitle.Text = "Manage Detain Licenses";
@@ -329,5 +329,30 @@ namespace DVLD_PresentationAccess.Managers
             if (row != null)
                 _eventsManager.HandleShowPersonLicenseHistory(this, row);
         }
+
+        // ---------------- International DL specific ----------------
+
+        private void cmPersonDetails_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleInterShowPersonDetails(this, row);
+        }
+
+        private void cmLicenseDetails_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleInterShowLicenseDetails(this, row);
+        }
+
+        private void cmPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleInterShowPersonLicenseHistory(this, row);
+        }
+
+     
     }
 }

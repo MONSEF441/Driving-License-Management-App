@@ -66,6 +66,10 @@
             this.dgvDVLD_Table = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnAdd = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ucManagePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.cmInernationApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmPersonDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmLicenseDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             this.ucEntityFilter1 = new DVLD_PresentationAccess.Main.Managers.ucEntityFilter();
             this.cmTable.SuspendLayout();
             this.pcFilter.SuspendLayout();
@@ -73,6 +77,7 @@
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVLD_Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ucManagePicture)).BeginInit();
+            this.cmInernationApplications.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucManageTitle
@@ -445,6 +450,51 @@
             this.ucManagePicture.TabIndex = 0;
             this.ucManagePicture.TabStop = false;
             // 
+            // cmInernationApplications
+            // 
+            this.cmInernationApplications.BackColor = System.Drawing.Color.CadetBlue;
+            this.cmInernationApplications.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmInernationApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmPersonDetails,
+            this.cmLicenseDetails,
+            this.cmPersonLicenseHistory});
+            this.cmInernationApplications.Name = "cmTable";
+            this.cmInernationApplications.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmInernationApplications.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmInernationApplications.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmInernationApplications.RenderStyle.ColorTable = null;
+            this.cmInernationApplications.RenderStyle.RoundedEdges = true;
+            this.cmInernationApplications.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmInernationApplications.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmInernationApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmInernationApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmInernationApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmInernationApplications.Size = new System.Drawing.Size(227, 92);
+            // 
+            // cmPersonDetails
+            // 
+            this.cmPersonDetails.Image = ((System.Drawing.Image)(resources.GetObject("cmPersonDetails.Image")));
+            this.cmPersonDetails.Name = "cmPersonDetails";
+            this.cmPersonDetails.Size = new System.Drawing.Size(226, 22);
+            this.cmPersonDetails.Text = "Show Person Details";
+            this.cmPersonDetails.Click += new System.EventHandler(this.cmPersonDetails_Click);
+            // 
+            // cmLicenseDetails
+            // 
+            this.cmLicenseDetails.Image = ((System.Drawing.Image)(resources.GetObject("cmLicenseDetails.Image")));
+            this.cmLicenseDetails.Name = "cmLicenseDetails";
+            this.cmLicenseDetails.Size = new System.Drawing.Size(226, 22);
+            this.cmLicenseDetails.Text = "Show License Details";
+            this.cmLicenseDetails.Click += new System.EventHandler(this.cmLicenseDetails_Click);
+            // 
+            // cmPersonLicenseHistory
+            // 
+            this.cmPersonLicenseHistory.Image = ((System.Drawing.Image)(resources.GetObject("cmPersonLicenseHistory.Image")));
+            this.cmPersonLicenseHistory.Name = "cmPersonLicenseHistory";
+            this.cmPersonLicenseHistory.Size = new System.Drawing.Size(226, 22);
+            this.cmPersonLicenseHistory.Text = "Show Person License History";
+            this.cmPersonLicenseHistory.Click += new System.EventHandler(this.cmPersonLicenseHistory_Click);
+            // 
             // ucEntityFilter1
             // 
             this.ucEntityFilter1.BackColor = System.Drawing.Color.Transparent;
@@ -479,6 +529,7 @@
             this.guna2ContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVLD_Table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ucManagePicture)).EndInit();
+            this.cmInernationApplications.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,5 +570,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmInernationApplications;
+        private System.Windows.Forms.ToolStripMenuItem cmPersonDetails;
+        private System.Windows.Forms.ToolStripMenuItem cmLicenseDetails;
+        private System.Windows.Forms.ToolStripMenuItem cmPersonLicenseHistory;
     }
 }

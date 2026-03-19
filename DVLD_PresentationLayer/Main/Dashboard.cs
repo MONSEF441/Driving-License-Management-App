@@ -1,6 +1,7 @@
 ﻿using DVLD_BusinessAccess;
 using DVLD_PresentationAccess.Forms;
 using DVLD_PresentationAccess.Main.Applications;
+using DVLD_PresentationAccess.Main.Applications.International_License;
 using DVLD_PresentationAccess.Main.Users;
 using DVLD_PresentationAccess.Managers;
 using Guna.UI2.WinForms;
@@ -266,6 +267,12 @@ namespace DVLD_PresentationAccess
         private void cmNewLocalLicense_Click(object sender, EventArgs e)
         {
             frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense(frmNewLocalDrivingLicense.EditorMode.Add);
+            frm.ShowDialog();
+        }
+
+        private void cmNewInterLicense_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicense frm = new frmNewInternationalLicense();
             frm.ShowDialog();
         }
     }

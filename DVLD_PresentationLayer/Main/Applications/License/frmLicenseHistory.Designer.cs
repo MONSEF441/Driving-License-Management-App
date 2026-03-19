@@ -61,7 +61,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.BlueViolet;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(863, 914);
+            this.btnClose.Location = new System.Drawing.Point(863, 864);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnClose.Size = new System.Drawing.Size(87, 48);
@@ -107,9 +107,10 @@
             // ucDriverLicenses1
             // 
             this.ucDriverLicenses1.BackColor = System.Drawing.Color.Transparent;
+            this.ucDriverLicenses1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucDriverLicenses1.Location = new System.Drawing.Point(47, 552);
             this.ucDriverLicenses1.Name = "ucDriverLicenses1";
-            this.ucDriverLicenses1.Size = new System.Drawing.Size(903, 356);
+            this.ucDriverLicenses1.Size = new System.Drawing.Size(903, 306);
             this.ucDriverLicenses1.TabIndex = 57;
             // 
             // frmLicenseHistory
@@ -117,7 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(987, 975);
+            this.ClientSize = new System.Drawing.Size(987, 922);
             this.Controls.Add(this.ucDriverLicenses1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucPersonCard1);

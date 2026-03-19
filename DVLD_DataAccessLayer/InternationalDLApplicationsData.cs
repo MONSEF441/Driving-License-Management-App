@@ -9,7 +9,7 @@ namespace DVLD_DataAccess
         public static DataTable GetAllInternationalLicenses()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM InternationalLicenses ORDER BY InternationalLicenseID DESC";
+            string query = "select InternationalLicenseID , ApplicationID , DriverID , IssuedUsingLocalLicenseID as LocalLicenseID ,  IssueDate , ExpirationDate , IsActive from InternationalLicenses ORDER BY InternationalLicenseID DESC";
 
             using (SqlConnection conn = clsConnection.GetConnection())
             using (SqlCommand cmd = new SqlCommand(query, conn))

@@ -111,7 +111,7 @@
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(44, 18);
             this.guna2HtmlLabel6.TabIndex = 8;
-            this.guna2HtmlLabel6.Text = "Data :";
+            this.guna2HtmlLabel6.Text = "Date :";
             // 
             // guna2HtmlLabel7
             // 
@@ -122,7 +122,7 @@
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(91, 18);
             this.guna2HtmlLabel7.TabIndex = 9;
-            this.guna2HtmlLabel7.Text = "Status Data :";
+            this.guna2HtmlLabel7.Text = "Status Date :";
             // 
             // guna2HtmlLabel8
             // 

@@ -80,7 +80,7 @@ namespace DVLD_PresentationAccess.Main.Applications.Licinse
             ucDLApplicationInfo1.LoadData(_DLID);
 
             MessageBox.Show($"License Issued Successfully with License ID = {newLicense.LicenseID}", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            btnSave.Enabled = false;
+            btnIssue.Enabled = false;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

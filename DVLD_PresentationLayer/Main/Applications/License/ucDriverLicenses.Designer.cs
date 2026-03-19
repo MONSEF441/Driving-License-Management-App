@@ -36,15 +36,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControl = new Guna.UI2.WinForms.Guna2TabControl();
             this.LocalPage = new System.Windows.Forms.TabPage();
-            this.InternationalPage = new System.Windows.Forms.TabPage();
-            this.dgvLocalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvLocalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.InternationalPage = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
             this.TabControl.SuspendLayout();
             this.LocalPage.SuspendLayout();
-            this.InternationalPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
+            this.InternationalPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(911, 360);
+            this.TabControl.Size = new System.Drawing.Size(911, 312);
             this.TabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.TabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
             this.TabControl.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
@@ -87,21 +87,21 @@
             this.LocalPage.Location = new System.Drawing.Point(4, 44);
             this.LocalPage.Name = "LocalPage";
             this.LocalPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LocalPage.Size = new System.Drawing.Size(903, 312);
+            this.LocalPage.Size = new System.Drawing.Size(903, 264);
             this.LocalPage.TabIndex = 0;
             this.LocalPage.Text = "Local ";
             // 
-            // InternationalPage
+            // label1
             // 
-            this.InternationalPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
-            this.InternationalPage.Controls.Add(this.label2);
-            this.InternationalPage.Controls.Add(this.dgvInternationalLicenses);
-            this.InternationalPage.Location = new System.Drawing.Point(4, 44);
-            this.InternationalPage.Name = "InternationalPage";
-            this.InternationalPage.Padding = new System.Windows.Forms.Padding(3);
-            this.InternationalPage.Size = new System.Drawing.Size(1020, 281);
-            this.InternationalPage.TabIndex = 1;
-            this.InternationalPage.Text = "International";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(30, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 20);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Local Licenses History :";
             // 
             // dgvLocalLicenses
             // 
@@ -133,7 +133,7 @@
             this.dgvLocalLicenses.Name = "dgvLocalLicenses";
             this.dgvLocalLicenses.ReadOnly = true;
             this.dgvLocalLicenses.RowHeadersVisible = false;
-            this.dgvLocalLicenses.Size = new System.Drawing.Size(854, 237);
+            this.dgvLocalLicenses.Size = new System.Drawing.Size(854, 176);
             this.dgvLocalLicenses.TabIndex = 0;
             this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -157,17 +157,17 @@
             this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // label1
+            // InternationalPage
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 20);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "Local Licenses History :";
+            this.InternationalPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
+            this.InternationalPage.Controls.Add(this.label2);
+            this.InternationalPage.Controls.Add(this.dgvInternationalLicenses);
+            this.InternationalPage.Location = new System.Drawing.Point(4, 44);
+            this.InternationalPage.Name = "InternationalPage";
+            this.InternationalPage.Padding = new System.Windows.Forms.Padding(3);
+            this.InternationalPage.Size = new System.Drawing.Size(903, 312);
+            this.InternationalPage.TabIndex = 1;
+            this.InternationalPage.Text = "International";
             // 
             // label2
             // 
@@ -211,7 +211,7 @@
             this.dgvInternationalLicenses.Name = "dgvInternationalLicenses";
             this.dgvInternationalLicenses.ReadOnly = true;
             this.dgvInternationalLicenses.RowHeadersVisible = false;
-            this.dgvInternationalLicenses.Size = new System.Drawing.Size(854, 237);
+            this.dgvInternationalLicenses.Size = new System.Drawing.Size(854, 176);
             this.dgvInternationalLicenses.TabIndex = 58;
             this.dgvInternationalLicenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvInternationalLicenses.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -243,13 +243,13 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.TabControl);
             this.Name = "ucDriverLicenses";
-            this.Size = new System.Drawing.Size(911, 360);
+            this.Size = new System.Drawing.Size(911, 312);
             this.TabControl.ResumeLayout(false);
             this.LocalPage.ResumeLayout(false);
             this.LocalPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
             this.InternationalPage.ResumeLayout(false);
             this.InternationalPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
             this.ResumeLayout(false);
 

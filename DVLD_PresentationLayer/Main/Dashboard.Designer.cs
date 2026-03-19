@@ -387,6 +387,7 @@
             this.cmNewInterLicense.Name = "cmNewInterLicense";
             this.cmNewInterLicense.Size = new System.Drawing.Size(187, 26);
             this.cmNewInterLicense.Text = "International License";
+            this.cmNewInterLicense.Click += new System.EventHandler(this.cmNewInterLicense_Click);
             // 
             // renewDrivingLicenseToolStripMenuItem
             // 
@@ -430,7 +431,7 @@
             // 
             this.cmLocalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmLocalDLApplications.Image")));
             this.cmLocalDLApplications.Name = "cmLocalDLApplications";
-            this.cmLocalDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmLocalDLApplications.Size = new System.Drawing.Size(293, 22);
             this.cmLocalDLApplications.Text = "Local Driving License Applications";
             this.cmLocalDLApplications.Click += new System.EventHandler(this.btncmManage_Local_DLApplications_Click);
             // 
@@ -438,7 +439,7 @@
             // 
             this.cmInternationalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmInternationalDLApplications.Image")));
             this.cmInternationalDLApplications.Name = "cmInternationalDLApplications";
-            this.cmInternationalDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmInternationalDLApplications.Size = new System.Drawing.Size(293, 22);
             this.cmInternationalDLApplications.Text = "International Driving License Applications";
             this.cmInternationalDLApplications.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
             // 
@@ -457,7 +458,7 @@
             // 
             this.cmDetainLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainLicenses.Image")));
             this.cmDetainLicenses.Name = "cmDetainLicenses";
-            this.cmDetainLicenses.Size = new System.Drawing.Size(218, 26);
+            this.cmDetainLicenses.Size = new System.Drawing.Size(214, 22);
             this.cmDetainLicenses.Text = "Manage Detained Licenses";
             this.cmDetainLicenses.Click += new System.EventHandler(this.btncmManage_DetainLicenses_Click);
             // 
@@ -465,14 +466,14 @@
             // 
             this.dToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dToolStripMenuItem.Image")));
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.dToolStripMenuItem.Text = "Detain License ";
             // 
             // releaseDetainedLicensesToolStripMenuItem
             // 
             this.releaseDetainedLicensesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("releaseDetainedLicensesToolStripMenuItem.Image")));
             this.releaseDetainedLicensesToolStripMenuItem.Name = "releaseDetainedLicensesToolStripMenuItem";
-            this.releaseDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.releaseDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.releaseDetainedLicensesToolStripMenuItem.Text = "Release Detained License";
             // 
             // cmApplicationsTypes
