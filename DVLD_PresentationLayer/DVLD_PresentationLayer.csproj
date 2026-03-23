@@ -347,10 +347,10 @@
     <Compile Include="Main\Users\ucProfile.Designer.cs">
       <DependentUpon>ucProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Users\ucSearchPerson.cs">
+    <Compile Include="Main\Person\ucSearchPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Users\ucSearchPerson.Designer.cs">
+    <Compile Include="Main\Person\ucSearchPerson.Designer.cs">
       <DependentUpon>ucSearchPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Users\ucUserCard.cs">
@@ -477,7 +477,7 @@
     <EmbeddedResource Include="Main\Users\ucProfile.resx">
       <DependentUpon>ucProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Users\ucSearchPerson.resx">
+    <EmbeddedResource Include="Main\Person\ucSearchPerson.resx">
       <DependentUpon>ucSearchPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Users\ucUserCard.resx">
