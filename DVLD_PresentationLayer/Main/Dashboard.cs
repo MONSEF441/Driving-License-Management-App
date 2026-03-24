@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TheArtOfDevHtmlRenderer.Adapters.RGraphicsPath;
 
 namespace DVLD_PresentationAccess
 {
@@ -264,6 +265,8 @@ namespace DVLD_PresentationAccess
             this.Close();
         }
 
+
+
         private void cmNewLocalLicense_Click(object sender, EventArgs e)
         {
             frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense(frmNewLocalDrivingLicense.EditorMode.Add);
@@ -273,6 +276,13 @@ namespace DVLD_PresentationAccess
         private void cmNewInterLicense_Click(object sender, EventArgs e)
         {
             frmNewInternationalLicense frm = new frmNewInternationalLicense();
+            frm.ShowDialog();
+        }
+
+        private void cmRenewDL_Click(object sender, EventArgs e)
+        {
+            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmRenewLocalDL();
+
             frm.ShowDialog();
         }
     }

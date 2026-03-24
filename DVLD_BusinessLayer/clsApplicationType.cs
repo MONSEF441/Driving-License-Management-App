@@ -67,6 +67,29 @@ namespace DVLD_BusinessAccess
             return null;
         }
 
+        public static clsApplicationType FindRenewLocalApplicationType()
+        {
+            DataTable dt = GetAllApplicationTypes();
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+
+            if (!dt.Columns.Contains("ApplicationTypeID") || !dt.Columns.Contains("ApplicationTypeTitle"))
+                return null;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string title = row["ApplicationTypeTitle"]?.ToString() ?? string.Empty;
+                if (title.IndexOf("renew", StringComparison.OrdinalIgnoreCase) >= 0
+                    && title.IndexOf("local", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    int id = Convert.ToInt32(row["ApplicationTypeID"]);
+                    return Find(id);
+                }
+            }
+
+            return null;
+        }
+
         public static DataTable GetAllApplicationTypes()
         {
             return clsApplicationTypesDataAccess.GetAllApplicationTypes();

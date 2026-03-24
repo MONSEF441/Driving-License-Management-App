@@ -51,7 +51,7 @@
             this.lblApplicationDate.BackColor = System.Drawing.Color.Transparent;
             this.lblApplicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationDate.ForeColor = System.Drawing.Color.White;
-            this.lblApplicationDate.Location = new System.Drawing.Point(641, 20);
+            this.lblApplicationDate.Location = new System.Drawing.Point(538, 20);
             this.lblApplicationDate.Name = "lblApplicationDate";
             this.lblApplicationDate.Size = new System.Drawing.Size(45, 18);
             this.lblApplicationDate.TabIndex = 35;
@@ -63,7 +63,7 @@
             this.lblExpirationDate.BackColor = System.Drawing.Color.Transparent;
             this.lblExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpirationDate.ForeColor = System.Drawing.Color.White;
-            this.lblExpirationDate.Location = new System.Drawing.Point(641, 103);
+            this.lblExpirationDate.Location = new System.Drawing.Point(538, 82);
             this.lblExpirationDate.Name = "lblExpirationDate";
             this.lblExpirationDate.Size = new System.Drawing.Size(45, 18);
             this.lblExpirationDate.TabIndex = 34;
@@ -75,7 +75,7 @@
             this.lblIssueDate.BackColor = System.Drawing.Color.Transparent;
             this.lblIssueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIssueDate.ForeColor = System.Drawing.Color.White;
-            this.lblIssueDate.Location = new System.Drawing.Point(641, 63);
+            this.lblIssueDate.Location = new System.Drawing.Point(538, 50);
             this.lblIssueDate.Name = "lblIssueDate";
             this.lblIssueDate.Size = new System.Drawing.Size(45, 18);
             this.lblIssueDate.TabIndex = 33;
@@ -87,7 +87,7 @@
             this.lblCreatedBy.BackColor = System.Drawing.Color.Transparent;
             this.lblCreatedBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreatedBy.ForeColor = System.Drawing.Color.White;
-            this.lblCreatedBy.Location = new System.Drawing.Point(641, 150);
+            this.lblCreatedBy.Location = new System.Drawing.Point(538, 117);
             this.lblCreatedBy.Name = "lblCreatedBy";
             this.lblCreatedBy.Size = new System.Drawing.Size(45, 18);
             this.lblCreatedBy.TabIndex = 32;
@@ -99,7 +99,7 @@
             this.lblFees.BackColor = System.Drawing.Color.Transparent;
             this.lblFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFees.ForeColor = System.Drawing.Color.White;
-            this.lblFees.Location = new System.Drawing.Point(256, 150);
+            this.lblFees.Location = new System.Drawing.Point(256, 117);
             this.lblFees.Name = "lblFees";
             this.lblFees.Size = new System.Drawing.Size(45, 18);
             this.lblFees.TabIndex = 31;
@@ -111,7 +111,7 @@
             this.lblLocalLicenseID.BackColor = System.Drawing.Color.Transparent;
             this.lblLocalLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalLicenseID.ForeColor = System.Drawing.Color.White;
-            this.lblLocalLicenseID.Location = new System.Drawing.Point(256, 103);
+            this.lblLocalLicenseID.Location = new System.Drawing.Point(256, 82);
             this.lblLocalLicenseID.Name = "lblLocalLicenseID";
             this.lblLocalLicenseID.Size = new System.Drawing.Size(45, 18);
             this.lblLocalLicenseID.TabIndex = 30;
@@ -123,7 +123,7 @@
             this.lblInterLicenseID.BackColor = System.Drawing.Color.Transparent;
             this.lblInterLicenseID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInterLicenseID.ForeColor = System.Drawing.Color.White;
-            this.lblInterLicenseID.Location = new System.Drawing.Point(256, 63);
+            this.lblInterLicenseID.Location = new System.Drawing.Point(256, 50);
             this.lblInterLicenseID.Name = "lblInterLicenseID";
             this.lblInterLicenseID.Size = new System.Drawing.Size(45, 18);
             this.lblInterLicenseID.TabIndex = 29;
@@ -147,7 +147,7 @@
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(494, 103);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(395, 82);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(117, 18);
             this.guna2HtmlLabel8.TabIndex = 27;
@@ -158,7 +158,7 @@
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(526, 63);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(427, 50);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(85, 18);
             this.guna2HtmlLabel7.TabIndex = 26;
@@ -169,7 +169,7 @@
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel6.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(485, 20);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(386, 16);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(126, 18);
             this.guna2HtmlLabel6.TabIndex = 25;
@@ -180,18 +180,18 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(122, 63);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(134, 50);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(104, 18);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(92, 18);
             this.guna2HtmlLabel5.TabIndex = 24;
-            this.guna2HtmlLabel5.Text = "I.L.License ID :";
+            this.guna2HtmlLabel5.Text = "I.License ID :";
             // 
             // guna2HtmlLabel4
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(100, 103);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(100, 82);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(126, 18);
             this.guna2HtmlLabel4.TabIndex = 23;
@@ -202,7 +202,7 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(180, 150);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(180, 117);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(46, 18);
             this.guna2HtmlLabel2.TabIndex = 22;
@@ -213,7 +213,7 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(523, 150);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(424, 117);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(88, 18);
             this.guna2HtmlLabel1.TabIndex = 21;
@@ -253,7 +253,7 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Name = "ucInternationalApplicationInfo";
-            this.Size = new System.Drawing.Size(837, 191);
+            this.Size = new System.Drawing.Size(748, 175);
             this.ResumeLayout(false);
             this.PerformLayout();
 

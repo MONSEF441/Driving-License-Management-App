@@ -1170,7 +1170,7 @@
         +hv/FdD/SmMAYx4LZ7zHn/dZn/VZn/WH6n8ArXeMDUYEhWUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="newDrivingLicenseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmNewDL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAHNBJREFUeF7tmgdUlOe2hjfFmkRNYmI0xsTcRI0Vjb0XREVFwIZ0pA1VpIMUKQKi
@@ -1299,7 +1299,7 @@
         39Kbc8ab+If03xrqoGOvxsNfAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="renewDrivingLicenseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmRenewDL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAHbdJREFUeF7tmgdUllf27jdobGkmMSY6Tto1mmiMJWrU2KLYAOkg0ntHEJCiFBUU
@@ -1432,7 +1432,7 @@
         vy/gYLRszCPJAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="replacementForToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmReplacementDL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAHNJJREFUeF7tmgdU1Ve69l+Q2KLROJpEJ02v0URjHWMsscRoVFTEghpBOogiSG9S
@@ -1561,7 +1561,7 @@
         gYmG1+v/nN6GIfDfs7pjoJ3zsfwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="releaseToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmReleaseDetainedDL.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAHI5JREFUeF7tmgdUVee2tifYoiZqckyixiRqYu9GETsqNhRELDHSqyBVQJoUKdKk
@@ -1689,7 +1689,7 @@
         /x/9P5nD87Us7OXgAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="retakeTestToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmRetakeTest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAABfDSURBVHhe7VsHVFR39n5G7DEiEgQhokI0S1zjGhNj
@@ -1797,7 +1797,7 @@
         2gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="drivingLicenseServicesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmDLServices.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAABhQSURBVHhe7ZsJVI1r38bvZDjHcWpXmjQLDZScQkSm
@@ -2044,7 +2044,7 @@
         +te2bS37t27dilUjdbC2ol49utOpkyck/nnOOPh/mpsD+rPxv8cljXFb3FmKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="cmInternationalDLApplications.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmIntDLApplications.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAABlNSURBVHhe7ZkHVFTnuob/AdQYY4meRGNMjEZsIG3o
@@ -2158,7 +2158,7 @@
         +hv/FdD/SmMAYx4LZ7zHn/dZn/VZn/WH6n8ArXeMDUYEhWUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="manageApplicationsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmManageApplications.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAA0VJREFUeF7t
         mk2rTlEUx3+FAVJEYYCBTETJ+4BSUiSUMjJRPoaUgZeBMJB8BEMGBvIhlCikTCjyNmDgPVq1V+1W+9z9
@@ -2178,7 +2178,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="cmDetainLicenses.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmManageDetainedLicenses.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEqFSURBVHhe7Z0H
@@ -2503,7 +2503,7 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="dToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmDetainLicense.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADY8SURBVHhe7d0J
@@ -2741,7 +2741,7 @@
         AAAAAAAAAAAAAAAAEP1/qzqLN7qDz0wAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="releaseDetainedLicensesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmReleaseDetainedLicense.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD5USURBVHhe7d0H
@@ -3014,7 +3014,7 @@
         RU5ErkJggg==
 </value>
   </data>
-  <data name="detainLicToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cmDetainedLicenses.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAGanSURBVHhe7d0H
@@ -3826,6 +3826,6 @@
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>46</value>
+    <value>37</value>
   </metadata>
 </root>

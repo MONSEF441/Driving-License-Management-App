@@ -65,9 +65,9 @@
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(260, 161);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(433, 33);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(420, 33);
             this.guna2HtmlLabel1.TabIndex = 54;
-            this.guna2HtmlLabel1.Text = "Driving International License Info ";
+            this.guna2HtmlLabel1.Text = "International Driver License Info ";
             // 
             // label1
             // 

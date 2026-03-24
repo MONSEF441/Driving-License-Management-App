@@ -42,21 +42,21 @@
             this.btncmChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.btncmSignOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDLServices = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmNewDL = new System.Windows.Forms.ToolStripMenuItem();
             this.cmNewLocalLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.cmNewInterLicense = new System.Windows.Forms.ToolStripMenuItem();
-            this.renewDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.replacementForToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.releaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.retakeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmRenewDL = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmReplacementDL = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmReleaseDetainedDL = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmRetakeTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmManageApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.cmLocalDLApplications = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmInternationalDLApplications = new System.Windows.Forms.ToolStripMenuItem();
-            this.detainLicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmDetainLicenses = new System.Windows.Forms.ToolStripMenuItem();
-            this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.releaseDetainedLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmIntDLApplications = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmManageDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.cmApplicationsTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.cmTestTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelContainer = new Guna.UI2.WinForms.Guna2Panel();
@@ -332,9 +332,9 @@
             // 
             this.menuApplications.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.drivingLicenseServicesToolStripMenuItem,
-            this.manageApplicationsToolStripMenuItem,
-            this.detainLicToolStripMenuItem,
+            this.cmDLServices,
+            this.cmManageApplications,
+            this.cmDetainedLicenses,
             this.cmApplicationsTypes,
             this.cmTestTypes});
             this.menuApplications.Name = "menuApplications";
@@ -350,34 +350,34 @@
             this.menuApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.menuApplications.Size = new System.Drawing.Size(224, 156);
             // 
-            // drivingLicenseServicesToolStripMenuItem
+            // cmDLServices
             // 
-            this.drivingLicenseServicesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newDrivingLicenseToolStripMenuItem,
-            this.renewDrivingLicenseToolStripMenuItem,
-            this.replacementForToolStripMenuItem,
-            this.releaseToolStripMenuItem,
-            this.retakeTestToolStripMenuItem});
-            this.drivingLicenseServicesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("drivingLicenseServicesToolStripMenuItem.Image")));
-            this.drivingLicenseServicesToolStripMenuItem.Name = "drivingLicenseServicesToolStripMenuItem";
-            this.drivingLicenseServicesToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.drivingLicenseServicesToolStripMenuItem.Text = "Driving License Services ";
+            this.cmDLServices.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmNewDL,
+            this.cmRenewDL,
+            this.cmReplacementDL,
+            this.cmReleaseDetainedDL,
+            this.cmRetakeTest});
+            this.cmDLServices.Image = ((System.Drawing.Image)(resources.GetObject("cmDLServices.Image")));
+            this.cmDLServices.Name = "cmDLServices";
+            this.cmDLServices.Size = new System.Drawing.Size(223, 26);
+            this.cmDLServices.Text = "Driving License Services ";
             // 
-            // newDrivingLicenseToolStripMenuItem
+            // cmNewDL
             // 
-            this.newDrivingLicenseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmNewDL.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmNewLocalLicense,
             this.cmNewInterLicense});
-            this.newDrivingLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newDrivingLicenseToolStripMenuItem.Image")));
-            this.newDrivingLicenseToolStripMenuItem.Name = "newDrivingLicenseToolStripMenuItem";
-            this.newDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
-            this.newDrivingLicenseToolStripMenuItem.Text = "New Driving License ";
+            this.cmNewDL.Image = ((System.Drawing.Image)(resources.GetObject("cmNewDL.Image")));
+            this.cmNewDL.Name = "cmNewDL";
+            this.cmNewDL.Size = new System.Drawing.Size(309, 26);
+            this.cmNewDL.Text = "New Driving License ";
             // 
             // cmNewLocalLicense
             // 
             this.cmNewLocalLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmNewLocalLicense.Image")));
             this.cmNewLocalLicense.Name = "cmNewLocalLicense";
-            this.cmNewLocalLicense.Size = new System.Drawing.Size(187, 26);
+            this.cmNewLocalLicense.Size = new System.Drawing.Size(183, 22);
             this.cmNewLocalLicense.Text = "Local License ";
             this.cmNewLocalLicense.Click += new System.EventHandler(this.cmNewLocalLicense_Click);
             // 
@@ -385,96 +385,97 @@
             // 
             this.cmNewInterLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmNewInterLicense.Image")));
             this.cmNewInterLicense.Name = "cmNewInterLicense";
-            this.cmNewInterLicense.Size = new System.Drawing.Size(187, 26);
+            this.cmNewInterLicense.Size = new System.Drawing.Size(183, 22);
             this.cmNewInterLicense.Text = "International License";
             this.cmNewInterLicense.Click += new System.EventHandler(this.cmNewInterLicense_Click);
             // 
-            // renewDrivingLicenseToolStripMenuItem
+            // cmRenewDL
             // 
-            this.renewDrivingLicenseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renewDrivingLicenseToolStripMenuItem.Image")));
-            this.renewDrivingLicenseToolStripMenuItem.Name = "renewDrivingLicenseToolStripMenuItem";
-            this.renewDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
-            this.renewDrivingLicenseToolStripMenuItem.Text = "Renew Driving License";
+            this.cmRenewDL.Image = ((System.Drawing.Image)(resources.GetObject("cmRenewDL.Image")));
+            this.cmRenewDL.Name = "cmRenewDL";
+            this.cmRenewDL.Size = new System.Drawing.Size(309, 26);
+            this.cmRenewDL.Text = "Renew Driving License";
+            this.cmRenewDL.Click += new System.EventHandler(this.cmRenewDL_Click);
             // 
-            // replacementForToolStripMenuItem
+            // cmReplacementDL
             // 
-            this.replacementForToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replacementForToolStripMenuItem.Image")));
-            this.replacementForToolStripMenuItem.Name = "replacementForToolStripMenuItem";
-            this.replacementForToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
-            this.replacementForToolStripMenuItem.Text = "Replacement for Lost or Damaged License   ";
+            this.cmReplacementDL.Image = ((System.Drawing.Image)(resources.GetObject("cmReplacementDL.Image")));
+            this.cmReplacementDL.Name = "cmReplacementDL";
+            this.cmReplacementDL.Size = new System.Drawing.Size(309, 26);
+            this.cmReplacementDL.Text = "Replacement for Lost or Damaged License   ";
             // 
-            // releaseToolStripMenuItem
+            // cmReleaseDetainedDL
             // 
-            this.releaseToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("releaseToolStripMenuItem.Image")));
-            this.releaseToolStripMenuItem.Name = "releaseToolStripMenuItem";
-            this.releaseToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
-            this.releaseToolStripMenuItem.Text = "Release Detained Driving License";
+            this.cmReleaseDetainedDL.Image = ((System.Drawing.Image)(resources.GetObject("cmReleaseDetainedDL.Image")));
+            this.cmReleaseDetainedDL.Name = "cmReleaseDetainedDL";
+            this.cmReleaseDetainedDL.Size = new System.Drawing.Size(309, 26);
+            this.cmReleaseDetainedDL.Text = "Release Detained Driving License";
             // 
-            // retakeTestToolStripMenuItem
+            // cmRetakeTest
             // 
-            this.retakeTestToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("retakeTestToolStripMenuItem.Image")));
-            this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
-            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(309, 26);
-            this.retakeTestToolStripMenuItem.Text = "Retake Test";
+            this.cmRetakeTest.Image = ((System.Drawing.Image)(resources.GetObject("cmRetakeTest.Image")));
+            this.cmRetakeTest.Name = "cmRetakeTest";
+            this.cmRetakeTest.Size = new System.Drawing.Size(309, 26);
+            this.cmRetakeTest.Text = "Retake Test";
             // 
-            // manageApplicationsToolStripMenuItem
+            // cmManageApplications
             // 
-            this.manageApplicationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmManageApplications.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmLocalDLApplications,
-            this.cmInternationalDLApplications});
-            this.manageApplicationsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("manageApplicationsToolStripMenuItem.Image")));
-            this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
-            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
+            this.cmIntDLApplications});
+            this.cmManageApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmManageApplications.Image")));
+            this.cmManageApplications.Name = "cmManageApplications";
+            this.cmManageApplications.Size = new System.Drawing.Size(223, 26);
+            this.cmManageApplications.Text = "Manage Applications";
             // 
             // cmLocalDLApplications
             // 
             this.cmLocalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmLocalDLApplications.Image")));
             this.cmLocalDLApplications.Name = "cmLocalDLApplications";
-            this.cmLocalDLApplications.Size = new System.Drawing.Size(293, 22);
+            this.cmLocalDLApplications.Size = new System.Drawing.Size(297, 26);
             this.cmLocalDLApplications.Text = "Local Driving License Applications";
             this.cmLocalDLApplications.Click += new System.EventHandler(this.btncmManage_Local_DLApplications_Click);
             // 
-            // cmInternationalDLApplications
+            // cmIntDLApplications
             // 
-            this.cmInternationalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmInternationalDLApplications.Image")));
-            this.cmInternationalDLApplications.Name = "cmInternationalDLApplications";
-            this.cmInternationalDLApplications.Size = new System.Drawing.Size(293, 22);
-            this.cmInternationalDLApplications.Text = "International Driving License Applications";
-            this.cmInternationalDLApplications.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
+            this.cmIntDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmIntDLApplications.Image")));
+            this.cmIntDLApplications.Name = "cmIntDLApplications";
+            this.cmIntDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmIntDLApplications.Text = "International Driving License Applications";
+            this.cmIntDLApplications.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
             // 
-            // detainLicToolStripMenuItem
+            // cmDetainedLicenses
             // 
-            this.detainLicToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmDetainLicenses,
-            this.dToolStripMenuItem,
-            this.releaseDetainedLicensesToolStripMenuItem});
-            this.detainLicToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("detainLicToolStripMenuItem.Image")));
-            this.detainLicToolStripMenuItem.Name = "detainLicToolStripMenuItem";
-            this.detainLicToolStripMenuItem.Size = new System.Drawing.Size(223, 26);
-            this.detainLicToolStripMenuItem.Text = "Detain Licenses";
+            this.cmDetainedLicenses.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmManageDetainedLicenses,
+            this.cmDetainLicense,
+            this.cmReleaseDetainedLicense});
+            this.cmDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainedLicenses.Image")));
+            this.cmDetainedLicenses.Name = "cmDetainedLicenses";
+            this.cmDetainedLicenses.Size = new System.Drawing.Size(223, 26);
+            this.cmDetainedLicenses.Text = "Detain Licenses";
             // 
-            // cmDetainLicenses
+            // cmManageDetainedLicenses
             // 
-            this.cmDetainLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainLicenses.Image")));
-            this.cmDetainLicenses.Name = "cmDetainLicenses";
-            this.cmDetainLicenses.Size = new System.Drawing.Size(214, 22);
-            this.cmDetainLicenses.Text = "Manage Detained Licenses";
-            this.cmDetainLicenses.Click += new System.EventHandler(this.btncmManage_DetainLicenses_Click);
+            this.cmManageDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmManageDetainedLicenses.Image")));
+            this.cmManageDetainedLicenses.Name = "cmManageDetainedLicenses";
+            this.cmManageDetainedLicenses.Size = new System.Drawing.Size(214, 22);
+            this.cmManageDetainedLicenses.Text = "Manage Detained Licenses";
+            this.cmManageDetainedLicenses.Click += new System.EventHandler(this.btncmManage_DetainLicenses_Click);
             // 
-            // dToolStripMenuItem
+            // cmDetainLicense
             // 
-            this.dToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("dToolStripMenuItem.Image")));
-            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.dToolStripMenuItem.Text = "Detain License ";
+            this.cmDetainLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainLicense.Image")));
+            this.cmDetainLicense.Name = "cmDetainLicense";
+            this.cmDetainLicense.Size = new System.Drawing.Size(214, 22);
+            this.cmDetainLicense.Text = "Detain License ";
             // 
-            // releaseDetainedLicensesToolStripMenuItem
+            // cmReleaseDetainedLicense
             // 
-            this.releaseDetainedLicensesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("releaseDetainedLicensesToolStripMenuItem.Image")));
-            this.releaseDetainedLicensesToolStripMenuItem.Name = "releaseDetainedLicensesToolStripMenuItem";
-            this.releaseDetainedLicensesToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.releaseDetainedLicensesToolStripMenuItem.Text = "Release Detained License";
+            this.cmReleaseDetainedLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmReleaseDetainedLicense.Image")));
+            this.cmReleaseDetainedLicense.Name = "cmReleaseDetainedLicense";
+            this.cmReleaseDetainedLicense.Size = new System.Drawing.Size(214, 22);
+            this.cmReleaseDetainedLicense.Text = "Release Detained License";
             // 
             // cmApplicationsTypes
             // 
@@ -567,23 +568,23 @@
         private System.Windows.Forms.ToolStripMenuItem btncmProfile;
         private System.Windows.Forms.ToolStripMenuItem btncmChangePassword;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip menuApplications;
-        private System.Windows.Forms.ToolStripMenuItem drivingLicenseServicesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageApplicationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detainLicToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newDrivingLicenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmDLServices;
+        private System.Windows.Forms.ToolStripMenuItem cmManageApplications;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainedLicenses;
+        private System.Windows.Forms.ToolStripMenuItem cmNewDL;
         private System.Windows.Forms.ToolStripMenuItem cmNewLocalLicense;
         private System.Windows.Forms.ToolStripMenuItem cmNewInterLicense;
-        private System.Windows.Forms.ToolStripMenuItem renewDrivingLicenseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem replacementForToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem releaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem retakeTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmRenewDL;
+        private System.Windows.Forms.ToolStripMenuItem cmReplacementDL;
+        private System.Windows.Forms.ToolStripMenuItem cmReleaseDetainedDL;
+        private System.Windows.Forms.ToolStripMenuItem cmRetakeTest;
         private System.Windows.Forms.ToolStripMenuItem cmApplicationsTypes;
         private System.Windows.Forms.ToolStripMenuItem cmTestTypes;
         private System.Windows.Forms.ToolStripMenuItem cmLocalDLApplications;
-        private System.Windows.Forms.ToolStripMenuItem cmInternationalDLApplications;
-        private System.Windows.Forms.ToolStripMenuItem cmDetainLicenses;
-        private System.Windows.Forms.ToolStripMenuItem dToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicensesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmIntDLApplications;
+        private System.Windows.Forms.ToolStripMenuItem cmManageDetainedLicenses;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem cmReleaseDetainedLicense;
         private Guna.UI2.WinForms.Guna2Panel PanelContainer;
         private Guna.UI2.WinForms.Guna2GradientButton btnToggleMenu;
         private System.Windows.Forms.ToolStripMenuItem btncmSignOut;

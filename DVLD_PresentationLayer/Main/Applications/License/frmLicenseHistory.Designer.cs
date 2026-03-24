@@ -107,7 +107,6 @@
             // ucDriverLicenses1
             // 
             this.ucDriverLicenses1.BackColor = System.Drawing.Color.Transparent;
-            this.ucDriverLicenses1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ucDriverLicenses1.Location = new System.Drawing.Point(47, 552);
             this.ucDriverLicenses1.Name = "ucDriverLicenses1";
             this.ucDriverLicenses1.Size = new System.Drawing.Size(903, 306);

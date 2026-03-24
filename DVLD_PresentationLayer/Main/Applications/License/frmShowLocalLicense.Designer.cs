@@ -42,11 +42,11 @@
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(368, 136);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(331, 136);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(249, 33);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(327, 33);
             this.guna2HtmlLabel1.TabIndex = 48;
-            this.guna2HtmlLabel1.Text = "Driver License Info ";
+            this.guna2HtmlLabel1.Text = "Local Driver License Info ";
             // 
             // label1
             // 
@@ -81,7 +81,7 @@
             this.btnClose.FillColor2 = System.Drawing.Color.BlueViolet;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(865, 588);
+            this.btnClose.Location = new System.Drawing.Point(865, 577);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnClose.Size = new System.Drawing.Size(87, 48);
@@ -107,7 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(19)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.ClientSize = new System.Drawing.Size(984, 637);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ucLicenseInfo1);

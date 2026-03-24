@@ -202,22 +202,28 @@
     <Compile Include="Main\Applications\Application And Test Types\frmEditTestTypes.Designer.cs">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Applications\International License\frmNewInternationalLicense.cs">
+    <Compile Include="Main\Applications\License\frmRenewLocalDL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main\Applications\International License\frmNewInternationalLicense.Designer.cs">
+    <Compile Include="Main\Applications\License\frmRenewLocalDL.Designer.cs">
+      <DependentUpon>frmRenewLocalDL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Applications\License\International License\frmNewInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\License\International License\frmNewInternationalLicense.Designer.cs">
       <DependentUpon>frmNewInternationalLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Applications\International License\ucInternationalApplicationInfo.cs">
+    <Compile Include="Main\Applications\License\International License\ucInternationalApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Applications\International License\ucInternationalApplicationInfo.Designer.cs">
+    <Compile Include="Main\Applications\License\International License\ucInternationalApplicationInfo.Designer.cs">
       <DependentUpon>ucInternationalApplicationInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\Applications\International License\ucSearchLicense.cs">
+    <Compile Include="Main\Applications\License\International License\ucSearchLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Main\Applications\International License\ucSearchLicense.Designer.cs">
+    <Compile Include="Main\Applications\License\International License\ucSearchLicense.Designer.cs">
       <DependentUpon>ucSearchLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Applications\License\frmIssueDL.cs">
@@ -261,6 +267,12 @@
     </Compile>
     <Compile Include="Main\Applications\License\ucLicenseInfo.Designer.cs">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Applications\License\ucRenewLocalDL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Main\Applications\License\ucRenewLocalDL.Designer.cs">
+      <DependentUpon>ucRenewLocalDL.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\Applications\Local Driving License\frmLocalDLApplicationInfo.cs">
       <SubType>Form</SubType>
@@ -405,13 +417,16 @@
     <EmbeddedResource Include="Main\Applications\Application And Test Types\frmEditTestTypes.resx">
       <DependentUpon>frmEditTestTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Applications\International License\frmNewInternationalLicense.resx">
+    <EmbeddedResource Include="Main\Applications\License\frmRenewLocalDL.resx">
+      <DependentUpon>frmRenewLocalDL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Applications\License\International License\frmNewInternationalLicense.resx">
       <DependentUpon>frmNewInternationalLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Applications\International License\ucInternationalApplicationInfo.resx">
+    <EmbeddedResource Include="Main\Applications\License\International License\ucInternationalApplicationInfo.resx">
       <DependentUpon>ucInternationalApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main\Applications\International License\ucSearchLicense.resx">
+    <EmbeddedResource Include="Main\Applications\License\International License\ucSearchLicense.resx">
       <DependentUpon>ucSearchLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Applications\License\frmIssueDL.resx">
@@ -434,6 +449,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Applications\License\ucLicenseInfo.resx">
       <DependentUpon>ucLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\Applications\License\ucRenewLocalDL.resx">
+      <DependentUpon>ucRenewLocalDL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Applications\Local Driving License\frmLocalDLApplicationInfo.resx">
       <DependentUpon>frmLocalDLApplicationInfo.cs</DependentUpon>
