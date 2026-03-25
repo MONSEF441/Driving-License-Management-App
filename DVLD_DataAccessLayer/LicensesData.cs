@@ -266,5 +266,38 @@ namespace DVLD_DataAccess
 
             return isFound;
         }
+
+        public static bool UpdateLicenseDetainedStatus(int licenseID, bool isDetained)
+        {
+            int rowsAffected = 0;
+            string query = @"UPDATE Licenses
+                     SET IsDetained = @IsDetained
+                     WHERE LicenseID = @LicenseID";
+
+            using (SqlConnection conn = clsConnection.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@LicenseID", licenseID);
+                cmd.Parameters.AddWithValue("@IsDetained", isDetained);
+
+                try
+                {
+                    conn.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("UpdateLicenseDetainedStatus SQL Error: " + ex.Message);
+
+                    // If schema has no IsDetained column, detention state is already tracked in DetainedLicenses table.
+                    if (ex.Message.IndexOf("Invalid column name 'IsDetained'", StringComparison.OrdinalIgnoreCase) >= 0)
+                        return true;
+
+                    return false;
+                }
+            }
+
+            return rowsAffected > 0;
+        }
     }
 }

@@ -72,18 +72,30 @@ namespace DVLD_BusinessAccess
                 return null;
         }
 
+        public bool IsActive
+        {
+            get => Notes;     // mapped to IsActive in DB
+            set => Notes = value;
+        }
+
         public static clsInternationalLicense FindByLocalLicenseID(int localLicenseID)
         {
             DataTable dt = GetAllInternationalLicenses();
             if (dt == null || dt.Rows.Count == 0)
                 return null;
 
-            if (!dt.Columns.Contains("IssuedUsingLocalLicenseID") || !dt.Columns.Contains("InternationalLicenseID"))
+            if (!dt.Columns.Contains("InternationalLicenseID"))
                 return null;
 
             foreach (DataRow row in dt.Rows)
             {
-                int usedLocalId = Convert.ToInt32(row["IssuedUsingLocalLicenseID"]);
+                int usedLocalId = -1;
+
+                if (row.Table.Columns.Contains("IssuedUsingLocalLicenseID") && row["IssuedUsingLocalLicenseID"] != DBNull.Value)
+                    usedLocalId = Convert.ToInt32(row["IssuedUsingLocalLicenseID"]);
+                else if (row.Table.Columns.Contains("LocalLicenseID") && row["LocalLicenseID"] != DBNull.Value)
+                    usedLocalId = Convert.ToInt32(row["LocalLicenseID"]);
+
                 if (usedLocalId == localLicenseID)
                 {
                     int internationalId = Convert.ToInt32(row["InternationalLicenseID"]);
@@ -92,6 +104,40 @@ namespace DVLD_BusinessAccess
             }
 
             return null;
+        }
+
+        public static clsInternationalLicense FindActiveByDriverID(int driverID)
+        {
+            DataTable dt = GetAllInternationalLicenses();
+            if (dt == null || dt.Rows.Count == 0)
+                return null;
+
+            if (!dt.Columns.Contains("DriverID") || !dt.Columns.Contains("InternationalLicenseID"))
+                return null;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (Convert.ToInt32(row["DriverID"]) != driverID)
+                    continue;
+
+                bool isActive = false;
+                if (row.Table.Columns.Contains("IsActive") && row["IsActive"] != DBNull.Value)
+                    isActive = Convert.ToBoolean(row["IsActive"]);
+
+                if (!isActive)
+                    continue;
+
+                int internationalId = Convert.ToInt32(row["InternationalLicenseID"]);
+                return Find(internationalId);
+            }
+
+            return null;
+        }
+
+        public bool Deactivate()
+        {
+            IsActive = false;
+            return Save();
         }
 
         public bool Save()

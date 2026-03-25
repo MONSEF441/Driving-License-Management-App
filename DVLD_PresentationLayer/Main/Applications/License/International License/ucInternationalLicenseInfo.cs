@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.License
+namespace DVLD_PresentationAccess
 {
     public partial class ucInternationalLicenseInfo : UserControl
     {

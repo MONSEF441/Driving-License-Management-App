@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.Licinse
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmIssueDL
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.ucApplicationBasicInfo1 = new DVLD_PresentationAccess.Main.Applications.ucApplicationBasicInfo();
+            this.ucApplicationBasicInfo1 = new DVLD_PresentationAccess.ucApplicationBasicInfo();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucDLApplicationInfo1 = new DVLD_PresentationAccess.Main.Applications.ucDLApplicationInfo();
+            this.ucDLApplicationInfo1 = new DVLD_PresentationAccess.ucDLApplicationInfo();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();

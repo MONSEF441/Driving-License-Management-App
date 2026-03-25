@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Users
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucProfile
     {
@@ -31,7 +31,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pcLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
-            this.ucUserCard1 = new DVLD_PresentationAccess.Editors.ucUserCard();
+            this.ucUserCard1 = new DVLD_PresentationAccess.ucUserCard();
             this.pcPersonInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.ucPersonCard1 = new DVLD_PresentationAccess.ucPersonCard();
             this.pcLoginInfo.SuspendLayout();
@@ -128,7 +128,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Panel pcLoginInfo;
-        private Editors.ucUserCard ucUserCard1;
+        private ucUserCard ucUserCard1;
         private Guna.UI2.WinForms.Guna2Panel pcPersonInfo;
         private ucPersonCard ucPersonCard1;
     }

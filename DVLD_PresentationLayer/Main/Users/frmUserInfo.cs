@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Forms
+namespace DVLD_PresentationAccess
 {
     public partial class frmUserInfo : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.International_License
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucInternationalApplicationInfo
     {

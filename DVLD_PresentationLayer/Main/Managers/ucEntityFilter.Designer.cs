@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Managers
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucEntityFilter
     {

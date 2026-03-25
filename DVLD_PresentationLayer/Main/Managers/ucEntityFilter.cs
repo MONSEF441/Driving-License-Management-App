@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Managers
+namespace DVLD_PresentationAccess
 {
     public partial class ucEntityFilter : UserControl
     {

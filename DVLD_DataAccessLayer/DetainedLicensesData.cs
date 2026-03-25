@@ -9,7 +9,7 @@ namespace DVLD_DataAccess
         public static bool GetDetainedLicenseInfoByID(int DetainID,
             ref int LicenseID, ref DateTime DetainDate,
             ref decimal FineFees, ref bool IsReleased,
-            ref DateTime ReleasedDate, ref int ReleasedByUserID,
+            ref DateTime ReleaseDate, ref int ReleasedByUserID,
             ref int ReleaseApplicationID)
         {
             bool isFound = false;
@@ -36,10 +36,10 @@ namespace DVLD_DataAccess
                         IsReleased = (bool)reader["IsReleased"];
 
                         // Handle nullable Release Date
-                        if (reader["ReleasedDate"] == DBNull.Value)
-                            ReleasedDate = DateTime.MinValue;
+                        if (reader["ReleaseDate"] == DBNull.Value)
+                            ReleaseDate = DateTime.MinValue;
                         else
-                            ReleasedDate = (DateTime)reader["ReleasedDate"];
+                            ReleaseDate = (DateTime)reader["ReleaseDate"];
 
                         // Handle nullable ReleasedByUserID
                         if (reader["ReleasedByUserID"] == DBNull.Value)
@@ -95,7 +95,8 @@ namespace DVLD_DataAccess
 
         public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate,
             decimal FineFees, bool IsReleased,
-            DateTime ReleasedDate, int ReleasedByUserID, int ReleaseApplicationID)
+            DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID,
+            int CreatedByUserID)
         {
             int DetainID = -1;
 
@@ -104,18 +105,20 @@ namespace DVLD_DataAccess
                                 DetainDate, 
                                 FineFees, 
                                 IsReleased, 
-                                ReleasedDate, 
+                                ReleaseDate, 
                                 ReleasedByUserID, 
-                                ReleaseApplicationID
+                                ReleaseApplicationID,
+                                CreatedByUserID
                             )
                             VALUES (
                                 @LicenseID, 
                                 @DetainDate, 
                                 @FineFees, 
                                 @IsReleased, 
-                                @ReleasedDate, 
+                                @ReleaseDate, 
                                 @ReleasedByUserID, 
-                                @ReleaseApplicationID
+                                @ReleaseApplicationID,
+                                @CreatedByUserID
                             );
                             SELECT SCOPE_IDENTITY();";
 
@@ -126,22 +129,25 @@ namespace DVLD_DataAccess
                 command.Parameters.AddWithValue("@DetainDate", DetainDate);
                 command.Parameters.AddWithValue("@FineFees", FineFees);
                 command.Parameters.AddWithValue("@IsReleased", IsReleased);
+                command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
-                // Handle Nullables for Release info
-                if (ReleasedDate == DateTime.MinValue)
-                    command.Parameters.AddWithValue("@ReleasedDate", DBNull.Value);
-                else
-                    command.Parameters.AddWithValue("@ReleasedDate", ReleasedDate);
-
-                if (ReleasedByUserID == -1)
+                if (!IsReleased)
+                {
+                    command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
                     command.Parameters.AddWithValue("@ReleasedByUserID", DBNull.Value);
-                else
-                    command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
-
-                if (ReleaseApplicationID == -1)
                     command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
+                }
                 else
-                    command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+                {
+                    command.Parameters.AddWithValue("@ReleaseDate",
+                        ReleaseDate == DateTime.MinValue ? (object)DBNull.Value : ReleaseDate);
+
+                    command.Parameters.AddWithValue("@ReleasedByUserID",
+                        ReleasedByUserID <= 0 ? (object)DBNull.Value : ReleasedByUserID);
+
+                    command.Parameters.AddWithValue("@ReleaseApplicationID",
+                        ReleaseApplicationID <= 0 ? (object)DBNull.Value : ReleaseApplicationID);
+                }
 
                 try
                 {
@@ -155,7 +161,8 @@ namespace DVLD_DataAccess
                 }
                 catch (Exception ex)
                 {
-                    // Handle exception
+                    System.Diagnostics.Debug.WriteLine("AddNewDetainedLicense SQL Error: " + ex.ToString());
+                    throw;
                 }
             }
 
@@ -164,7 +171,7 @@ namespace DVLD_DataAccess
 
         public static bool UpdateDetainedLicense(int DetainID, int LicenseID, DateTime DetainDate,
             decimal FineFees, bool IsReleased,
-            DateTime ReleasedDate, int ReleasedByUserID, int ReleaseApplicationID)
+            DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int rowsAffected = 0;
             string query = @"UPDATE DetainedLicenses  
@@ -172,7 +179,7 @@ namespace DVLD_DataAccess
                                 DetainDate = @DetainDate,
                                 FineFees = @FineFees,
                                 IsReleased = @IsReleased,
-                                ReleasedDate = @ReleasedDate,
+                                ReleaseDate = @ReleaseDate,
                                 ReleasedByUserID = @ReleasedByUserID,
                                 ReleaseApplicationID = @ReleaseApplicationID
                             WHERE DetainID = @DetainID";
@@ -186,21 +193,24 @@ namespace DVLD_DataAccess
                 command.Parameters.AddWithValue("@FineFees", FineFees);
                 command.Parameters.AddWithValue("@IsReleased", IsReleased);
 
-                // Handle Nullables for Release info
-                if (ReleasedDate == DateTime.MinValue)
-                    command.Parameters.AddWithValue("@ReleasedDate", DBNull.Value);
-                else
-                    command.Parameters.AddWithValue("@ReleasedDate", ReleasedDate);
-
-                if (ReleasedByUserID == -1)
+                // Keep DB consistent: unreleased => release fields are NULL.
+                if (!IsReleased)
+                {
+                    command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
                     command.Parameters.AddWithValue("@ReleasedByUserID", DBNull.Value);
-                else
-                    command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
-
-                if (ReleaseApplicationID == -1)
                     command.Parameters.AddWithValue("@ReleaseApplicationID", DBNull.Value);
+                }
                 else
-                    command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+                {
+                    command.Parameters.AddWithValue("@ReleaseDate",
+                        ReleaseDate == DateTime.MinValue ? (object)DBNull.Value : ReleaseDate);
+
+                    command.Parameters.AddWithValue("@ReleasedByUserID",
+                        ReleasedByUserID <= 0 ? (object)DBNull.Value : ReleasedByUserID);
+
+                    command.Parameters.AddWithValue("@ReleaseApplicationID",
+                        ReleaseApplicationID <= 0 ? (object)DBNull.Value : ReleaseApplicationID);
+                }
 
                 try
                 {
@@ -285,6 +295,63 @@ namespace DVLD_DataAccess
                     reader.Close();
                 }
                 catch (Exception ex)
+                {
+                    isFound = false;
+                }
+            }
+
+            return isFound;
+        }
+
+        public static bool GetActiveDetainedLicenseInfoByLicenseID(int LicenseID,
+            ref int DetainID,
+            ref DateTime DetainDate,
+            ref decimal FineFees,
+            ref bool IsReleased,
+            ref DateTime ReleaseDate,
+            ref int ReleasedByUserID,
+            ref int ReleaseApplicationID)
+        {
+            bool isFound = false;
+            string query = @"SELECT TOP 1 *
+                             FROM DetainedLicenses
+                             WHERE LicenseID = @LicenseID AND IsReleased = 0
+                             ORDER BY DetainID DESC";
+
+            using (SqlConnection connection = clsConnection.GetConnection())
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        isFound = true;
+                        DetainID = (int)reader["DetainID"];
+                        DetainDate = (DateTime)reader["DetainDate"];
+                        FineFees = (decimal)reader["FineFees"];
+                        IsReleased = (bool)reader["IsReleased"];
+
+                        ReleaseDate = reader["ReleaseDate"] == DBNull.Value
+                            ? DateTime.MinValue
+                            : (DateTime)reader["ReleaseDate"];
+
+                        ReleasedByUserID = reader["ReleasedByUserID"] == DBNull.Value
+                            ? -1
+                            : (int)reader["ReleasedByUserID"];
+
+                        ReleaseApplicationID = reader["ReleaseApplicationID"] == DBNull.Value
+                            ? -1
+                            : (int)reader["ReleaseApplicationID"];
+                    }
+
+                    reader.Close();
+                }
+                catch
                 {
                     isFound = false;
                 }

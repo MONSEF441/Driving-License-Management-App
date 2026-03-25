@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.License
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmLicenseHistory
     {
@@ -34,7 +34,7 @@
             this.ucPersonCard1 = new DVLD_PresentationAccess.ucPersonCard();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ucDriverLicenses1 = new DVLD_PresentationAccess.Main.Applications.License.ucDriverLicenses();
+            this.ucDriverLicenses1 = new DVLD_PresentationAccess.ucDriverLicenses();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 

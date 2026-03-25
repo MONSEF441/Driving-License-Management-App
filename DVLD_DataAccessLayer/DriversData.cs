@@ -171,7 +171,7 @@ namespace DVLD_DataAccess
             DataTable dt = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM Drivers ORDER BY DriverID DESC";
+            string query = "select * from Drivers_View";
 
             SqlCommand command = new SqlCommand(query, connection);
 

@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmScheduleTest
     {
@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleTest));
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.ucScheduleTest1 = new DVLD_PresentationAccess.Main.Applications.ucScheduleTest();
+            this.ucScheduleTest1 = new DVLD_PresentationAccess.ucScheduleTest();
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();

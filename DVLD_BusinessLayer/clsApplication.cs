@@ -45,17 +45,47 @@ namespace DVLD_BusinessAccess
             Mode = enMode.Update;
         }
 
+        private bool _SetPaidFeesFromApplicationType()
+        {
+            clsApplicationType appType = clsApplicationType.Find(ApplicationTypeID);
+            if (appType == null)
+                return false;
+
+            PaidFees = appType.ApplicationTypeFees;
+            return true;
+        }
+
         private bool _AddNewApplication()
         {
-            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(ApplicationTypeID, ApplicationPersonID, ApplicationDate,
-                                                                            ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);
+            if (!_SetPaidFeesFromApplicationType())
+                return false;
+
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(
+                ApplicationTypeID,
+                ApplicationPersonID,
+                ApplicationDate,
+                ApplicationStatus,
+                LastStatusDate,
+                PaidFees,
+                CreatedByUserID);
+
             return ApplicationID != -1;
         }
 
         private bool _UpdateApplication()
         {
-            return clsApplicationsDataAccess.UpdateApplication(ApplicationID, ApplicationTypeID, ApplicationPersonID, ApplicationDate,
-                                                                            ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID);
+            if (!_SetPaidFeesFromApplicationType())
+                return false;
+
+            return clsApplicationsDataAccess.UpdateApplication(
+                ApplicationID,
+                ApplicationTypeID,
+                ApplicationPersonID,
+                ApplicationDate,
+                ApplicationStatus,
+                LastStatusDate,
+                PaidFees,
+                CreatedByUserID);
         }
 
         public static clsApplication Find(int ApplicationID)

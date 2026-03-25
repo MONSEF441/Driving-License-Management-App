@@ -9,9 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DVLD_PresentationAccess.Managers.ucEntityManager;
 
-namespace DVLD_PresentationAccess.Main.Applications
+namespace DVLD_PresentationAccess
 {
     public partial class frmScheduleAppointment : Form
     {

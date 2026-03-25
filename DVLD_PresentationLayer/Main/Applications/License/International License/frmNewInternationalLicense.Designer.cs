@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.International_License
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmNewInternationalLicense
     {
@@ -30,8 +30,8 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ucSearchLicense1 = new DVLD_PresentationAccess.Main.Applications.International_License.ucSearchLicense();
-            this.ucInternationalApplicationInfo1 = new DVLD_PresentationAccess.Main.Applications.International_License.ucInternationalApplicationInfo();
+            this.ucSearchLicense = new DVLD_PresentationAccess.ucSearchLicense();
+            this.ucInternationalApplicationInfo1 = new DVLD_PresentationAccess.ucInternationalApplicationInfo();
             this.btnIssue = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
@@ -62,13 +62,13 @@
             this.label3.TabIndex = 61;
             this.label3.Text = "Application Info :";
             // 
-            // ucSearchLicense1
+            // ucSearchLicense
             // 
-            this.ucSearchLicense1.BackColor = System.Drawing.Color.Transparent;
-            this.ucSearchLicense1.Location = new System.Drawing.Point(42, 94);
-            this.ucSearchLicense1.Name = "ucSearchLicense1";
-            this.ucSearchLicense1.Size = new System.Drawing.Size(940, 478);
-            this.ucSearchLicense1.TabIndex = 62;
+            this.ucSearchLicense.BackColor = System.Drawing.Color.Transparent;
+            this.ucSearchLicense.Location = new System.Drawing.Point(42, 94);
+            this.ucSearchLicense.Name = "ucSearchLicense";
+            this.ucSearchLicense.Size = new System.Drawing.Size(940, 478);
+            this.ucSearchLicense.TabIndex = 62;
             // 
             // ucInternationalApplicationInfo1
             // 
@@ -159,7 +159,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ucInternationalApplicationInfo1);
-            this.Controls.Add(this.ucSearchLicense1);
+            this.Controls.Add(this.ucSearchLicense);
             this.Controls.Add(this.lblTitle);
             this.Name = "frmNewInternationalLicense";
             this.Text = "frmNewInternationalLicense";
@@ -172,7 +172,7 @@
 
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label3;
-        private ucSearchLicense ucSearchLicense1;
+        private ucSearchLicense ucSearchLicense;
         private ucInternationalApplicationInfo ucInternationalApplicationInfo1;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnIssue;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnClose;

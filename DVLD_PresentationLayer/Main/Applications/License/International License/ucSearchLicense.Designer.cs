@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.International_License
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucSearchLicense
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSearchLicense));
-            this.ucLicenseInfo1 = new DVLD_PresentationAccess.Main.Applications.License.ucLicenseInfo();
+            this.ucLicenseInfo1 = new DVLD_PresentationAccess.ucLicenseInfo();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tbLicenseID = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
@@ -119,7 +119,7 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Driving License Info :";
             // 
-            // ucSearchLicense
+            // ucSearchLicense1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,7 +129,7 @@
             this.Controls.Add(this.tbLicenseID);
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.ucLicenseInfo1);
-            this.Name = "ucSearchLicense";
+            this.Name = "ucSearchLicense1";
             this.Size = new System.Drawing.Size(940, 478);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -138,7 +138,7 @@
 
         #endregion
 
-        private License.ucLicenseInfo ucLicenseInfo1;
+        private ucLicenseInfo ucLicenseInfo1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2TextBox tbLicenseID;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;

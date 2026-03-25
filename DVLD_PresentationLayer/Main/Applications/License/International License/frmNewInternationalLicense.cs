@@ -1,10 +1,9 @@
 ﻿using DVLD_BusinessAccess;
-using DVLD_PresentationAccess.Main.Applications.License;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.International_License
+namespace DVLD_PresentationAccess
 {
     public partial class frmNewInternationalLicense : Form
     {
@@ -12,16 +11,27 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
         private int _selectedPersonId = -1;
         private int _internationalLicenseId = -1;
 
-        public frmNewInternationalLicense()
+        private readonly int _lockedLocalLicenseId;
+        private readonly bool _lockSearchControl;
+
+        public frmNewInternationalLicense() : this(-1, false)
         {
+        }
+
+        public frmNewInternationalLicense(int localLicenseId, bool lockSearchControl)
+        {
+            _lockedLocalLicenseId = localLicenseId;
+            _lockSearchControl = lockSearchControl;
+
             InitializeComponent();
 
             btnIssue.Enabled = false;
             lblShowLicenseInfo.Enabled = false;
 
-            ucSearchLicense1.LicenseSearched += UcSearchLicense1_LicenseSearched;
-           
-           
+            ucSearchLicense.LicenseSearched += UcSearchLicense1_LicenseSearched;
+
+            if (_lockSearchControl && _lockedLocalLicenseId > 0)
+                ucSearchLicense.LoadAndLockLicense(_lockedLocalLicenseId);
         }
 
         private void UcSearchLicense1_LicenseSearched(int localLicenseId)
@@ -37,32 +47,47 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
                 return;
             }
 
-            clsDriver driver = clsDriver.Find(localLicense.DriverID);
-            _selectedPersonId = driver?.PersonID ?? -1;
-
-            clsInternationalLicense existingInternational = clsInternationalLicense.FindByLocalLicenseID(localLicenseId);
-            clsApplicationType appType = clsApplicationType.FindInternationalApplicationType();
-
-            if (existingInternational != null)
+            if (!localLicense.IsActive)
             {
-                _internationalLicenseId = existingInternational.InternationalLicenseID;
                 btnIssue.Enabled = false;
-                lblShowLicenseInfo.Enabled = true;
-
-                clsApplication app = clsApplication.Find(existingInternational.ApplicationID);
-                ucInternationalApplicationInfo1.LoadInternationalApplicationInfo(app, existingInternational, localLicense, appType);
-
+                lblShowLicenseInfo.Enabled = false;
                 MessageBox.Show(
-                    $"Local License ID = {localLicenseId} already has International License ID = {_internationalLicenseId}.",
-                    "Already Issued",
+                    "You cannot issue an international license using an inactive local license.",
+                    "Not Allowed",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
+                    MessageBoxIcon.Warning);
                 return;
             }
 
+            clsDriver driver = clsDriver.Find(localLicense.DriverID);
+            _selectedPersonId = driver?.PersonID ?? -1;
+
+            if (driver == null)
+            {
+                btnIssue.Enabled = false;
+                lblShowLicenseInfo.Enabled = false;
+                return;
+            }
+
+            var activeInternational = clsInternationalLicense.FindActiveByDriverID(driver.DriverID);
+            if (activeInternational != null)
+            {
+                _internationalLicenseId = activeInternational.InternationalLicenseID;
+                lblShowLicenseInfo.Enabled = true;
+
+                MessageBox.Show(
+                    $"Driver already has an active international license (ID = {_internationalLicenseId}).\n" +
+                    $"It will be deactivated automatically when issuing the new one.",
+                    "Active License Found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                lblShowLicenseInfo.Enabled = false;
+            }
+
             btnIssue.Enabled = true;
-            lblShowLicenseInfo.Enabled = false;
         }
 
         private void btnIssue_Click(object sender, EventArgs e)
@@ -80,11 +105,9 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
                 return;
             }
 
-            if (clsInternationalLicense.FindByLocalLicenseID(localLicense.LicenseID) != null)
+            if (!localLicense.IsActive)
             {
-                btnIssue.Enabled = false;
-                lblShowLicenseInfo.Enabled = true;
-                MessageBox.Show("This local license already has an international license.", "Already Issued", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("You cannot issue an international license using an inactive local license.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -93,6 +116,17 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
             {
                 MessageBox.Show("Driver record was not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            // Deactivate currently active international license (if any), then issue a new one.
+            var activeInternational = clsInternationalLicense.FindActiveByDriverID(driver.DriverID);
+            if (activeInternational != null)
+            {
+                if (!activeInternational.Deactivate())
+                {
+                    MessageBox.Show("Failed to deactivate the existing active international license.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             clsApplicationType appType = clsApplicationType.FindInternationalApplicationType();
@@ -126,7 +160,7 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
                 IssuedUsingLocalLicenseID = localLicense.LicenseID,
                 IssueDate = DateTime.Now,
                 ExpirationDate = DateTime.Now.AddYears(1),
-                Notes = true,
+                Notes = true, // active
                 CreatedByUserID = Session.CurrentUser.UserID
             };
 

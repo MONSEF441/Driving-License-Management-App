@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.License
+namespace DVLD_PresentationAccess
 {
     public partial class ucDriverLicenses : UserControl
     {

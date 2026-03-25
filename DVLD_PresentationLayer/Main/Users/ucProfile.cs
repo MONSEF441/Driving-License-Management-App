@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Users
+namespace DVLD_PresentationAccess
 {
     public partial class ucProfile : UserControl
     {

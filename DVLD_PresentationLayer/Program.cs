@@ -1,7 +1,4 @@
 ﻿using DVLD_PresentationAccess;
-using DVLD_PresentationAccess.Forms;
-using DVLD_PresentationAccess.Main.Applications;
-using DVLD_PresentationAccess.Main.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +9,7 @@ namespace DVLD_PresentationAccess
 {
     internal static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+       
         [STAThread]
         static void Main()
         {

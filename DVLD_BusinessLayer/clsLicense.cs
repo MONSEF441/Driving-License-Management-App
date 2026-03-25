@@ -7,6 +7,15 @@ namespace DVLD_BusinessAccess
     public class clsLicense
     {
         public enum enMode { AddNew = 0, Update = 1 };
+
+        public enum enIssueReason
+        {
+            FirstTime = 1,
+            Renew = 2,
+            Lost = 3,
+            Damaged = 4
+        };
+
         public enMode Mode = enMode.AddNew;
 
         public int LicenseID { get; set; }
@@ -17,7 +26,7 @@ namespace DVLD_BusinessAccess
         public DateTime ExpirationDate { get; set; }
         public string Notes { get; set; }
         public bool IsActive { get; set; }
-        public int IssueReason { get; set; }      // 1=FirstTime, 2=Renew
+        public int IssueReason { get; set; } 
         public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
 
@@ -171,6 +180,36 @@ namespace DVLD_BusinessAccess
         {
             IsActive = false;
             return Save();
+        }
+
+        public bool SetDetainedStatus(bool isDetained)
+        {
+            if (LicenseID <= 0)
+                return false;
+
+            return clsLicensesDataAccess.UpdateLicenseDetainedStatus(LicenseID, isDetained);
+        }
+
+        public static string GetIssueReasonText(int issueReason)
+        {
+            switch (issueReason)
+            {
+                case (int)enIssueReason.FirstTime:
+                    return "First Time Issue";
+                case (int)enIssueReason.Renew:
+                    return "Renew";
+                case (int)enIssueReason.Lost:
+                    return "Replacement for Lost";
+                case (int)enIssueReason.Damaged:
+                    return "Replacement for Damaged";
+                default:
+                    return "Unknown";
+            }
+        }
+
+        public string GetIssueReasonText()
+        {
+            return GetIssueReasonText(IssueReason);
         }
     }
 }

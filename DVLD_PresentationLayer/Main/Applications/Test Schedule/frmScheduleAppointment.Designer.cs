@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmScheduleAppointment
     {
@@ -43,8 +43,8 @@
             this.cmTakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddAppointment = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.ucDLApplicationInfo1 = new DVLD_PresentationAccess.Main.Applications.ucDLApplicationInfo();
-            this.ucApplicationBasicInfo1 = new DVLD_PresentationAccess.Main.Applications.ucApplicationBasicInfo();
+            this.ucDLApplicationInfo1 = new DVLD_PresentationAccess.ucDLApplicationInfo();
+            this.ucApplicationBasicInfo1 = new DVLD_PresentationAccess.ucApplicationBasicInfo();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppointmentPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.cmAppointment.SuspendLayout();

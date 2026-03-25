@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucScheduleTest
     {

@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmTakeTest
     {
@@ -36,7 +36,7 @@
             this.tbNotes = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            this.ucTakeTest1 = new DVLD_PresentationAccess.Main.Applications.ucTakeTest();
+            this.ucTakeTest1 = new DVLD_PresentationAccess.ucTakeTest();
             this.SuspendLayout();
             // 
             // lblTitle

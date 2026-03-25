@@ -1,9 +1,9 @@
 ﻿using DVLD_BusinessAccess;
 using System;
 using System.Windows.Forms;
-using static DVLD_PresentationAccess.Main.Applications.frmScheduleAppointment;
+using static DVLD_PresentationAccess.frmScheduleAppointment;
 
-namespace DVLD_PresentationAccess.Main.Applications
+namespace DVLD_PresentationAccess
 {
     public partial class ucTakeTest : UserControl
     {

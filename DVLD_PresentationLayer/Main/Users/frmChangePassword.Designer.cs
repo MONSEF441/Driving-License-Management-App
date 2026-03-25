@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Users
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmChangePassword
     {
@@ -33,7 +33,7 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucUserCard1 = new DVLD_PresentationAccess.Editors.ucUserCard();
+            this.ucUserCard1 = new DVLD_PresentationAccess.ucUserCard();
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbCurrentPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -228,7 +228,7 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnClose;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnSave;
         private System.Windows.Forms.Label label1;
-        private Editors.ucUserCard ucUserCard1;
+        private ucUserCard ucUserCard1;
         private Guna.UI2.WinForms.Guna2TextBox tbConfirmPassword;
         private Guna.UI2.WinForms.Guna2TextBox tbNewPassword;
         private Guna.UI2.WinForms.Guna2TextBox tbCurrentPassword;

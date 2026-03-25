@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Managers
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucEntityManager
     {
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucEntityManager));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucEntityManager));
             this.ucManageTitle = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.cmTable = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
@@ -66,18 +66,32 @@
             this.dgvDVLD_Table = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnAdd = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ucManagePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.cmInernationApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmDetainLicense = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmDetainShowPersonDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDetainShowLicenseDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDetainShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmDetainReleaseLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDetain = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnRelease = new Guna.UI2.WinForms.Guna2ImageButton();
             this.cmPersonDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmLicenseDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.cmPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
-            this.ucEntityFilter1 = new DVLD_PresentationAccess.Main.Managers.ucEntityFilter();
+            this.cmInernationApplications = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmDrivers = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.cmDriverShowPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDriverIssueInternationalLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDriverShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
+            this.ucEntityFilter1 = new DVLD_PresentationAccess.ucEntityFilter();
             this.cmTable.SuspendLayout();
             this.pcFilter.SuspendLayout();
             this.cmDLApplications.SuspendLayout();
             this.guna2ContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVLD_Table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ucManagePicture)).BeginInit();
+            this.cmDetainLicense.SuspendLayout();
             this.cmInernationApplications.SuspendLayout();
+            this.cmDrivers.SuspendLayout();
             this.SuspendLayout();
             // 
             // ucManageTitle
@@ -450,26 +464,102 @@
             this.ucManagePicture.TabIndex = 0;
             this.ucManagePicture.TabStop = false;
             // 
-            // cmInernationApplications
+            // cmDetainLicense
             // 
-            this.cmInernationApplications.BackColor = System.Drawing.Color.CadetBlue;
-            this.cmInernationApplications.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmInernationApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmPersonDetails,
-            this.cmLicenseDetails,
-            this.cmPersonLicenseHistory});
-            this.cmInernationApplications.Name = "cmTable";
-            this.cmInernationApplications.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.cmInernationApplications.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.cmInernationApplications.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.cmInernationApplications.RenderStyle.ColorTable = null;
-            this.cmInernationApplications.RenderStyle.RoundedEdges = true;
-            this.cmInernationApplications.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.cmInernationApplications.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.cmInernationApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.cmInernationApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.cmInernationApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.cmInernationApplications.Size = new System.Drawing.Size(227, 92);
+            this.cmDetainLicense.BackColor = System.Drawing.Color.CadetBlue;
+            this.cmDetainLicense.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmDetainLicense.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmDetainShowPersonDetails,
+            this.cmDetainShowLicenseDetails,
+            this.cmDetainShowPersonLicenseHistory,
+            this.toolStripSeparator7,
+            this.cmDetainReleaseLicense});
+            this.cmDetainLicense.Name = "cmTable";
+            this.cmDetainLicense.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmDetainLicense.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmDetainLicense.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmDetainLicense.RenderStyle.ColorTable = null;
+            this.cmDetainLicense.RenderStyle.RoundedEdges = true;
+            this.cmDetainLicense.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmDetainLicense.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmDetainLicense.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmDetainLicense.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmDetainLicense.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmDetainLicense.Size = new System.Drawing.Size(227, 98);
+            // 
+            // cmDetainShowPersonDetails
+            // 
+            this.cmDetainShowPersonDetails.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainShowPersonDetails.Image")));
+            this.cmDetainShowPersonDetails.Name = "cmDetainShowPersonDetails";
+            this.cmDetainShowPersonDetails.Size = new System.Drawing.Size(226, 22);
+            this.cmDetainShowPersonDetails.Text = "Show Person Details";
+            this.cmDetainShowPersonDetails.Click += new System.EventHandler(this.cmDetainShowPersonDetails_Click);
+            // 
+            // cmDetainShowLicenseDetails
+            // 
+            this.cmDetainShowLicenseDetails.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainShowLicenseDetails.Image")));
+            this.cmDetainShowLicenseDetails.Name = "cmDetainShowLicenseDetails";
+            this.cmDetainShowLicenseDetails.Size = new System.Drawing.Size(226, 22);
+            this.cmDetainShowLicenseDetails.Text = "Show License Details";
+            this.cmDetainShowLicenseDetails.Click += new System.EventHandler(this.cmDetainShowLicenseDetails_Click);
+            // 
+            // cmDetainShowPersonLicenseHistory
+            // 
+            this.cmDetainShowPersonLicenseHistory.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainShowPersonLicenseHistory.Image")));
+            this.cmDetainShowPersonLicenseHistory.Name = "cmDetainShowPersonLicenseHistory";
+            this.cmDetainShowPersonLicenseHistory.Size = new System.Drawing.Size(226, 22);
+            this.cmDetainShowPersonLicenseHistory.Text = "Show Person License History";
+            this.cmDetainShowPersonLicenseHistory.Click += new System.EventHandler(this.cmDetainShowPersonLicenseHistory_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(223, 6);
+            // 
+            // cmDetainReleaseLicense
+            // 
+            this.cmDetainReleaseLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainReleaseLicense.Image")));
+            this.cmDetainReleaseLicense.Name = "cmDetainReleaseLicense";
+            this.cmDetainReleaseLicense.Size = new System.Drawing.Size(226, 22);
+            this.cmDetainReleaseLicense.Text = "Release Detained License ";
+            this.cmDetainReleaseLicense.Click += new System.EventHandler(this.cmDetainReleaseLicense_Click);
+            // 
+            // btnDetain
+            // 
+            this.btnDetain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDetain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDetain.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDetain.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDetain.Image = ((System.Drawing.Image)(resources.GetObject("btnDetain.Image")));
+            this.btnDetain.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnDetain.ImageRotate = 0F;
+            this.btnDetain.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnDetain.Location = new System.Drawing.Point(1091, 285);
+            this.btnDetain.Name = "btnDetain";
+            this.btnDetain.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnDetain.Size = new System.Drawing.Size(42, 36);
+            this.btnDetain.TabIndex = 12;
+            this.btnDetain.Visible = false;
+            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
+            // 
+            // btnRelease
+            // 
+            this.btnRelease.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRelease.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRelease.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnRelease.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnRelease.Image = ((System.Drawing.Image)(resources.GetObject("btnRelease.Image")));
+            this.btnRelease.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnRelease.ImageRotate = 0F;
+            this.btnRelease.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnRelease.IndicateFocus = true;
+            this.btnRelease.Location = new System.Drawing.Point(1025, 285);
+            this.btnRelease.Name = "btnRelease";
+            this.btnRelease.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnRelease.Size = new System.Drawing.Size(42, 36);
+            this.btnRelease.TabIndex = 13;
+            this.btnRelease.Visible = false;
+            this.btnRelease.Click += new System.EventHandler(this.btnRelease_Click);
             // 
             // cmPersonDetails
             // 
@@ -495,6 +585,72 @@
             this.cmPersonLicenseHistory.Text = "Show Person License History";
             this.cmPersonLicenseHistory.Click += new System.EventHandler(this.cmPersonLicenseHistory_Click);
             // 
+            // cmInernationApplications
+            // 
+            this.cmInernationApplications.BackColor = System.Drawing.Color.CadetBlue;
+            this.cmInernationApplications.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmInernationApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmPersonDetails,
+            this.cmLicenseDetails,
+            this.cmPersonLicenseHistory});
+            this.cmInernationApplications.Name = "cmTable";
+            this.cmInernationApplications.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmInernationApplications.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmInernationApplications.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmInernationApplications.RenderStyle.ColorTable = null;
+            this.cmInernationApplications.RenderStyle.RoundedEdges = true;
+            this.cmInernationApplications.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmInernationApplications.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmInernationApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmInernationApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmInernationApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmInernationApplications.Size = new System.Drawing.Size(227, 70);
+            // 
+            // cmDrivers
+            // 
+            this.cmDrivers.BackColor = System.Drawing.Color.CadetBlue;
+            this.cmDrivers.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmDrivers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmDriverShowPersonInfo,
+            this.cmDriverIssueInternationalLicense,
+            this.cmDriverShowPersonLicenseHistory});
+            this.cmDrivers.Name = "cmTable";
+            this.cmDrivers.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.cmDrivers.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.cmDrivers.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.cmDrivers.RenderStyle.ColorTable = null;
+            this.cmDrivers.RenderStyle.RoundedEdges = true;
+            this.cmDrivers.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.cmDrivers.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.cmDrivers.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cmDrivers.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.cmDrivers.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.cmDrivers.Size = new System.Drawing.Size(227, 70);
+            // 
+            // cmDriverShowPersonInfo
+            // 
+            this.cmDriverShowPersonInfo.Image = ((System.Drawing.Image)(resources.GetObject("cmDriverShowPersonInfo.Image")));
+            this.cmDriverShowPersonInfo.Name = "cmDriverShowPersonInfo";
+            this.cmDriverShowPersonInfo.Size = new System.Drawing.Size(226, 22);
+            this.cmDriverShowPersonInfo.Text = "Show Person Details";
+            this.cmDriverShowPersonInfo.Click += new System.EventHandler(this.cmDriverShowPersonDetails_Click);
+            // 
+            // cmDriverIssueInternationalLicense
+            // 
+            this.cmDriverIssueInternationalLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmDriverIssueInternationalLicense.Image")));
+            this.cmDriverIssueInternationalLicense.Name = "cmDriverIssueInternationalLicense";
+            this.cmDriverIssueInternationalLicense.Size = new System.Drawing.Size(226, 22);
+            this.cmDriverIssueInternationalLicense.Text = "Issue International License";
+            this.cmDriverIssueInternationalLicense.Click += new System.EventHandler(this.cmDriverIssueInternationalLicense_Click);
+            // 
+            // cmDriverShowPersonLicenseHistory
+            // 
+            this.cmDriverShowPersonLicenseHistory.Image = ((System.Drawing.Image)(resources.GetObject("cmDriverShowPersonLicenseHistory.Image")));
+            this.cmDriverShowPersonLicenseHistory.Name = "cmDriverShowPersonLicenseHistory";
+            this.cmDriverShowPersonLicenseHistory.Size = new System.Drawing.Size(226, 22);
+            this.cmDriverShowPersonLicenseHistory.Text = "Show Person License History";
+            this.cmDriverShowPersonLicenseHistory.Click += new System.EventHandler(this.cmDriverShowPersonLicenseHistory_Click);
+            // 
             // ucEntityFilter1
             // 
             this.ucEntityFilter1.BackColor = System.Drawing.Color.Transparent;
@@ -512,6 +668,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.btnRelease);
+            this.Controls.Add(this.btnDetain);
             this.Controls.Add(this.guna2ContainerControl1);
             this.Controls.Add(this.pcFilter);
             this.Controls.Add(this.btnAdd);
@@ -529,7 +687,9 @@
             this.guna2ContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVLD_Table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ucManagePicture)).EndInit();
+            this.cmDetainLicense.ResumeLayout(false);
             this.cmInernationApplications.ResumeLayout(false);
+            this.cmDrivers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -550,7 +710,7 @@
         private System.Windows.Forms.ToolStripMenuItem cmCall;
         private Guna.UI2.WinForms.Guna2ImageButton btnAdd;
         private Guna.UI2.WinForms.Guna2Panel pcFilter;
-        private Main.Managers.ucEntityFilter ucEntityFilter1;
+        private ucEntityFilter ucEntityFilter1;
         private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
         private Guna.UI2.WinForms.Guna2ContextMenuStrip cmDLApplications;
         private System.Windows.Forms.ToolStripMenuItem cmAppDetails;
@@ -570,9 +730,21 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmInernationApplications;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainShowPersonDetails;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainShowLicenseDetails;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainShowPersonLicenseHistory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem cmDetainReleaseLicense;
+        private Guna.UI2.WinForms.Guna2ImageButton btnRelease;
+        private Guna.UI2.WinForms.Guna2ImageButton btnDetain;
         private System.Windows.Forms.ToolStripMenuItem cmPersonDetails;
         private System.Windows.Forms.ToolStripMenuItem cmLicenseDetails;
         private System.Windows.Forms.ToolStripMenuItem cmPersonLicenseHistory;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmInernationApplications;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip cmDrivers;
+        private System.Windows.Forms.ToolStripMenuItem cmDriverShowPersonInfo;
+        private System.Windows.Forms.ToolStripMenuItem cmDriverIssueInternationalLicense;
+        private System.Windows.Forms.ToolStripMenuItem cmDriverShowPersonLicenseHistory;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using DVLD_BusinessAccess;
-using DVLD_PresentationAccess.Main.Applications.Licinse;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Managers
+namespace DVLD_PresentationAccess
 {
     public partial class ucEntityManager : UserControl
     {
@@ -66,6 +65,14 @@ namespace DVLD_PresentationAccess.Managers
                 cmDLApplications.Opening -= cmDLApplications_Opening;
                 cmDLApplications.Opening += cmDLApplications_Opening;
             }
+
+            if (_manage == ManageType.DetainLicenses && cmDetainLicense != null)
+            {
+                cmDetainLicense.Opening -= cmDetainLicense_Opening;
+                cmDetainLicense.Opening += cmDetainLicense_Opening;
+
+
+            }
         }
 
         private void ApplyUI()
@@ -85,7 +92,7 @@ namespace DVLD_PresentationAccess.Managers
                 case ManageType.Drivers:
                     ucManageTitle.Text = "Manage Drivers";
                     ucManagePicture.Image = Properties.Resources.Drivers;
-                    ContextMenuItems(true, true, true, true, true);
+                    dgvDVLD_Table.ContextMenuStrip = cmDrivers;
                     break;
                 case ManageType.ApplicationTypes:
                     ucManageTitle.Text = "Manage Application Types";
@@ -110,7 +117,10 @@ namespace DVLD_PresentationAccess.Managers
                 case ManageType.DetainLicenses:
                     ucManageTitle.Text = "Manage Detain Licenses";
                     ucManagePicture.Image = Properties.Resources.DetainLicense;
-                    ContextMenuItems(false, false, true, false, false);
+                    dgvDVLD_Table.ContextMenuStrip = cmDetainLicense;
+                    btnDetain.Visible = true;
+                    btnRelease.Visible = true;
+                    btnAdd.Visible = false;
                     break;
             }
         }
@@ -280,7 +290,7 @@ namespace DVLD_PresentationAccess.Managers
         private void cm_Edit_Click(object sender, EventArgs e) => EditRequested?.Invoke(GetSelectedRow());
         private void cm_Delete_Click(object sender, EventArgs e) => DeleteRequested?.Invoke(GetSelectedRow());
 
-        // ---------------- Local DL specific ----------------
+        // ---------------- Local DL context menu handlers ----------------
         private void cmCancelApplication_Click(object sender, EventArgs e)
         {
             var row = GetSelectedRow();
@@ -330,8 +340,7 @@ namespace DVLD_PresentationAccess.Managers
                 _eventsManager.HandleShowPersonLicenseHistory(this, row);
         }
 
-        // ---------------- International DL specific ----------------
-
+        // ---------------- International DL context menu handlers ----------------
         private void cmPersonDetails_Click(object sender, EventArgs e)
         {
             var row = GetSelectedRow();
@@ -353,6 +362,77 @@ namespace DVLD_PresentationAccess.Managers
                 _eventsManager.HandleInterShowPersonLicenseHistory(this, row);
         }
 
+        // ---------------- Detain Licenses: toolbar buttons ----------------
+        private void btnRelease_Click(object sender, EventArgs e)
+        {
+            _eventsManager.HandleOpenReleaseForm(this, null);   
+        }
+
+        private void btnDetain_Click(object sender, EventArgs e)
+        {
+            _eventsManager.HandleOpenDetainForm(this);
+        }
+
+        // ---------------- Detain Licenses: context menu handlers ----------------
+        private void cmDetainReleaseLicense_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleOpenReleaseForm(this, row);
+        }
+
+        private void cmDetainShowLicenseDetails_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDetainShowLicenseDetails(this, row);
+        }
+
+        private void cmDetainShowPersonDetails_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDetainShowPersonDetails(this, row);
+        }
+
+        private void cmDetainShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDetainShowPersonLicenseHistory(this, row);
+        }
+        private void cmDetainLicense_Opening(object sender, CancelEventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row == null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            cmDetainReleaseLicense.Enabled = _eventsManager.CanReleaseDetainedLicense(row);
+        }
+        // ---------------- Drivers context menu handlers ----------------
+        private void cmDriverShowPersonDetails_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDriverShowPersonDetails(this, row);
+        }
+
+        private void cmDriverIssueInternationalLicense_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDriverIssueInternationalLicense(this, row);
+        }
+
+        private void cmDriverShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            var row = GetSelectedRow();
+            if (row != null)
+                _eventsManager.HandleDriverShowPersonLicenseHistory(this, row);
+        }
      
     }
 }

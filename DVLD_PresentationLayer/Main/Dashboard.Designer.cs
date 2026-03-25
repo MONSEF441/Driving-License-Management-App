@@ -46,10 +46,11 @@
             this.cmNewDL = new System.Windows.Forms.ToolStripMenuItem();
             this.cmNewLocalLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.cmNewInterLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmRenewDL = new System.Windows.Forms.ToolStripMenuItem();
             this.cmReplacementDL = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmReleaseDetainedDL = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmRetakeTest = new System.Windows.Forms.ToolStripMenuItem();
             this.cmManageApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.cmLocalDLApplications = new System.Windows.Forms.ToolStripMenuItem();
             this.cmIntDLApplications = new System.Windows.Forms.ToolStripMenuItem();
@@ -354,10 +355,11 @@
             // 
             this.cmDLServices.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmNewDL,
+            this.toolStripSeparator1,
             this.cmRenewDL,
             this.cmReplacementDL,
-            this.cmReleaseDetainedDL,
-            this.cmRetakeTest});
+            this.toolStripSeparator2,
+            this.cmReleaseDetainedDL});
             this.cmDLServices.Image = ((System.Drawing.Image)(resources.GetObject("cmDLServices.Image")));
             this.cmDLServices.Name = "cmDLServices";
             this.cmDLServices.Size = new System.Drawing.Size(223, 26);
@@ -370,7 +372,7 @@
             this.cmNewInterLicense});
             this.cmNewDL.Image = ((System.Drawing.Image)(resources.GetObject("cmNewDL.Image")));
             this.cmNewDL.Name = "cmNewDL";
-            this.cmNewDL.Size = new System.Drawing.Size(309, 26);
+            this.cmNewDL.Size = new System.Drawing.Size(305, 22);
             this.cmNewDL.Text = "New Driving License ";
             // 
             // cmNewLocalLicense
@@ -389,11 +391,16 @@
             this.cmNewInterLicense.Text = "International License";
             this.cmNewInterLicense.Click += new System.EventHandler(this.cmNewInterLicense_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(302, 6);
+            // 
             // cmRenewDL
             // 
             this.cmRenewDL.Image = ((System.Drawing.Image)(resources.GetObject("cmRenewDL.Image")));
             this.cmRenewDL.Name = "cmRenewDL";
-            this.cmRenewDL.Size = new System.Drawing.Size(309, 26);
+            this.cmRenewDL.Size = new System.Drawing.Size(305, 22);
             this.cmRenewDL.Text = "Renew Driving License";
             this.cmRenewDL.Click += new System.EventHandler(this.cmRenewDL_Click);
             // 
@@ -401,22 +408,21 @@
             // 
             this.cmReplacementDL.Image = ((System.Drawing.Image)(resources.GetObject("cmReplacementDL.Image")));
             this.cmReplacementDL.Name = "cmReplacementDL";
-            this.cmReplacementDL.Size = new System.Drawing.Size(309, 26);
+            this.cmReplacementDL.Size = new System.Drawing.Size(305, 22);
             this.cmReplacementDL.Text = "Replacement for Lost or Damaged License   ";
+            this.cmReplacementDL.Click += new System.EventHandler(this.cmReplacementDL_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(302, 6);
             // 
             // cmReleaseDetainedDL
             // 
             this.cmReleaseDetainedDL.Image = ((System.Drawing.Image)(resources.GetObject("cmReleaseDetainedDL.Image")));
             this.cmReleaseDetainedDL.Name = "cmReleaseDetainedDL";
-            this.cmReleaseDetainedDL.Size = new System.Drawing.Size(309, 26);
+            this.cmReleaseDetainedDL.Size = new System.Drawing.Size(305, 22);
             this.cmReleaseDetainedDL.Text = "Release Detained Driving License";
-            // 
-            // cmRetakeTest
-            // 
-            this.cmRetakeTest.Image = ((System.Drawing.Image)(resources.GetObject("cmRetakeTest.Image")));
-            this.cmRetakeTest.Name = "cmRetakeTest";
-            this.cmRetakeTest.Size = new System.Drawing.Size(309, 26);
-            this.cmRetakeTest.Text = "Retake Test";
             // 
             // cmManageApplications
             // 
@@ -432,7 +438,7 @@
             // 
             this.cmLocalDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmLocalDLApplications.Image")));
             this.cmLocalDLApplications.Name = "cmLocalDLApplications";
-            this.cmLocalDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmLocalDLApplications.Size = new System.Drawing.Size(293, 22);
             this.cmLocalDLApplications.Text = "Local Driving License Applications";
             this.cmLocalDLApplications.Click += new System.EventHandler(this.btncmManage_Local_DLApplications_Click);
             // 
@@ -440,7 +446,7 @@
             // 
             this.cmIntDLApplications.Image = ((System.Drawing.Image)(resources.GetObject("cmIntDLApplications.Image")));
             this.cmIntDLApplications.Name = "cmIntDLApplications";
-            this.cmIntDLApplications.Size = new System.Drawing.Size(297, 26);
+            this.cmIntDLApplications.Size = new System.Drawing.Size(293, 22);
             this.cmIntDLApplications.Text = "International Driving License Applications";
             this.cmIntDLApplications.Click += new System.EventHandler(this.btncmManage_Inter_DLApplications_Click);
             // 
@@ -459,7 +465,7 @@
             // 
             this.cmManageDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmManageDetainedLicenses.Image")));
             this.cmManageDetainedLicenses.Name = "cmManageDetainedLicenses";
-            this.cmManageDetainedLicenses.Size = new System.Drawing.Size(214, 22);
+            this.cmManageDetainedLicenses.Size = new System.Drawing.Size(218, 26);
             this.cmManageDetainedLicenses.Text = "Manage Detained Licenses";
             this.cmManageDetainedLicenses.Click += new System.EventHandler(this.btncmManage_DetainLicenses_Click);
             // 
@@ -467,15 +473,17 @@
             // 
             this.cmDetainLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainLicense.Image")));
             this.cmDetainLicense.Name = "cmDetainLicense";
-            this.cmDetainLicense.Size = new System.Drawing.Size(214, 22);
+            this.cmDetainLicense.Size = new System.Drawing.Size(218, 26);
             this.cmDetainLicense.Text = "Detain License ";
+            this.cmDetainLicense.Click += new System.EventHandler(this.cmDetainLicense_Click);
             // 
             // cmReleaseDetainedLicense
             // 
             this.cmReleaseDetainedLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmReleaseDetainedLicense.Image")));
             this.cmReleaseDetainedLicense.Name = "cmReleaseDetainedLicense";
-            this.cmReleaseDetainedLicense.Size = new System.Drawing.Size(214, 22);
+            this.cmReleaseDetainedLicense.Size = new System.Drawing.Size(218, 26);
             this.cmReleaseDetainedLicense.Text = "Release Detained License";
+            this.cmReleaseDetainedLicense.Click += new System.EventHandler(this.cmReleaseDetainedLicense_Click);
             // 
             // cmApplicationsTypes
             // 
@@ -577,7 +585,6 @@
         private System.Windows.Forms.ToolStripMenuItem cmRenewDL;
         private System.Windows.Forms.ToolStripMenuItem cmReplacementDL;
         private System.Windows.Forms.ToolStripMenuItem cmReleaseDetainedDL;
-        private System.Windows.Forms.ToolStripMenuItem cmRetakeTest;
         private System.Windows.Forms.ToolStripMenuItem cmApplicationsTypes;
         private System.Windows.Forms.ToolStripMenuItem cmTestTypes;
         private System.Windows.Forms.ToolStripMenuItem cmLocalDLApplications;
@@ -589,5 +596,7 @@
         private Guna.UI2.WinForms.Guna2GradientButton btnToggleMenu;
         private System.Windows.Forms.ToolStripMenuItem btncmSignOut;
         private Guna.UI2.WinForms.Guna2TileButton btnBack;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.International_License
+namespace DVLD_PresentationAccess
 {
     public partial class ucInternationalApplicationInfo : UserControl
     {

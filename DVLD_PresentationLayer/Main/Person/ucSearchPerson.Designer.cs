@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Users
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucSearchPerson
     {
@@ -34,7 +34,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ucPersonCard = new DVLD_PresentationAccess.ucPersonCard();
-            this.ucEntityFilter = new DVLD_PresentationAccess.Main.Managers.ucEntityFilter();
+            this.ucEntityFilter = new DVLD_PresentationAccess.ucEntityFilter();
             this.SuspendLayout();
             // 
             // btnSearch
@@ -143,6 +143,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private ucPersonCard ucPersonCard;
-        private Managers.ucEntityFilter ucEntityFilter;
+        private ucEntityFilter ucEntityFilter;
     }
 }

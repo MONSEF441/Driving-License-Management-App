@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Editors
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucUserCard
     {

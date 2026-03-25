@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.License
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmRenewLocalDL
     {
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ucSearchLicense1 = new DVLD_PresentationAccess.Main.Applications.International_License.ucSearchLicense();
+            this.ucSearchLicense1 = new DVLD_PresentationAccess.ucSearchLicense();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.btnRenew = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.label3 = new System.Windows.Forms.Label();
             this.lblShowNewLicenseInfo = new System.Windows.Forms.LinkLabel();
-            this.ucRenewLocalDL1 = new DVLD_PresentationAccess.Main.Applications.License.ucRenewLocalDL();
+            this.ucRenewLocalDL1 = new DVLD_PresentationAccess.ucRenewLocalDL();
             this.SuspendLayout();
             // 
             // ucSearchLicense1
@@ -172,7 +172,7 @@
 
         #endregion
 
-        private International_License.ucSearchLicense ucSearchLicense1;
+        private ucSearchLicense ucSearchLicense1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.LinkLabel lblShowLicenseHistory;
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnRenew;

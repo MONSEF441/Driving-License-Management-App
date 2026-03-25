@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.License
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmShowInternationalLicense
     {
@@ -33,7 +33,7 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.ucInternationalLicenseInfo1 = new DVLD_PresentationAccess.Main.Applications.License.ucInternationalLicenseInfo();
+            this.ucInternationalLicenseInfo1 = new DVLD_PresentationAccess.ucInternationalLicenseInfo();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 

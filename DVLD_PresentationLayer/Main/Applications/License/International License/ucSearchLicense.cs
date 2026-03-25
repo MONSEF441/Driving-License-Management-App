@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.International_License
+namespace DVLD_PresentationAccess
 {
     public partial class ucSearchLicense : UserControl
     {
@@ -12,6 +12,26 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
         {
             InitializeComponent();
             tbLicenseID.KeyPress += tbLicenseID_KeyPress;
+        }
+
+        public void LoadAndLockLicense(int licenseId)
+        {
+            if (licenseId <= 0)
+                return;
+
+            tbLicenseID.Text = licenseId.ToString();
+
+            if (SearchAndLoadLicense(licenseId, true))
+            {
+                tbLicenseID.Enabled = false;
+                btnSearch.Enabled = false;
+            }
+        }
+
+        public void UnlockSearch()
+        {
+            tbLicenseID.Enabled = true;
+            btnSearch.Enabled = true;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -24,15 +44,23 @@ namespace DVLD_PresentationAccess.Main.Applications.International_License
                 return;
             }
 
+            SearchAndLoadLicense(licenseId, true);
+        }
+
+        private bool SearchAndLoadLicense(int licenseId, bool showMessages)
+        {
             clsLicense license = clsLicense.Find(licenseId);
             if (license == null)
             {
-                MessageBox.Show("License not found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                if (showMessages)
+                    MessageBox.Show("License not found.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return false;
             }
 
             ucLicenseInfo1.LoadProfile(licenseId);
             LicenseSearched?.Invoke(licenseId);
+            return true;
         }
 
         private void tbLicenseID_KeyPress(object sender, KeyPressEventArgs e)

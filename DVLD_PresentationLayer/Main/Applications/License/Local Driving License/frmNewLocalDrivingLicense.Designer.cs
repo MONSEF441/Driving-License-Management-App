@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmNewLocalDrivingLicense
     {
@@ -34,7 +34,7 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.panelPersonSearch = new Guna.UI2.WinForms.Guna2Panel();
             this.btnNext = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.ucSearchPerson1 = new DVLD_PresentationAccess.Main.Users.ucSearchPerson();
+            this.ucSearchPerson1 = new DVLD_PresentationAccess.ucSearchPerson();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -340,7 +340,7 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnSave;
         private Guna.UI2.WinForms.Guna2Panel panelPersonSearch;
         private Guna.UI2.WinForms.Guna2GradientButton btnNext;
-        private Users.ucSearchPerson ucSearchPerson1;
+        private ucSearchPerson ucSearchPerson1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

@@ -1,9 +1,4 @@
 ﻿using DVLD_BusinessAccess;
-using DVLD_PresentationAccess.Forms;
-using DVLD_PresentationAccess.Main.Applications;
-using DVLD_PresentationAccess.Main.Applications.International_License;
-using DVLD_PresentationAccess.Main.Users;
-using DVLD_PresentationAccess.Managers;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -281,7 +276,28 @@ namespace DVLD_PresentationAccess
 
         private void cmRenewDL_Click(object sender, EventArgs e)
         {
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmRenewLocalDL();
+            using var frm = new DVLD_PresentationAccess.frmRenewLocalDL();
+
+            frm.ShowDialog();
+        }
+
+        private void cmReplacementDL_Click(object sender, EventArgs e)
+        {
+            using var frm = new DVLD_PresentationAccess.frmReplaceLocalDL();
+
+            frm.ShowDialog();
+        }
+
+        private void cmDetainLicense_Click(object sender, EventArgs e)
+        {
+            using var frm = new DVLD_PresentationAccess.frmDetainLicense();
+
+            frm.ShowDialog();
+        }
+
+        private void cmReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            using var frm = new DVLD_PresentationAccess.frmReleaseLicense();
 
             frm.ShowDialog();
         }

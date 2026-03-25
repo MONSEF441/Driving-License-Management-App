@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Users
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmUserEdit
     {
@@ -46,7 +46,7 @@
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnBack = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.ucSearchPerson1 = new DVLD_PresentationAccess.Main.Users.ucSearchPerson();
+            this.ucSearchPerson1 = new DVLD_PresentationAccess.ucSearchPerson();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panelPersonSearch.SuspendLayout();
             this.panelUserDetails.SuspendLayout();

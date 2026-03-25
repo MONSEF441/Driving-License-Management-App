@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.License
+namespace DVLD_PresentationAccess
 {
     public partial class ucLicenseInfo : UserControl
     {
@@ -42,7 +42,7 @@ namespace DVLD_PresentationAccess.Main.Applications.License
             lblGender.Text =person.Gender ? "Male" : "Female" ;      
             lblLicenseID.Text = license.LicenseID.ToString();                                     
             lblDriverID.Text = license.DriverID.ToString();                             
-            lblIssueReason.Text = "First Time Issue";                                     
+            lblIssueReason.Text = license.GetIssueReasonText();
             lblNotes.Text = string.IsNullOrWhiteSpace(license.Notes) ? "N/A" : license.Notes; 
 
             

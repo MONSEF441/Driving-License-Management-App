@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Forms
+﻿namespace DVLD_PresentationAccess
 {
     partial class frmUserInfo
     {
@@ -31,7 +31,7 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ucProfile1 = new DVLD_PresentationAccess.Main.Users.ucProfile();
+            this.ucProfile1 = new DVLD_PresentationAccess.ucProfile();
             this.SuspendLayout();
             // 
             // btnClose
@@ -110,6 +110,6 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton btnClose;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label1;
-        private Main.Users.ucProfile ucProfile1;
+        private ucProfile ucProfile1;
     }
 }

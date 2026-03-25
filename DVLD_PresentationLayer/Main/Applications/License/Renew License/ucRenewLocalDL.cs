@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.License
+namespace DVLD_PresentationAccess
 {
     public partial class ucRenewLocalDL : UserControl
     {
@@ -13,15 +13,15 @@ namespace DVLD_PresentationAccess.Main.Applications.License
 
         public string RenewalNotes => tbNotes.Text.Trim();
 
-        public void LoadData(clsLicense oldLicense)
+        public void LoadData(clsLicense oldLicense, int renewApplicationTypeID)
         {
             if (oldLicense == null)
                 return;
 
-            clsApplication oldApplication = clsApplication.Find(oldLicense.ApplicationID);
             clsLicenseClass licenseClass = clsLicenseClass.Find(oldLicense.LicenseClassID);
+            clsApplicationType renewAppType = clsApplicationType.Find(renewApplicationTypeID);
 
-            decimal appFees = (oldApplication != null ? clsApplicationType.Find(oldApplication.ApplicationTypeID) : null)?.ApplicationTypeFees ?? 0m;
+            decimal appFees = renewAppType?.ApplicationTypeFees ?? 0m;
             decimal licenseFees = licenseClass?.ClassFees ?? 0m;
 
             lblRenewLApplicationID.Text = "N/A";

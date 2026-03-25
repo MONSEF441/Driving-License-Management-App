@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Main.Applications.License
+namespace DVLD_PresentationAccess
 {
     public partial class frmRenewLocalDL : Form
     {
@@ -10,7 +10,10 @@ namespace DVLD_PresentationAccess.Main.Applications.License
         private int _selectedPersonId = -1;
         private int _newLicenseId = -1;
 
+
         private event Action RenewAttemptFinished;
+
+        private const int RenewLocalLicenseApplicationTypeID = 2;
 
         public frmRenewLocalDL()
         {
@@ -41,7 +44,7 @@ namespace DVLD_PresentationAccess.Main.Applications.License
             clsDriver driver = clsDriver.Find(oldLicense.DriverID);
             _selectedPersonId = driver?.PersonID ?? -1;
 
-            ucRenewLocalDL1.LoadData(oldLicense);
+            ucRenewLocalDL1.LoadData(oldLicense, RenewLocalLicenseApplicationTypeID);
 
             if (!oldLicense.CanBeRenewed(out string reason))
             {
@@ -120,13 +123,10 @@ namespace DVLD_PresentationAccess.Main.Applications.License
             if (driver == null)
                 return Fail("Driver not found.", "Error");
 
-            clsApplication oldApplication = clsApplication.Find(oldLicense.ApplicationID);
-            appType = oldApplication != null
-                ? clsApplicationType.Find(oldApplication.ApplicationTypeID)
-                : null;
-
+            // Always use Renew Local License application type.
+            appType = clsApplicationType.Find(RenewLocalLicenseApplicationTypeID);
             if (appType == null)
-                return Fail("Application type was not found for the selected license.", "Error");
+                return Fail("Renew application type was not found.", "Error");
 
             licenseClass = clsLicenseClass.Find(oldLicense.LicenseClassID);
             if (licenseClass == null)
@@ -173,7 +173,7 @@ namespace DVLD_PresentationAccess.Main.Applications.License
                 ExpirationDate = DateTime.Now.AddYears(10),
                 Notes = ucRenewLocalDL1.RenewalNotes,
                 IsActive = true,
-                IssueReason = 2, // Renew
+                IssueReason = (int)clsLicense.enIssueReason.Renew,
                 PaidFees = licenseClass.ClassFees,
                 CreatedByUserID = Session.CurrentUser.UserID
             };

@@ -1,14 +1,11 @@
 ﻿using DVLD_BusinessAccess;
-using DVLD_PresentationAccess.Forms;
-using DVLD_PresentationAccess.Main.Applications;
-using DVLD_PresentationAccess.Main.Applications.Licinse;
-using DVLD_PresentationAccess.Main.Users;
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_PresentationAccess.Managers
+namespace DVLD_PresentationAccess
 {
     public class clsEventsManager
     {
@@ -426,7 +423,7 @@ namespace DVLD_PresentationAccess.Managers
 
             int appID = localApp.ApplicationID;
 
-            using var frm = new frmIssueDL(localDLID, appID);
+            using var frm = new DVLD_PresentationAccess.frmIssueDL(localDLID, appID);
             frm.ShowDialog();
 
             // Refresh the table after closing the form
@@ -454,7 +451,7 @@ namespace DVLD_PresentationAccess.Managers
                 return;
             }
 
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowLocalLicense(license.LicenseID);
+            using var frm = new DVLD_PresentationAccess.frmShowLocalLicense(license.LicenseID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();
@@ -482,7 +479,7 @@ namespace DVLD_PresentationAccess.Managers
 
             int personID = application.ApplicationPersonID;
 
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmLicenseHistory(personID);
+            using var frm = new DVLD_PresentationAccess.frmLicenseHistory(personID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();
@@ -533,7 +530,7 @@ namespace DVLD_PresentationAccess.Managers
                 return;
             }
 
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmShowInternationalLicense(internationalLicenseID);
+            using var frm = new DVLD_PresentationAccess.frmShowInternationalLicense(internationalLicenseID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();
@@ -552,10 +549,255 @@ namespace DVLD_PresentationAccess.Managers
                 return;
             }
 
-            using var frm = new DVLD_PresentationAccess.Main.Applications.License.frmLicenseHistory(driver.PersonID);
+            using var frm = new DVLD_PresentationAccess.frmLicenseHistory(driver.PersonID);
             frm.ShowDialog();
 
             _ = manager.RefreshDataAsync();
+        }
+        
+        // ---------------- Detain Licenses: open forms ----------------
+        public void HandleOpenDetainForm(ucEntityManager manager)
+        {
+            using var frm = new DVLD_PresentationAccess.frmDetainLicense();
+            frm.ShowDialog();
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleOpenReleaseForm(ucEntityManager manager, DataRow row)
+        {
+            if (row == null)
+            {
+                using var frm1 = new DVLD_PresentationAccess.frmReleaseLicense();
+                frm1.ShowDialog();
+                _ = manager.RefreshDataAsync();
+                return;
+            }
+
+            if (!CanReleaseDetainedLicense(row))
+            {
+                MessageBox.Show("This detained license is already released.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int licenseID = GetFirstIntColumnValue(row, "LicenseID", "LocalLicenseID", "L.LicenseID");
+            if (licenseID <= 0)
+            {
+                MessageBox.Show("License ID not found for selected row.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.frmReleaseLicense(licenseID);
+            frm.ShowDialog();
+            _ = manager.RefreshDataAsync();
+        }
+
+        // ---------------- Detain Licenses: context menu actions ----------------
+        public void HandleDetainShowLicenseDetails(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int licenseID = GetFirstIntColumnValue(row, "LicenseID", "LocalLicenseID", "L.LicenseID");
+            if (licenseID <= 0)
+            {
+                MessageBox.Show("License ID not found for selected row.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.frmShowLocalLicense(licenseID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleDetainShowPersonDetails(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            if (!TryGetPersonFromDetainRow(row, out clsPerson person))
+            {
+                MessageBox.Show("Person details were not found for selected row.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new frmPersonHost(frmPersonHost.EditorMode.Show, person);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleDetainShowPersonLicenseHistory(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            if (!TryGetPersonFromDetainRow(row, out clsPerson person))
+            {
+                MessageBox.Show("Person was not found for selected row.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var frm = new DVLD_PresentationAccess.frmLicenseHistory(person.PersonID);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        // ---------------- Detain Licenses: helper methods ----------------
+        private bool TryGetPersonFromDetainRow(DataRow row, out clsPerson person)
+        {
+            person = null;
+
+            int licenseID = GetFirstIntColumnValue(row, "LicenseID", "LocalLicenseID", "L.LicenseID");
+            if (licenseID <= 0)
+                return false;
+
+            clsLicense license = clsLicense.Find(licenseID);
+            if (license == null)
+                return false;
+
+            clsDriver driver = clsDriver.Find(license.DriverID);
+            if (driver == null)
+                return false;
+
+            person = clsPerson.Find(driver.PersonID);
+            return person != null;
+        }
+
+        private int GetFirstIntColumnValue(DataRow row, params string[] columnNames)
+        {
+            foreach (string col in columnNames)
+            {
+                if (row.Table.Columns.Contains(col) && row[col] != DBNull.Value)
+                    return Convert.ToInt32(row[col]);
+            }
+
+            return -1;
+        }
+
+        private bool GetFirstBoolColumnValue(DataRow row, params string[] columnNames)
+        {
+            foreach (string col in columnNames)
+            {
+                if (!row.Table.Columns.Contains(col) || row[col] == DBNull.Value)
+                    continue;
+
+                object value = row[col];
+
+                if (value is bool boolValue)
+                    return boolValue;
+
+                if (bool.TryParse(value.ToString(), out bool parsedBool))
+                    return parsedBool;
+
+                if (int.TryParse(value.ToString(), out int parsedInt))
+                    return parsedInt != 0;
+            }
+
+            return false;
+        }
+
+        public bool CanReleaseDetainedLicense(DataRow row)
+        {
+            if (row == null)
+                return false;
+
+            bool isReleased = GetFirstBoolColumnValue(row, "IsReleased", "isReleased", "Released");
+            return !isReleased;
+        }
+
+        // ---------------- Drivers Extra ----------------
+        public void HandleDriverShowPersonDetails(ucEntityManager manager, DataRow row)
+        {
+            HandleInterShowPersonDetails(manager, row);
+        }
+
+        public void HandleDriverIssueInternationalLicense(ucEntityManager manager, DataRow row)
+        {
+            if (row == null) return;
+
+            int driverID = Convert.ToInt32(row["DriverID"]);
+            var driver = clsDriver.Find(driverID);
+
+            if (driver == null)
+            {
+                MessageBox.Show("Driver not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var activeInternational = clsInternationalLicense.FindActiveByDriverID(driverID);
+            if (activeInternational != null)
+            {
+                MessageBox.Show(
+                    $"This driver already has an active international license (ID = {activeInternational.InternationalLicenseID}).",
+                    "Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            int activeLocalLicenseId = GetActiveLocalLicenseIdForDriver(driverID);
+            if (activeLocalLicenseId <= 0)
+            {
+                MessageBox.Show(
+                    "This driver does not have an active local license.\nCannot issue international license.",
+                    "Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            using var frm = new frmNewInternationalLicense(activeLocalLicenseId, true);
+            frm.ShowDialog();
+
+            _ = manager.RefreshDataAsync();
+        }
+
+        public void HandleDriverShowPersonLicenseHistory(ucEntityManager manager, DataRow row)
+        {
+            HandleInterShowPersonLicenseHistory(manager, row);
+        }
+
+        private int GetActiveLocalLicenseIdForDriver(int driverID)
+        {
+            DataTable dt = clsLicense.GetAllLicenses();
+            if (dt == null || dt.Rows.Count == 0)
+                return -1;
+
+            int selectedLicenseId = -1;
+            DateTime latestIssueDate = DateTime.MinValue;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int rowDriverId = GetFirstIntColumnValue(row, "DriverID");
+                if (rowDriverId != driverID)
+                    continue;
+
+                bool isActive = GetFirstBoolColumnValue(row, "IsActive", "isActive", "Active");
+                if (!isActive)
+                    continue;
+
+                if (row.Table.Columns.Contains("ExpirationDate") && row["ExpirationDate"] != DBNull.Value)
+                {
+                    DateTime exp = Convert.ToDateTime(row["ExpirationDate"]);
+                    if (exp.Date < DateTime.Now.Date)
+                        continue;
+                }
+
+                int licenseId = GetFirstIntColumnValue(row, "LicenseID", "LocalLicenseID", "L.LicenseID");
+                if (licenseId <= 0)
+                    continue;
+
+                DateTime issueDate = DateTime.MinValue;
+                if (row.Table.Columns.Contains("IssueDate") && row["IssueDate"] != DBNull.Value)
+                    issueDate = Convert.ToDateTime(row["IssueDate"]);
+
+                if (issueDate >= latestIssueDate)
+                {
+                    latestIssueDate = issueDate;
+                    selectedLicenseId = licenseId;
+                }
+            }
+
+            return selectedLicenseId;
         }
     }
 }

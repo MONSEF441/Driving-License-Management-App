@@ -1,4 +1,4 @@
-﻿namespace DVLD_PresentationAccess.Main.Applications.License
+﻿namespace DVLD_PresentationAccess
 {
     partial class ucLicenseInfo
     {

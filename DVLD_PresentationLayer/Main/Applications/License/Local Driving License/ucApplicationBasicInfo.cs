@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace DVLD_PresentationAccess.Main.Applications
+namespace DVLD_PresentationAccess
 {
     public partial class ucApplicationBasicInfo : UserControl
     {
