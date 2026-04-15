@@ -1,75 +1,89 @@
-🚗 Driving License Management System (DVLD)
-📌 Summary
 
-The Driving License Management System (DVLD) is a desktop application developed as part of my software engineering studies at FST Tangier (MIP).
 
-The system simulates the workflow of a driving license department by managing license applications, driver records, testing procedures, and license issuance.
+# <p align="center">🚗 Driving License Management System (DVLD)</p>
 
-This project focuses on applying Object-Oriented Programming (OOP) principles and implementing a structured 3-Tier Architecture to separate the user interface, business logic, and data access layers.
+---
 
-The objective of the project was to translate real-world administrative workflows into a structured software system using C#, WinForms, and SQL Server.
+### 📌 **Summary**
 
-🏗 System Architecture
+The **Driving License Management System (DVLD)** is a desktop application designed to digitize and automate the operations of a motor vehicle department. Developed during my software engineering studies at **FST Tangier (MIP)**, this project demonstrates a solid application of **Object-Oriented Programming (OOP)** and the implementation of a structured **3-Tier Architecture**.
 
-The application follows a 3-Tier Architecture to ensure clear separation between UI, business logic, and database access.
+The system models real-world administrative workflows by transforming driving license procedures into automated and organized software processes.
 
-Layer	Technology Stack	Responsibility
-Presentation Layer	C# WinForms	Implements the user interface and interaction logic using reusable user controls and forms
-Business Logic Layer	C# Class Library	Contains the domain entities, validation rules, and workflow logic
-Data Access Layer	ADO.NET + SQL Server	Handles database communication using stored procedures and parameterized queries
+---
 
-This structure improves maintainability, scalability, and separation of concerns.
+### 🏗 **System Architecture**
 
-🛠 Core Features
-Identity Management
-Management of People, Users, and Drivers
-Authentication system for application access
-Relational database structure with referential integrity
-License Application Workflow
-Create and manage driving license applications
-Sequential testing process:
+The application follows a strict **Separation of Concerns (SoC)**, isolating the user interface from business logic and data access layers to improve maintainability and scalability.
+
+| Layer                    | Technology Stack         | Engineering Focus                                                                                                              |
+| ------------------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Presentation (UI)**    | **C# WinForms**          | Modular user interface using reusable **User Controls** and structured forms to reduce duplication and improve maintainability |
+| **Business Logic (BLL)** | **C# Class Library**     | Encapsulates domain logic, validation rules, and workflow management                                                           |
+| **Data Access (DAL)**    | **ADO.NET + SQL Server** | Handles database interaction through parameterized queries and stored procedures                                               |
+
+---
+
+### 🛠 **Core Features**
+
+#### 🔒 **Identity Management**
+
+* **Relational Database Design**: Centralized management of **People**, **Users**, and **Drivers** with referential integrity.
+* **Authentication System**: Validates users and manages application access.
+
+#### ⚙️ **License Workflow Management**
+
+* **Sequential Testing Process**: The system enforces the required testing order:
+
+```
 Vision Test → Written Test → Practical Driving Test
-License issuance after successful completion of all tests
-License Services
-New license issuance
-License renewal
-Replacement for damaged or lost licenses
-International driving license issuance
-License Detainment
-Record license detainment cases
-Manage release procedures and related records
-💻 Skills Demonstrated
+```
 
-Languages & Frameworks
+* **Application Management**: Create and track driving license applications linked to individuals.
 
-C#
-.NET Framework
-WinForms
+#### 🪪 **License Services**
 
-Database & Data Access
+* New license issuance
+* License renewal
+* Replacement for lost or damaged licenses
+* International driving license issuance
 
-Microsoft SQL Server
-T-SQL
-Stored Procedures
-ADO.NET
+#### 🚓 **License Detainment Management**
 
-Software Engineering Concepts
+* Record license detainment cases
+* Manage release procedures and related records
 
-Object-Oriented Programming
-3-Tier Architecture
-Relational Database Design
-UI Component Reusability
-Separation of Concerns
-📂 Project Structure
+---
+
+### 💻 **Skills Demonstrated**
+
+* **Languages & Frameworks:** C#, .NET Framework, WinForms
+* **Database & Data Access:** Microsoft SQL Server, T-SQL (Stored Procedures, Views, Joins), ADO.NET
+* **Software Engineering Principles:** 3-Tier Architecture, Object-Oriented Programming, DRY Principle, Relational Database Design, Separation of Concerns
+
+---
+
+### 📂 **Project Structure**
+
+```text
 DVLD_Solution/
-├── DVLD_Presentation/   # UI Layer: Forms and User Controls
+├── DVLD_Presentation/   # UI Layer: Forms and Custom User Controls
 ├── DVLD_Business/       # Business Logic Layer
 ├── DVLD_Data/           # Data Access Layer
 ├── SQL_Scripts/         # Database creation scripts
 └── README.md
-🚀 Setup
-Open SQL Server Management Studio.
-Execute the scripts inside /SQL_Scripts to create the database.
-Update the connection string in the DVLD_Data project.
-Open the solution in Visual Studio.
-Set DVLD_Presentation as the startup project and run.
+```
+
+---
+
+### 🚀 **Environment Setup & Execution**
+
+1. **Database Initialization**
+   Open **SQL Server Management Studio (SSMS)** and execute the scripts in the `/SQL_Scripts` directory to create the database schema.
+
+2. **Configure Connection**
+   Update the **ADO.NET connection string** in the `DVLD_Data` project to point to your SQL Server instance.
+
+3. **Compile & Run**
+   Open the solution in **Visual Studio**, set `DVLD_Presentation` as the startup project, and run the application.
+
