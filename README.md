@@ -1,76 +1,75 @@
+🚗 Driving License Management System (DVLD)
+📌 Summary
 
+The Driving License Management System (DVLD) is a desktop application developed as part of my software engineering studies at FST Tangier (MIP).
 
-# <p align="center">🚗 Driving License Management System (DVLD)</p>
+The system simulates the workflow of a driving license department by managing license applications, driver records, testing procedures, and license issuance.
 
----
+This project focuses on applying Object-Oriented Programming (OOP) principles and implementing a structured 3-Tier Architecture to separate the user interface, business logic, and data access layers.
 
-### 📌 **Summary**
+The objective of the project was to translate real-world administrative workflows into a structured software system using C#, WinForms, and SQL Server.
 
-The **Driving License Management System (DVLD)** is an enterprise-grade desktop application engineered to digitize and automate the operations of a motor vehicle department. Developed during my software engineering studies at FST Tangier (MIP), this project showcases a strong command of **Object-Oriented Programming (OOP)** and strict adherence to a scalable **3-Tier Architecture**.
+🏗 System Architecture
 
-The system successfully translates complex, real-world governmental business rules into automated, secure software workflows.
+The application follows a 3-Tier Architecture to ensure clear separation between UI, business logic, and database access.
 
----
+Layer	Technology Stack	Responsibility
+Presentation Layer	C# WinForms	Implements the user interface and interaction logic using reusable user controls and forms
+Business Logic Layer	C# Class Library	Contains the domain entities, validation rules, and workflow logic
+Data Access Layer	ADO.NET + SQL Server	Handles database communication using stored procedures and parameterized queries
 
-### 🏗 **System Architecture & Design Patterns**
+This structure improves maintainability, scalability, and separation of concerns.
 
-The application is engineered with a strict **Separation of Concerns (SoC)**, decoupling the user interface from data access and business logic to ensure high maintainability and code scalability.
+🛠 Core Features
+Identity Management
+Management of People, Users, and Drivers
+Authentication system for application access
+Relational database structure with referential integrity
+License Application Workflow
+Create and manage driving license applications
+Sequential testing process:
+Vision Test → Written Test → Practical Driving Test
+License issuance after successful completion of all tests
+License Services
+New license issuance
+License renewal
+Replacement for damaged or lost licenses
+International driving license issuance
+License Detainment
+Record license detainment cases
+Manage release procedures and related records
+💻 Skills Demonstrated
 
-| Layer | Technology Stack | Engineering Focus |
-| --- | --- | --- |
-| **Presentation (UI)** | **C# WinForms** | Built a highly modular interface. Extensively utilized custom **Reusable User Controls** to adhere to the DRY (Don't Repeat Yourself) principle across 20+ complex forms. |
-| **Business Logic (BLL)** | **C# Class Library** | Encapsulated all domain logic, implementing strict validation pipelines, sequential state engines for testing, and automated lifecycle management. |
-| **Data Access (DAL)** | **ADO.NET + SQL Server** | Engineered secure data pipelines using parameterized **Stored Procedures** to prevent SQL injection and utilized ADO.NET for high-performance data retrieval. |
+Languages & Frameworks
 
----
+C#
+.NET Framework
+WinForms
 
-### 🛠 **Technical Achievements & Core Features**
+Database & Data Access
 
-#### 🔒 **Identity Management & Security**
+Microsoft SQL Server
+T-SQL
+Stored Procedures
+ADO.NET
 
-* **Relational Database Design**: Architected a normalized SQL Server database to centralize "People" and "User" records, maintaining strict referential integrity.
-* **Role-Based Access Control (RBAC)**: Implemented a secure authentication layer, managing user sessions and system permissions dynamically.
+Software Engineering Concepts
 
-#### ⚙️ **Workflow Automation & Transaction Management**
-
-* **State-Driven Test Engine**: Programmed a sequential validation system that strictly enforces business rules (e.g., candidates must pass Vision ➔ Theory ➔ Practical tests in exact order).
-* **Atomic Transactions**: Leveraged SQL and ADO.NET transaction management to ensure data atomicity. Complex operations—like deactivating an old license and issuing a new one—are executed as single, fail-safe transactions.
-* **Full Service Lifecycle**: Programmed end-to-end CRUD capabilities for issuing New, Renewed, Damaged, and Replacement licenses.
-
-#### 🪪 **Specialized Domain Modules**
-
-* **Global Permitting**: Engineered automated logic to cross-reference local license validity and generate International Driving Permits.
-* **Violation & Detainment Tracking**: Built a comprehensive sub-system to record traffic infractions, calculate fines, and manage the confiscation and release of permits.
-
----
-
-### 💻 **Skills Demonstrated**
-
-* **Languages & Frameworks:** C#, .NET Framework, WinForms
-* **Database & Data Access:** Microsoft SQL Server, T-SQL (Stored Procedures, Views, Joins), ADO.NET
-* **Software Engineering Principles:** 3-Tier Architecture, OOP, DRY Principle, Relational Database Design, UI/UX Component Reusability.
-
----
-
-### 📂 **Project Structure**
-
-```text
+Object-Oriented Programming
+3-Tier Architecture
+Relational Database Design
+UI Component Reusability
+Separation of Concerns
+📂 Project Structure
 DVLD_Solution/
-├── DVLD_Presentation/   # UI Layer: Forms and Custom User Controls
-├── DVLD_Business/       # BLL Layer: Domain entities and validation rules
-├── DVLD_Data/           # DAL Layer: Database connectivity and SQL execution methods
-├── SQL_Scripts/         # DDL/DML scripts and Stored Procedures for DB recreation
-└── README.md            # Project Documentation
-
-```
-
----
-
-### 🚀 **Environment Setup & Execution**
-
-1. **Database Initialization**: Open Microsoft SQL Server Management Studio (SSMS) and execute the master script located in the `/SQL_Scripts` directory to generate the schema and stored procedures.
-2. **Configure Connection**: Navigate to the `DVLD_Data` project layer and update the ADO.NET connection string to target your local SQL Server instance.
-3. **Compile & Run**: Open the solution in **Visual Studio**, set `DVLD_Presentation` as the startup project, and run the application.
-
----
-
+├── DVLD_Presentation/   # UI Layer: Forms and User Controls
+├── DVLD_Business/       # Business Logic Layer
+├── DVLD_Data/           # Data Access Layer
+├── SQL_Scripts/         # Database creation scripts
+└── README.md
+🚀 Setup
+Open SQL Server Management Studio.
+Execute the scripts inside /SQL_Scripts to create the database.
+Update the connection string in the DVLD_Data project.
+Open the solution in Visual Studio.
+Set DVLD_Presentation as the startup project and run.
