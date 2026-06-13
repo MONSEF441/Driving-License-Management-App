@@ -28,7 +28,6 @@ namespace DVLD_PresentationAccess
             _Mode = mode;
             _person = person;
 
-
             this.DoubleBuffered = true;
 
         }
@@ -96,12 +95,9 @@ namespace DVLD_PresentationAccess
             frmEdit.ShowDialog();
         }
 
-
-
         private void LoadPersonEdit()
         {
-            _ucPersonEdit = new ucPersonEdit(
-                _Mode == EditorMode.Edit ? _person.PersonID : -1)
+            _ucPersonEdit = new ucPersonEdit(_Mode == EditorMode.Edit ? _person.PersonID : -1)
             {
                 Dock = DockStyle.Fill
             };
@@ -110,7 +106,6 @@ namespace DVLD_PresentationAccess
 
             btnSave.Visible = true;
         }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -126,7 +121,6 @@ namespace DVLD_PresentationAccess
                 Close();
             }
         }
-
 
         private void btnClose_Click(object sender, EventArgs e)
         {

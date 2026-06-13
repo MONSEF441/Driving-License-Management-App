@@ -11,9 +11,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using static Guna.UI2.WinForms.Suite.Descriptions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+using System.IdentityModel.Selectors;
 
 namespace DVLD_PresentationAccess
 {
@@ -40,16 +41,65 @@ namespace DVLD_PresentationAccess
 
         public LoginScreen()
         {
+            string Username= "", Password="";
             InitializeComponent();
 
             if (Properties.Settings.Default.RememberMe)
             {
-                tbUsername.Text = Properties.Settings.Default.RememberUserName;
-                tbPassword.Text = Properties.Settings.Default.RememberPassword;
+                GetUsernameAndPassword(ref Username, ref Password);
+                tbUsername.Text = Username;
+                tbPassword.Text = Password;
+
+       
                 cbRememberMe.Checked = true;
             }
         }
 
+        private bool RememberUsernameAndPassword(string Username , string Password)
+        {
+            // Storing Username and Password in Regedit 
+
+            string keyPath = "HKEY_CURRENT_USER\\Software\\DVLD";
+            string valueName1 = "Username";
+            string valueName2 = "Password";
+
+            try
+            {
+                Registry.SetValue(keyPath, valueName1, Username);
+                Registry.SetValue(keyPath, valueName2, Password);
+
+                Console.WriteLine($"Values {Username} and {Password} Successfuly Writed in Registry");
+
+                return true;
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An Error occured : {ex.Message}");
+            }
+
+            return false;
+        }
+        private bool GetUsernameAndPassword(ref string Username, ref string Password)
+        {
+            string keyPath = "HKEY_CURRENT_USER\\Software\\DVLD";
+            string valueName1 = "Username";
+            string valueName2 = "Password";
+
+            try
+            {
+                Username = Registry.GetValue(keyPath, valueName1, null) as string;
+                Password = Registry.GetValue(keyPath, valueName2, null) as string;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An Error occured : {ex.Message}");
+
+            }
+            return false;
+        }
 
         private void LoginScreen_MouseDown(object sender, MouseEventArgs e)
         {
@@ -91,15 +141,16 @@ namespace DVLD_PresentationAccess
                 // ✅ Remember Me handling
                 if (cbRememberMe.Checked)
                 {
-                    Properties.Settings.Default.RememberUserName = tbUsername.Text;
-                    Properties.Settings.Default.RememberPassword = tbPassword.Text;
+                    RememberUsernameAndPassword(tbUsername.Text, tbPassword.Text);
+
                     Properties.Settings.Default.RememberMe = true;
+
                 }
                 else
                 {
-                    Properties.Settings.Default.RememberUserName = string.Empty;
-                    Properties.Settings.Default.RememberPassword = string.Empty;
+                    RememberUsernameAndPassword(string.Empty, string.Empty);
                     Properties.Settings.Default.RememberMe = false;
+
                 }
                 Properties.Settings.Default.Save(); // Save the settings
 

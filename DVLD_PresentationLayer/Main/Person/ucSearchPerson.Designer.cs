@@ -128,7 +128,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.ucEntityFilter);
             this.Name = "ucSearchPerson";
-            this.Size = new System.Drawing.Size(932, 515);
+            this.Size = new System.Drawing.Size(932, 482);
             this.Load += new System.EventHandler(this.ucSearchPerson_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

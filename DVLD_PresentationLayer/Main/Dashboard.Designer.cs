@@ -349,7 +349,7 @@
             this.menuApplications.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.menuApplications.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.menuApplications.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.menuApplications.Size = new System.Drawing.Size(224, 156);
+            this.menuApplications.Size = new System.Drawing.Size(224, 134);
             // 
             // cmDLServices
             // 
@@ -465,7 +465,7 @@
             // 
             this.cmManageDetainedLicenses.Image = ((System.Drawing.Image)(resources.GetObject("cmManageDetainedLicenses.Image")));
             this.cmManageDetainedLicenses.Name = "cmManageDetainedLicenses";
-            this.cmManageDetainedLicenses.Size = new System.Drawing.Size(218, 26);
+            this.cmManageDetainedLicenses.Size = new System.Drawing.Size(214, 22);
             this.cmManageDetainedLicenses.Text = "Manage Detained Licenses";
             this.cmManageDetainedLicenses.Click += new System.EventHandler(this.btncmManage_DetainLicenses_Click);
             // 
@@ -473,7 +473,7 @@
             // 
             this.cmDetainLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmDetainLicense.Image")));
             this.cmDetainLicense.Name = "cmDetainLicense";
-            this.cmDetainLicense.Size = new System.Drawing.Size(218, 26);
+            this.cmDetainLicense.Size = new System.Drawing.Size(214, 22);
             this.cmDetainLicense.Text = "Detain License ";
             this.cmDetainLicense.Click += new System.EventHandler(this.cmDetainLicense_Click);
             // 
@@ -481,7 +481,7 @@
             // 
             this.cmReleaseDetainedLicense.Image = ((System.Drawing.Image)(resources.GetObject("cmReleaseDetainedLicense.Image")));
             this.cmReleaseDetainedLicense.Name = "cmReleaseDetainedLicense";
-            this.cmReleaseDetainedLicense.Size = new System.Drawing.Size(218, 26);
+            this.cmReleaseDetainedLicense.Size = new System.Drawing.Size(214, 22);
             this.cmReleaseDetainedLicense.Text = "Release Detained License";
             this.cmReleaseDetainedLicense.Click += new System.EventHandler(this.cmReleaseDetainedLicense_Click);
             // 
@@ -547,6 +547,7 @@
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(1423, 632);
             this.Name = "Dashboard";
@@ -554,6 +555,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Driving License Management";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.PanelMenu.ResumeLayout(false);
             this.menuAccountSettings.ResumeLayout(false);
             this.menuApplications.ResumeLayout(false);
