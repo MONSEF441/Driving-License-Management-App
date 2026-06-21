@@ -16,6 +16,9 @@ namespace DVLD_BusinessAccess
         public string Password { get; set; }
         public bool IsActive { get; set; }
 
+        // store original loaded password (hashed from DB) to detect changes
+        private string _originalPassword;
+
         public clsUser()
         {
             UserID = -1;
@@ -24,6 +27,7 @@ namespace DVLD_BusinessAccess
             Password = "";
             IsActive = false;
             Mode = enMode.AddNew;
+            _originalPassword = Password;
         }
 
         private clsUser(int UserID, int PersonID, string UserName, string Password, bool IsActive)
@@ -34,17 +38,64 @@ namespace DVLD_BusinessAccess
             this.Password = Password;
             this.IsActive = IsActive;
             Mode = enMode.Update;
+
+            // keep original loaded (hashed or legacy plain) password for comparison on updates
+            _originalPassword = Password;
         }
 
         private bool _AddNewUser()
         {
-            this.UserID = clsUsersDataAccess.AddNewUser(PersonID, UserName, Password, IsActive);
-            return UserID != -1;
+            string plain = Password ?? string.Empty;
+            string hashed = string.IsNullOrEmpty(plain) ? "" : clsGlobal.ComputeHash(plain);
+
+            // send hashed to DB
+            this.UserID = clsUsersDataAccess.AddNewUser(PersonID, UserName, hashed, IsActive);
+
+            if (UserID != -1)
+            {
+                // store hashed as original but keep plain in-memory for presentation compatibility
+                _originalPassword = hashed;
+                this.Password = plain;
+                return true;
+            }
+
+            return false;
         }
 
         private bool _UpdateUser()
         {
-            return clsUsersDataAccess.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
+            string plain = Password ?? string.Empty;
+
+            // Determine if password was changed by comparing plain to stored hashed (they'll differ)
+            bool passwordChanged;
+            if (string.IsNullOrEmpty(_originalPassword))
+            {
+                // legacy: no original hashed stored
+                passwordChanged = true;
+            }
+            else
+            {
+                // If plain, when hashed, equals original then no change; otherwise change
+                string hashedPlain = clsGlobal.ComputeHash(plain);
+                passwordChanged = !string.Equals(hashedPlain, _originalPassword, StringComparison.OrdinalIgnoreCase);
+            }
+
+            string valueToStore = _originalPassword; // default: keep existing stored value
+            if (passwordChanged)
+            {
+                valueToStore = string.IsNullOrEmpty(plain) ? "" : clsGlobal.ComputeHash(plain);
+            }
+
+            bool result = clsUsersDataAccess.UpdateUser(UserID, PersonID, UserName, valueToStore, IsActive);
+
+            if (result)
+            {
+                // update original hashed value, but keep plain in-memory for presentation compatibility
+                _originalPassword = valueToStore ?? string.Empty;
+                this.Password = plain;
+            }
+
+            return result;
         }
 
         public static clsUser Find(int UserID)
@@ -74,15 +125,60 @@ namespace DVLD_BusinessAccess
         }
         public static clsUser Login(string username, string password)
         {
-            clsUser user = Find(username);
+            // normalize inputs
+            string userNameSafe = (username ?? string.Empty).Trim();
+            string plain = (password ?? string.Empty).Trim();
+            string hashedInput = clsGlobal.ComputeHash(plain).Trim();
 
-            if (user == null)
-                return null;
+            // 1) Try DB login with hashed password (expected normal path)
+            if (clsUsersDataAccess.IsLoginValid(userNameSafe, hashedInput))
+            {
+                clsUser user = Find(userNameSafe);
+                if (user == null) return null;
 
-            if (user.Password == password)
+                // track original hashed value and keep plain password in-memory so presentation layer remains compatible
+                user._originalPassword = (user.Password ?? string.Empty).Trim();
+                user.Password = plain;
                 return user;
+            }
 
+            // 2) Legacy: try DB login with plaintext (if DB still stores plain values)
+            if (clsUsersDataAccess.IsLoginValid(userNameSafe, plain))
+            {
+                clsUser user = Find(userNameSafe);
+                if (user == null) return null;
+
+                // attempt to upgrade stored plaintext password to hashed value
+                string newHashed = hashedInput;
+                bool updated = clsUsersDataAccess.UpdateUser(user.UserID, user.PersonID, user.UserName, newHashed, user.IsActive);
+
+                if (updated)
+                {
+                    user._originalPassword = newHashed;
+                }
+                // keep plain in-memory for presentation compatibility
+                user.Password = plain;
+                return user;
+            }
+
+            // not authenticated
             return null;
+        }
+
+        // Validate a plain-text password against stored hashed password
+        public bool ValidatePassword(string plainPassword)
+        {
+            if (plainPassword == null) plainPassword = "";
+            string hashed = clsGlobal.ComputeHash(plainPassword).Trim();
+            string storedHashed = (_originalPassword ?? string.Empty).Trim();
+
+            // if we have a tracked original hashed value, compare to it; otherwise fall back to comparing to current Password
+            if (!string.IsNullOrEmpty(storedHashed))
+                return string.Equals(hashed, storedHashed, StringComparison.OrdinalIgnoreCase);
+
+            // legacy fallback: compare hashed input to current Password (if Password actually holds a hash)
+            string curr = (this.Password ?? string.Empty).Trim();
+            return string.Equals(hashed, curr, StringComparison.OrdinalIgnoreCase);
         }
 
         public bool Save()
@@ -131,9 +227,5 @@ namespace DVLD_BusinessAccess
         {
             return clsUsersDataAccess.IsLoginValid(UserName, Password);
         }
-
-
-       
-
     }
 }

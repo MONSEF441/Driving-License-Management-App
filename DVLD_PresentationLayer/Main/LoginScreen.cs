@@ -177,7 +177,6 @@ namespace DVLD_PresentationAccess
             this.Close();
         }
 
-
         private void ShowBlinkMessage()
         {
             lblMessage.Visible = true;
