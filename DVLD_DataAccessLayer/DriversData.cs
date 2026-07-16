@@ -193,5 +193,38 @@ namespace DVLD_DataAccess
 
             return dt;
         }
+
+        public static bool GetDriverInfoByPersonID(int PersonID, ref int DriverID, ref int CreatedByUserID, ref DateTime CreatedDate)
+        {
+            bool isFound = false;
+            string query = "SELECT * FROM Drivers WHERE PersonID = @PersonID";
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            isFound = true;
+                            DriverID = (int)reader["DriverID"];
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+                            CreatedDate = (DateTime)reader["CreatedDate"];
+                        }
+                    }
+                }
+                catch
+                {
+                    isFound = false;
+                }
+            }
+
+            return isFound;
+        }
     }
 }

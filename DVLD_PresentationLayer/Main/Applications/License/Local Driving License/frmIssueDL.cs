@@ -32,25 +32,35 @@ namespace DVLD_PresentationAccess
             clsApplication application = clsApplication.Find(_AppID);
             clsLocalDrivingLicenseApplication localApp = clsLocalDrivingLicenseApplication.Find(_DLID);
             clsLicenseClass licenseClass = clsLicenseClass.Find(localApp.LicenseClassID);
-       
 
-            clsDriver newDriver = new clsDriver
+            if (application == null || localApp == null || licenseClass == null)
             {
-                PersonID = application.ApplicationPersonID,
-                CreatedByUserID = application.CreatedByUserID,
-                CreatedDate = DateTime.Now
-            };
-
-            if (!newDriver.Save())
-            {
-                MessageBox.Show("Error: Failed to Create Driver Record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: Missing application data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            clsDriver driver = clsDriver.FindByPersonID(application.ApplicationPersonID);
+
+            if (driver == null)
+            {
+                driver = new clsDriver
+                {
+                    PersonID = application.ApplicationPersonID,
+                    CreatedByUserID = Session.CurrentUser.UserID,
+                    CreatedDate = DateTime.Now
+                };
+
+                if (!driver.Save())
+                {
+                    MessageBox.Show("Error: Failed to Create Driver Record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             clsLicense newLicense = new clsLicense
             {
                 ApplicationID = application.ApplicationID,
-                DriverID = newDriver.DriverID,
+                DriverID = driver.DriverID,
                 LicenseClassID = localApp.LicenseClassID,
                 IssueDate = DateTime.Now,
                 ExpirationDate = DateTime.Now.AddYears(licenseClass.DefaultValidityLength),
@@ -61,12 +71,11 @@ namespace DVLD_PresentationAccess
 
             if (!newLicense.Save())
             {
-                clsDriver.DeleteDriver(newDriver.DriverID);
                 MessageBox.Show("Error: Failed to Issue License.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            application.ApplicationStatus = 3; // Completed
+            application.ApplicationStatus = 3;
             application.LastStatusDate = DateTime.Now;
 
             if (!application.Save())
@@ -75,11 +84,15 @@ namespace DVLD_PresentationAccess
                 return;
             }
 
-            // Refresh UI so status is shown as Completed immediately.
             ucApplicationBasicInfo1.LoadData(_AppID);
             ucDLApplicationInfo1.LoadData(_DLID);
 
-            MessageBox.Show($"License Issued Successfully with License ID = {newLicense.LicenseID}", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(
+                $"License Issued Successfully with License ID = {newLicense.LicenseID}",
+                "Succeeded",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
             btnIssue.Enabled = false;
         }
 

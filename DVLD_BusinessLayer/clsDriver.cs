@@ -55,6 +55,18 @@ namespace DVLD_BusinessAccess
                 return null;
         }
 
+        public static clsDriver FindByPersonID(int personID)
+        {
+            int driverID = -1;
+            int createdByUserID = -1;
+            DateTime createdDate = DateTime.MinValue;
+
+            if (clsDriversDataAccess.GetDriverInfoByPersonID(personID, ref driverID, ref createdByUserID, ref createdDate))
+                return new clsDriver(driverID, personID, createdByUserID, createdDate);
+
+            return null;
+        }
+
         public bool Save()
         {
             switch (Mode)
