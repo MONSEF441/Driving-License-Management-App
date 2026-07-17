@@ -250,7 +250,7 @@ DVLD/
 ├── Database/
 │
 ├── docs/
-│   ├── screenshots/
+│   ├── Screenshots/
 │   ├── architecture.md
 │   ├── database.md
 │   └── features.md
@@ -265,120 +265,120 @@ DVLD/
 ## Login
 
 ```text
-docs/screenshots/login/login.png
+docs/Screenshots/login/login.png
 ```
 
-![Login](docs/screenshots/login/login.png)
+![Login](docs/Screenshots/login/login.png)
 
 ---
 
 ## Dashboard
 
 ```text
-docs/screenshots/dashboard/dashboard.png
+docs/Screenshots/dashboard/dashboard.png
 ```
 
-![Dashboard](docs/screenshots/dashboard/dashboard.png)
+![Dashboard](docs/Screenshots/dashboard/dashboard.png)
 
 ---
 
 ## People Management
 
 ```text
-docs/screenshots/people/manage-people.png
+docs/Screenshots/people/manage-people.png
 ```
 
-![People](docs/screenshots/people/manage-people.png)
+![People](docs/Screenshots/people/manage-people.png)
 
 ---
 
 ## Add New Person
 
 ```text
-docs/screenshots/people/add-person.png
+docs/Screenshots/people/add-person.png
 ```
 
-![Add Person](docs/screenshots/people/add-person.png)
+![Add Person](docs/Screenshots/people/add-person.png)
 
 ---
 
 ## Local License Application
 
 ```text
-docs/screenshots/applications/new-local-license.png
+docs/Screenshots/applications/new-local-license.png
 ```
 
-![Application](docs/screenshots/applications/new-local-license.png)
+![Application](docs/Screenshots/applications/new-local-license.png)
 
 ---
 
 ## Vision Test
 
 ```text
-docs/screenshots/tests/vision-test.png
+docs/Screenshots/tests/vision-test.png
 ```
 
-![Vision](docs/screenshots/tests/vision-test.png)
+![Vision](docs/Screenshots/tests/vision-test.png)
 
 ---
 
 ## Written Test
 
 ```text
-docs/screenshots/tests/written-test.png
+docs/Screenshots/tests/written-test.png
 ```
 
-![Written](docs/screenshots/tests/written-test.png)
+![Written](docs/Screenshots/tests/written-test.png)
 
 ---
 
 ## Street Test
 
 ```text
-docs/screenshots/tests/street-test.png
+docs/Screenshots/tests/street-test.png
 ```
 
-![Street](docs/screenshots/tests/street-test.png)
+![Street](docs/Screenshots/tests/street-test.png)
 
 ---
 
 ## Issue Driving License
 
 ```text
-docs/screenshots/licenses/issue-license.png
+docs/Screenshots/licenses/issue-license.png
 ```
 
-![Issue](docs/screenshots/licenses/issue-license.png)
+![Issue](docs/Screenshots/licenses/issue-license.png)
 
 ---
 
 ## License Information
 
 ```text
-docs/screenshots/licenses/license-info.png
+docs/Screenshots/licenses/license-info.png
 ```
 
-![License](docs/screenshots/licenses/license-info.png)
+![License](docs/Screenshots/licenses/license-info.png)
 
 ---
 
 ## International License
 
 ```text
-docs/screenshots/international/international-license.png
+docs/Screenshots/international/international-license.png
 ```
 
-![International](docs/screenshots/international/international-license.png)
+![International](docs/Screenshots/international/international-license.png)
 
 ---
 
 ## Detain License
 
 ```text
-docs/screenshots/detention/detain-license.png
+docs/Screenshots/detention/detain-license.png
 ```
 
-![Detain](docs/screenshots/detention/detain-license.png)
+![Detain](docs/Screenshots/detention/detain-license.png)
 
 ---
 

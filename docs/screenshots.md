@@ -8,7 +8,7 @@ This document showcases the major workflows and user interfaces of the Driving &
 
 The application starts with a secure login screen where authorized users authenticate before accessing the system.
 
-![Login](screenshots/login.png)
+![Login](Screenshots/login.png)
 
 ---
 
@@ -16,7 +16,7 @@ The application starts with a secure login screen where authorized users authent
 
 After successful authentication, users are presented with the main dashboard providing access to all system modules.
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](Screenshots/dashboard.png)
 
 ---
 
@@ -32,7 +32,7 @@ The People module allows administrators to manage all registered people.
 - Search & Filter
 - View Details
 
-![Manage People](screenshots/people/manage-people.png)
+![Manage People](Screenshots/people/manage-people.png)
 
 ---
 
@@ -40,7 +40,7 @@ The People module allows administrators to manage all registered people.
 
 Register a new person before creating any driving license application.
 
-![Add Person](screenshots/people/add-person.png)
+![Add Person](Screenshots/people/add-person.png)
 
 ---
 
@@ -48,7 +48,7 @@ Register a new person before creating any driving license application.
 
 Create a new local driving license application by selecting the applicant and the desired license class.
 
-![Application](screenshots/applications/new-local-license.png)
+![Application](Screenshots/applications/new-local-license.png)
 
 ---
 
@@ -56,7 +56,7 @@ Create a new local driving license application by selecting the applicant and th
 
 Applicants must first pass the vision examination.
 
-![Vision Test](screenshots/tests/vision-test.png)
+![Vision Test](Screenshots/tests/vision-test.png)
 
 ---
 
@@ -64,7 +64,7 @@ Applicants must first pass the vision examination.
 
 After successfully passing the vision test, applicants become eligible for the written examination.
 
-![Written Test](screenshots/tests/written-test.png)
+![Written Test](Screenshots/tests/written-test.png)
 
 ---
 
@@ -72,7 +72,7 @@ After successfully passing the vision test, applicants become eligible for the w
 
 The final examination before a driving license can be issued.
 
-![Street Test](screenshots/tests/street-test.png)
+![Street Test](Screenshots/tests/street-test.png)
 
 ---
 
@@ -80,7 +80,7 @@ The final examination before a driving license can be issued.
 
 Once all tests are passed, the system allows issuing the first driving license.
 
-![Issue License](screenshots/licenses/issue-license.png)
+![Issue License](Screenshots/licenses/issue-license.png)
 
 ---
 
@@ -88,7 +88,7 @@ Once all tests are passed, the system allows issuing the first driving license.
 
 View complete information about an issued driving license.
 
-![License Information](screenshots/licenses/license-info.png)
+![License Information](Screenshots/licenses/license-info.png)
 
 ---
 
@@ -96,7 +96,7 @@ View complete information about an issued driving license.
 
 Renew expired driving licenses.
 
-![Renew License](screenshots/licenses/renew-license.png)
+![Renew License](Screenshots/licenses/renew-license.png)
 
 ---
 
@@ -104,7 +104,7 @@ Renew expired driving licenses.
 
 Issue replacement licenses when necessary.
 
-![Replacement](screenshots/licenses/replacement-license.png)
+![Replacement](Screenshots/licenses/replacement-license.png)
 
 ---
 
@@ -112,7 +112,7 @@ Issue replacement licenses when necessary.
 
 Detain a license and record the detention information.
 
-![Detain License](screenshots/detention/detain-license.png)
+![Detain License](Screenshots/detention/detain-license.png)
 
 ---
 
@@ -120,7 +120,7 @@ Detain a license and record the detention information.
 
 Release a previously detained license after the required conditions have been met.
 
-![Release License](screenshots/detention/release-license.png)
+![Release License](Screenshots/detention/release-license.png)
 
 ---
 
@@ -128,7 +128,7 @@ Release a previously detained license after the required conditions have been me
 
 Issue an international driving license for eligible drivers.
 
-![International License](screenshots/international/international-license.png)
+![International License](Screenshots/international/international-license.png)
 
 ---
 
