@@ -1,6 +1,10 @@
-# ✨ Features
+# 🔄 Business Workflow
 
-This document provides an overview of all major functionalities implemented in the DVLD (Driving & Vehicle License Department) Management System.
+<p align="center">
+<img src="diagrams/license-workflow.png" width="100%">
+</p>
+
+The following workflow illustrates the complete lifecycle managed by the system, from registering an applicant to issuing an international driving license.
 
 ---
 
