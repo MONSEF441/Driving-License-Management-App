@@ -97,28 +97,15 @@ Below are a few screenshots showcasing the application's interface and major wor
 
 ---
 
-# 🏗 System Architecture
+## 🏗 System Architecture
 
-The project follows a **Three-Tier Architecture**, separating presentation, business logic, and data access to improve maintainability, scalability, and code organization.
+<p align="center">
+<img src="docs/diagrams/three-tier-architecture.png" width="900">
+</p>
 
-```text
-                Presentation Layer
-                  (WinForms UI)
-                       │
-                       ▼
-             Business Logic Layer
-          (Business Rules & Validation)
-                       │
-                       ▼
-               Data Access Layer
-                  (ADO.NET)
-                       │
-                       ▼
-                  SQL Server
-```
+The application follows a Three-Tier Architecture separating Presentation, Business Logic, and Data Access layers.
 
-> 🏗 **Read the complete architecture documentation:**  
-> **[docs/architecture.md](docs/architecture.md)**
+📖 **Learn more:** [Architecture Documentation](docs/Architecture.md)
 
 ---
 
