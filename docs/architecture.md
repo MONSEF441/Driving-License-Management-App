@@ -6,29 +6,24 @@ The Driving & Vehicle License Department (DVLD) application is designed using a 
 
 # Architecture Overview
 
-```
-                +----------------------------------+
-                |       Presentation Layer         |
-                |     (WinForms User Interface)    |
-                +----------------------------------+
-                              │
-                              ▼
-                +----------------------------------+
-                |      Business Logic Layer        |
-                | (Validation & Business Rules)    |
-                +----------------------------------+
-                              │
-                              ▼
-                +----------------------------------+
-                |        Data Access Layer         |
-                |      (ADO.NET / SQL Queries)     |
-                +----------------------------------+
-                              │
-                              ▼
-                +----------------------------------+
-                |         SQL Server Database      |
-                +----------------------------------+
-```
+## Three-Tier Architecture
+
+<p align="center">
+<img src="diagrams/three-tier-architecture.png" width="900">
+</p>
+
+The project follows a Three-Tier Architecture that separates the Presentation, Business Logic, and Data Access layers, promoting maintainability, separation of concerns, and code organization.
+
+
+## Repository Structure
+
+<p align="center">
+<img src="diagrams/repository-structure.png" width="900">
+</p>
+
+The solution is organized into dedicated projects for presentation, business logic, and data access, with additional folders for documentation, database resources, and repository assets.
+
+
 
 ---
 
