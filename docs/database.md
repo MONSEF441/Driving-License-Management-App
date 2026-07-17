@@ -1,8 +1,10 @@
 # 💾 Database Design
 
-The DVLD Management System uses **Microsoft SQL Server** as its relational database management system.
+<p align="center">
+<img src="diagrams/database-erd.png" width="100%">
+</p>
 
-The database is designed to model the complete driving license issuance process while maintaining data integrity through primary keys, foreign keys, and relationships between entities.
+The DVLD database consists of 14 relational tables that model the complete driving license lifecycle, including applicants, drivers, licenses, applications, tests, and supporting entities.
 
 ---
 
