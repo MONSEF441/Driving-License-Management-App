@@ -105,7 +105,7 @@ Below are a few screenshots showcasing the application's interface and major wor
 
 The application follows a Three-Tier Architecture separating Presentation, Business Logic, and Data Access layers.
 
-📖 **Learn more:** [Architecture Documentation](docs/Architecture.md)
+📖 **Learn more:** [Architecture Documentation](docs/architecture.md)
 
 ---
 
@@ -129,9 +129,10 @@ The application follows a Three-Tier Architecture separating Presentation, Busin
 ```text
 Driving-License-Management-App/
 │
-├── assets/                     # Banner and repository assets
-├── Database/                   # Database backup / SQL scripts
+├── assets/                    
+├── Database/                 
 ├── docs/
+│   │
 │   ├── Architecture.md
 │   ├── Database.md
 │   ├── Features.md
@@ -139,6 +140,10 @@ Driving-License-Management-App/
 │   ├── Screenshots.md
 │   │
 │   ├── Diagrams/
+│   │   ├── three-tier-architecture.png
+│   │   ├── license-workflow.png
+│   │   ├── database-erd.png
+│   │   └── repository-structure.png
 │   │
 │   └── Screenshots/
 │       ├── Login/
@@ -150,7 +155,7 @@ Driving-License-Management-App/
 │       ├── Tests/
 │       ├── LicenseServices/
 │       ├── International/
-│       └── Account/
+│       └── Profile/
 │
 ├── DVLD/
 │   ├── DVLD.Presentation/
@@ -183,7 +188,7 @@ Update the SQL Server connection string inside the project.
 Open the solution using **Visual Studio 2022**, build the project, and run it.
 
 > 📖 **Detailed installation guide:**  
-> **[docs/Installation.md](docs/Installation.md)**
+> **[docs/Installation.md](docs/installation.md)**
 
 ---
 
@@ -193,11 +198,11 @@ The repository includes detailed documentation covering the application's archit
 
 | 📄 Document | Description |
 |-------------|-------------|
-| 🏗 **[Architecture](docs/Architecture.md)** | Three-Tier Architecture and project organization |
-| ✨ **[Features](docs/Features.md)** | Complete list of implemented modules |
-| 💾 **[Database](docs/Database.md)** | Database design and entity overview |
-| 📸 **[Screenshots](docs/Screenshots.md)** | Complete application walkthrough |
-| 🚀 **[Installation](docs/Installation.md)** | Installation and setup guide |
+| 🏗 **[Architecture](docs/architecture.md)** | Three-Tier Architecture and project organization |
+| ✨ **[Features](docs/features.md)** | Complete list of implemented modules |
+| 💾 **[Database](docs/database.md)** | Database design and entity overview |
+| 📸 **[Screenshots](docs/screenshots.md)** | Complete application walkthrough |
+| 🚀 **[Installation](docs/installation.md)** | Installation and setup guide |
 
 ---
 
