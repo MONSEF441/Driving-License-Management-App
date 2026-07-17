@@ -8,7 +8,7 @@ This document showcases the major workflows and user interfaces of the Driving &
 
 The application starts with a secure login screen where authorized users authenticate before accessing the system.
 
-![Login](screenshots/login/login.png)
+![Login](screenshots/login.png)
 
 ---
 
@@ -16,7 +16,7 @@ The application starts with a secure login screen where authorized users authent
 
 After successful authentication, users are presented with the main dashboard providing access to all system modules.
 
-![Dashboard](screenshots/dashboard/dashboard.png)
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
