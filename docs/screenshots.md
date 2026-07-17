@@ -10,7 +10,7 @@ This document provides a visual walkthrough of the **Driving & Vehicle License D
 
 The application starts with a secure login screen where authorized users authenticate before accessing the system.
 
-![Login](Screenshots/Login/Login.png)
+![Login](screenshots/Login/Login.png)
 
 ---
 
@@ -20,7 +20,7 @@ The application starts with a secure login screen where authorized users authent
 
 View, search, filter, and manage all local driving license applications.
 
-![Manage Local Applications](Screenshots/Applications/manage-local-applications.png)
+![Manage Local Applications](screenshots/Applications/manage-local-applications.png)
 
 ---
 
@@ -28,8 +28,8 @@ View, search, filter, and manage all local driving license applications.
 
 Create a new local driving license application by selecting an applicant and the desired license class.
 
-![New Local Application](Screenshots/Applications/new-local-licensePart1.png)
-![New Local Application](Screenshots/Applications/new-local-licensePart2.png)
+![New Local Application](screenshots/Applications/new-local-licensePart1.png)
+![New Local Application](screenshots/Applications/new-local-licensePart2.png)
 
 ---
 
@@ -37,7 +37,7 @@ Create a new local driving license application by selecting an applicant and the
 
 Administrators can manage the available application types and update their corresponding service fees without modifying the application's source code.
 
-![Application Types](Screenshots/Applications/application-types.png)
+![Application Types](screenshots/Applications/application-types.png)
 
 
 ---
@@ -56,7 +56,7 @@ Available operations include:
 - Search & Filter
 - View Person Details
 
-![Manage People](Screenshots/People/manage-people.png)
+![Manage People](screenshots/People/manage-people.png)
 
 ---
 
@@ -64,7 +64,7 @@ Available operations include:
 
 Register a new person or update existing personal information.
 
-![Add Person](Screenshots/People/add-person.png)
+![Add Person](screenshots/People/add-person.png)
 
 ---
 
@@ -74,7 +74,7 @@ Register a new person or update existing personal information.
 
 Browse and search all registered drivers together with their license information.
 
-![Manage Drivers](Screenshots/Drivers/manage-drivers.png)
+![Manage Drivers](screenshots/Drivers/manage-drivers.png)
 
 ---
 
@@ -92,7 +92,7 @@ Available operations include:
 - Activate / Deactivate User
 - Search Users
 
-![Manage Users](Screenshots/Users/manage-users.png)
+![Manage Users](screenshots/Users/manage-users.png)
 
 ---
 
@@ -100,7 +100,7 @@ Available operations include:
 
 Create new system accounts and assign permissions.
 
-![Add User](Screenshots/Users/add-user.png)
+![Add User](screenshots/Users/add-user.png)
 
 ---
 
@@ -125,11 +125,11 @@ The only differences between the tests are the **test type**, **associated fee**
 
 ### Test Appointment
 
-![Test Appointment](Screenshots/Tests/test-appointment.png)
+![Test Appointment](screenshots/Tests/test-appointment.png)
 
 ### Take Test
 
-![Take Test](Screenshots/Tests/take-test.png)
+![Take Test](screenshots/Tests/take-test.png)
 
 ---
 
@@ -137,7 +137,7 @@ The only differences between the tests are the **test type**, **associated fee**
 
 Administrators can configure the available driving test types and update their associated fees.
 
-![Test Types](Screenshots/Tests/test-types.png)
+![Test Types](screenshots/Tests/test-types.png)
 
 ---
 
@@ -147,7 +147,7 @@ Administrators can configure the available driving test types and update their a
 
 A driving license can only be issued after the applicant has successfully completed all required driving tests.
 
-![Issue License](Screenshots/Licenses/issue-license.png)
+![Issue License](screenshots/Licenses/issue-license.png)
 
 ---
 
@@ -155,7 +155,7 @@ A driving license can only be issued after the applicant has successfully comple
 
 Display complete information about an issued driving license.
 
-![License Information](Screenshots/Licenses/license-info.png)
+![License Information](screenshots/Licenses/license-info.png)
 
 ---
 
@@ -163,7 +163,7 @@ Display complete information about an issued driving license.
 
 Renew an expired driving license while preserving the driver's history.
 
-![Renew License](Screenshots/Licenses/renew-license.png)
+![Renew License](screenshots/Licenses/renew-license.png)
 
 ---
 
@@ -172,7 +172,7 @@ Renew an expired driving license while preserving the driver's history.
 Issue a replacement for a lost driving license while maintaining the license history.
 Replace a damaged driving license with a newly issued one.
 
-![Replace Lost License](Screenshots/Licenses/replacement-license.png)
+![Replace Lost License](screenshots/Licenses/replacement-license.png)
 
 ---
 
@@ -180,7 +180,7 @@ Replace a damaged driving license with a newly issued one.
 
 Detain a driving license and record the detention information, including the applicable fine.
 
-![Detain License](Screenshots/Licenses/detain-license.png)
+![Detain License](screenshots/Detention/detain-license.png)
 
 ---
 
@@ -188,7 +188,7 @@ Detain a driving license and record the detention information, including the app
 
 Release a previously detained license after all required conditions have been satisfied.
 
-![Release License](Screenshots/Licenses/release-license.png)
+![Release License](screenshots/Detention/release-license.png)
 
 ---
 
@@ -200,7 +200,7 @@ Drivers who possess a valid local driving license are eligible to apply for an I
 
 The system verifies the driver's eligibility before issuing the international license.
 
-![International License](Screenshots/International/international-license.png)
+![International License](screenshots/International/international-license.png)
 
 ---
 
@@ -210,7 +210,7 @@ The system verifies the driver's eligibility before issuing the international li
 
 View the currently authenticated user's profile information.
 
-![Current User](Screenshots/Account/current-user-info.png)
+![Current User](screenshots/Profile/current-user-info.png)
 
 ---
 
@@ -218,7 +218,7 @@ View the currently authenticated user's profile information.
 
 Authenticated users can securely change their account password.
 
-![Change Password](Screenshots/Account/change-password.png)
+![Change Password](screenshots/Profile/change-password.png)
 
 ---
 
