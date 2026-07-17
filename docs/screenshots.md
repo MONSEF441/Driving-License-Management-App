@@ -14,6 +14,14 @@ The application starts with a secure login screen where authorized users authent
 
 ---
 
+# Dashboard
+
+After successful authentication, users are presented with the main dashboard providing access to all system modules.
+
+![Dashboard](screenshots/Dashboard/Dashboard.png)
+
+---
+
 # 📂 Applications
 
 ## Manage Local Driving License Applications
