@@ -1,8 +1,7 @@
-
 # 🚗 Driving & Vehicle License Department (DVLD)
 
 <p align="center">
-  <img src="assets/banner.png" width="100%">
+  <img src="assets/banner.png" width="100%" alt="DVLD Banner">
 </p>
 
 <div align="center">
@@ -14,139 +13,95 @@
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-red?style=for-the-badge&logo=microsoftsqlserver)
 ![ADO.NET](https://img.shields.io/badge/ADO.NET-Data%20Access-0078D4?style=for-the-badge)
 ![Architecture](https://img.shields.io/badge/Architecture-3--Tier-success?style=for-the-badge)
-![License](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
-*A complete Driving & Vehicle License Department desktop management system built using C#, WinForms, SQL Server, and ADO.NET following a Three-Tier Architecture.*
+<br>
 
----
+![GitHub last commit](https://img.shields.io/github/last-commit/MONSEF441/Driving-License-Management-App?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/MONSEF441/Driving-License-Management-App?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/MONSEF441/Driving-License-Management-App?style=flat-square)
 
-### ⭐ Key Highlights
-
-✔ Three-Tier Architecture  
-✔ SQL Server Database  
-✔ User Authentication & Authorization  
-✔ Local & International Driving Licenses  
-✔ Driving Tests Management  
-✔ License Renewal & Replacement  
-✔ License Detention & Release  
-✔ Modular User Controls  
-✔ Clean Dark UI
+*A complete desktop solution that automates the workflow of a Driving & Vehicle License Department using **C#, WinForms, SQL Server, and ADO.NET**, following a clean **Three-Tier Architecture**.*
 
 </div>
 
 ---
 
+## 📑 Table of Contents
+
+- [📖 Overview](#-overview)
+- [🎯 Project Goals](#-project-goals)
+- [✨ Core Features](#-core-features)
+- [📸 Project Preview](#-project-preview)
+- [🏗 System Architecture](#-system-architecture)
+- [🛠 Technologies](#-technologies)
+- [📂 Repository Structure](#-repository-structure)
+- [🚀 Quick Start](#-quick-start)
+- [📚 Documentation](#-documentation)
+- [🎓 Learning Outcomes](#-learning-outcomes)
+- [🔮 Future Improvements](#-future-improvements)
+- [👨‍💻 Author](#-author)
+
+---
+
 # 📖 Overview
 
-The **Driving & Vehicle License Department (DVLD)** is a desktop application that digitizes and automates the workflow of a driving license department.
+The **Driving & Vehicle License Department (DVLD)** is a Windows desktop application that digitizes and automates the complete driving license issuance process.
 
-The system manages applicants from the moment they are registered until they receive their driving license while enforcing the complete business workflow required by the licensing process.
+From applicant registration to license issuance and post-issuance services, the system manages the entire lifecycle while enforcing real-world business rules and validation.
 
-The application was developed as a practical software engineering project focusing on:
-
-- Object-Oriented Programming
-- Layered Architecture
-- Database Design
-- Desktop Application Development
-- ADO.NET
-- SQL Server
-- Clean Code Principles
+This project was developed to strengthen software engineering skills by combining modern desktop development with layered architecture, database design, and clean coding practices.
 
 ---
 
-# 📚 Documentation
+# ✨ Core Features
 
-| Document | Description |
-|----------|-------------|
-| 📖 [Features](docs/features.md) | Complete list of implemented features |
-| 🏗 [Architecture](docs/architecture.md) | Three-Tier architecture and project structure |
-| 🗄 [Database](docs/database.md) | Database schema and tables |
-| 📷 [Screenshots](docs/screenshots.md) | Complete application walkthrough |
-| ⚙ [Installation](docs/installation.md) | Installation and setup guide |
+The application provides a complete set of services required by a Driving & Vehicle License Department.
 
----
+### Modules
 
-# ✨ Features
+- 🔐 User Authentication
+- 👤 People Management
+- 👥 User Management
+- 🚗 Driver Management
+- 📂 Local Driving License Applications
+- 📝 Driving Test Management
+- 🪪 License Services
+- 🌍 International Driving Licenses
+- 🚔 License Detention & Release
+- ⚙ Application & Test Types Management
 
-## 👤 People Management
-
-- Register new people
-- Update personal information
-- Delete records
-- Search & filter
-- View complete profile
+> 📖 **See the complete feature list:**  
+> **[docs/features.md](docs/features.md)**
 
 ---
 
-## 👥 User Management
+# 📸 Project Preview
 
-- User authentication
-- User authorization
-- Create new users
-- Edit existing users
-- Permission management
+Below are a few screenshots showcasing the application's interface and major workflows.
 
----
+| Login | Dashboard |
+|:------:|:---------:|
+| ![](docs/screenshots/Login/Login.png) | ![](docs/screenshots/Dashboard/Dashboard.png) |
 
-## 🚘 Local Driving License Applications
+| Manage People | Manage Users |
+|:-------------:|:------------:|
+| ![](docs/screenshots/People/manage-people.png) | ![](docs/screenshots/Users/manage-users.png) |
 
-- Create applications
-- Select license class
-- Application tracking
-- Application history
+| Issue Driving License | International License |
+|:---------------------:|:---------------------:|
+| ![](docs/screenshots/Licenses/issue-license.png) | ![](docs/screenshots/International/international-license.png) |
 
----
-
-## 📝 Driving Tests
-
-The system supports the complete testing workflow:
-
-- 👁 Vision Test
-- 📚 Written Test
-- 🚗 Street Test
-
-Applicants must successfully pass each stage before moving to the next one.
-
----
-
-## 🪪 License Services
-
-- Issue First Driving License
-- Renew Driving License
-- Replace Lost License
-- Replace Damaged License
-
----
-
-## 🌍 International License
-
-- Issue International Driving License
-- Search International Licenses
-- View License Information
-
----
-
-## 🚔 License Detention
-
-- Detain License
-- Release License
-- View Detained Licenses
-
----
-
-## 📊 Driver Management
-
-- Driver Records
-- Driver History
-- License History
+> 📸 **View the complete application walkthrough:**  
+> **[docs/screenshots.md](docs/screenshots.md)**
 
 ---
 
 # 🏗 System Architecture
 
-The project follows the **Three-Tier Architecture**.
+The project follows a **Three-Tier Architecture**, separating presentation, business logic, and data access to improve maintainability, scalability, and code organization.
 
-```
+```text
                 Presentation Layer
                   (WinForms UI)
                        │
@@ -162,299 +117,131 @@ The project follows the **Three-Tier Architecture**.
                   SQL Server
 ```
 
----
-
-## Presentation Layer
-
-Responsible for:
-
-- User Interface
-- Forms
-- User Controls
-- Input Validation
-- User Experience
+> 🏗 **Read the complete architecture documentation:**  
+> **[docs/architecture.md](docs/architecture.md)**
 
 ---
 
-## Business Layer
-
-Responsible for:
-
-- Business Rules
-- Validation
-- Application Logic
-- Entity Management
-
----
-
-## Data Access Layer
-
-Responsible for:
-
-- SQL Queries
-- CRUD Operations
-- Database Communication
-- Stored Procedures (if applicable)
-
----
-
-# 💾 Database
-
-The project uses **Microsoft SQL Server**.
-
-Main entities include:
-
-- Countries
-- People
-- Users
-- Drivers
-- Applications
-- Application Types
-- License Classes
-- Licenses
-- International Licenses
-- Local Driving License Applications
-- Test Types
-- Tests
-- Test Appointments
-- Detained Licenses
-
----
-
-# 🛠 Technologies Used
+# 🛠 Technologies
 
 | Technology | Purpose |
 |------------|---------|
-| C# | Programming Language |
-| .NET Framework | Application Framework |
-| WinForms | Desktop UI |
-| SQL Server | Database |
-| ADO.NET | Database Access |
-| Guna UI | Modern UI Components |
-| Visual Studio | IDE |
-| Git | Version Control |
-| GitHub | Repository Hosting |
+| **C#** | Primary Programming Language |
+| **.NET Framework** | Desktop Application Framework |
+| **WinForms** | User Interface |
+| **ADO.NET** | Data Access |
+| **SQL Server** | Relational Database |
+| **Guna UI** | Modern UI Components |
+| **Visual Studio 2022** | Development Environment |
+| **Git & GitHub** | Version Control & Collaboration |
 
 ---
 
-# 📂 Project Structure
+# 📂 Repository Structure
 
-```
-DVLD/
-
-├── DVLD.Presentation/
+```text
+Driving-License-Management-App/
 │
-├── DVLD.Business/
-│
-├── DVLD.DataAccess/
-│
-├── Database/
-│
+├── assets/                     # Banner and repository assets
+├── Database/                   # Database backup / SQL scripts
 ├── docs/
-│   ├── screenshots/
-│   ├── architecture.md
-│   ├── database.md
-│   └── features.md
+│   ├── Architecture.md
+│   ├── Database.md
+│   ├── Features.md
+│   ├── Installation.md
+│   ├── Screenshots.md
+│   │
+│   ├── Diagrams/
+│   │
+│   └── Screenshots/
+│       ├── Login/
+│       ├── Dashboard/
+│       ├── Applications/
+│       ├── People/
+│       ├── Drivers/
+│       ├── Users/
+│       ├── Tests/
+│       ├── LicenseServices/
+│       ├── International/
+│       └── Account/
+│
+├── DVLD/
+│   ├── DVLD.Presentation/
+│   ├── DVLD.Business/
+│   └── DVLD.DataAccess/
 │
 └── README.md
 ```
 
 ---
 
-# 📸 Application Screenshots
+# 🚀 Quick Start
 
-## Login
-
-```text
-docs/screenshots/login/login.png
-```
-
-![Login](docs/screenshots/login/login.png)
-
----
-
-## Dashboard
-
-```text
-docs/screenshots/dashboard/dashboard.png
-```
-
-![Dashboard](docs/screenshots/dashboard/dashboard.png)
-
----
-
-## People Management
-
-```text
-docs/screenshots/people/manage-people.png
-```
-
-![People](docs/screenshots/people/manage-people.png)
-
----
-
-## Add New Person
-
-```text
-docs/screenshots/people/add-person.png
-```
-
-![Add Person](docs/screenshots/people/add-person.png)
-
----
-
-## Local License Application
-
-```text
-docs/screenshots/applications/new-local-license.png
-```
-
-![Application](docs/screenshots/applications/new-local-license.png)
-
----
-
-## Vision Test
-
-```text
-docs/screenshots/tests/vision-test.png
-```
-
-![Vision](docs/screenshots/tests/vision-test.png)
-
----
-
-## Written Test
-
-```text
-docs/screenshots/tests/written-test.png
-```
-
-![Written](docs/screenshots/tests/written-test.png)
-
----
-
-## Street Test
-
-```text
-docs/screenshots/tests/street-test.png
-```
-
-![Street](docs/screenshots/tests/street-test.png)
-
----
-
-## Issue Driving License
-
-```text
-docs/screenshots/licenses/issue-license.png
-```
-
-![Issue](docs/screenshots/licenses/issue-license.png)
-
----
-
-## License Information
-
-```text
-docs/screenshots/licenses/license-info.png
-```
-
-![License](docs/screenshots/licenses/license-info.png)
-
----
-
-## International License
-
-```text
-docs/screenshots/international/international-license.png
-```
-
-![International](docs/screenshots/international/international-license.png)
-
----
-
-## Detain License
-
-```text
-docs/screenshots/detention/detain-license.png
-```
-
-![Detain](docs/screenshots/detention/detain-license.png)
-
----
-
-# 🚀 Installation
-
-## Requirements
-
-- Visual Studio 2022
-- .NET Framework
-- SQL Server
-- SQL Server Management Studio
-
----
-
-## Clone Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YourUsername/DVLD.git
+git clone https://github.com/MONSEF441/Driving-License-Management-App.git
 ```
 
----
+### 2. Restore the DVLD database
 
-## Restore Database
+Restore the provided SQL Server database or execute the supplied SQL script.
 
-1. Open SQL Server Management Studio.
-2. Restore or execute the provided database script.
-3. Verify that the **DVLD** database has been created successfully.
+### 3. Configure the connection string
 
----
+Update the SQL Server connection string inside the project.
 
-## Configure Connection String
+### 4. Build & Run
 
-Update the connection string inside the project:
+Open the solution using **Visual Studio 2022**, build the project, and run it.
 
-```csharp
-public static string ConnectionString =
-"Server=.;Database=DVLD;User Id=sa;Password=YOUR_PASSWORD;Encrypt=False;";
-```
+> 📖 **Detailed installation guide:**  
+> **[docs/Installation.md](docs/Installation.md)**
 
 ---
 
-## Run the Application
+# 📚 Documentation
 
-1. Open the solution in Visual Studio.
-2. Build the solution.
-3. Start the application.
+The repository includes detailed documentation covering the application's architecture, implementation, and usage.
+
+| 📄 Document | Description |
+|-------------|-------------|
+| 🏗 **[Architecture](docs/Architecture.md)** | Three-Tier Architecture and project organization |
+| ✨ **[Features](docs/Features.md)** | Complete list of implemented modules |
+| 💾 **[Database](docs/Database.md)** | Database design and entity overview |
+| 📸 **[Screenshots](docs/Screenshots.md)** | Complete application walkthrough |
+| 🚀 **[Installation](docs/Installation.md)** | Installation and setup guide |
 
 ---
 
-# 🎯 Learning Outcomes
+# 🎓 Learning Outcomes
 
-Through this project I strengthened my knowledge of:
+Building this project allowed me to apply and strengthen practical knowledge in:
 
-- Object-Oriented Programming
-- SOLID Principles
+- Object-Oriented Programming (OOP)
 - Three-Tier Architecture
-- Desktop Application Development
-- SQL Server
-- Database Design
-- ADO.NET
-- UI Design
-- Software Engineering Practices
+- Windows Forms Development
+- SQL Server Database Design
+- ADO.NET Data Access
+- Business Rule Implementation
+- Layered Application Design
+- Reusable User Controls
+- UI Design for Desktop Applications
+- Version Control with Git & GitHub
 
 ---
 
 # 🔮 Future Improvements
 
-- Export reports to PDF
-- Dashboard analytics
-- Email notifications
-- Audit logging
-- Role-based permissions expansion
-- Entity Framework version
-- REST API integration
-- WPF migration
+Planned enhancements include:
+
+- 📊 Dashboard Analytics
+- 📄 PDF Report Generation
+- 📝 Audit Logging
+- 🔑 Enhanced Role-Based Permissions
+- 🌐 REST API Integration
+- ⚡ Entity Framework Core Version
+- 🖥 WPF Migration
 
 ---
 
@@ -462,7 +249,7 @@ Through this project I strengthened my knowledge of:
 
 **Monssef Bougaidan**
 
-Computer Science Student
+Computer Science Student 
 
 - 💻 C#
 - 🖥 WinForms
