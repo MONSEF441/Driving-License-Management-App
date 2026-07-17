@@ -53,6 +53,18 @@ The application was developed as a practical software engineering project focusi
 
 ---
 
+# 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| 📖 [Features](docs/features.md) | Complete list of implemented features |
+| 🏗 [Architecture](docs/architecture.md) | Three-Tier architecture and project structure |
+| 🗄 [Database](docs/database.md) | Database schema and tables |
+| 📷 [Screenshots](docs/screenshots.md) | Complete application walkthrough |
+| ⚙ [Installation](docs/installation.md) | Installation and setup guide |
+
+---
+
 # ✨ Features
 
 ## 👤 People Management
